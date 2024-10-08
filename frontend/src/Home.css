@@ -1,0 +1,93 @@
+/* Home.css */
+/* Estilo base para todo el cuerpo de la página */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilo del contenedor principal */
+.container {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 50px 30px; /* Ajuste del padding para más espacio interno */
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 450px; /* Ancho ajustado para más espacio horizontal */
+  width: 100%;
+  margin: 0 15px; /* Margen horizontal para evitar que toque los bordes en pantallas pequeñas */
+}
+
+/* Título principal */
+h1 {
+  font-size: 2.4em;
+  color: #333;
+  margin-bottom: 30px; /* Más espacio debajo del título */
+}
+
+/* Estilo del botón */
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 20px; /* Más espacio debajo del botón */
+}
+
+/* Cambia el color del botón cuando pasa el ratón por encima */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Enlaces en la parte inferior */
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-size: 16px; /* Tamaño de fuente un poco más grande */
+}
+
+/* Añadir una ligera sombra al botón */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Animación sutil en la carga */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-in;
+}
+
+input {
+  margin-bottom: 20px;
+}
+
+
+

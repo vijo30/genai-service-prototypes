@@ -1,2 +1,6 @@
 # genai-service-prototypes
-Prototype projects for EthicApp services based on AI (Generative and otherwise)
+Para ejecutar el docker
+
+```bash
+docker-compose -f  docker-compose.yml up 
+```

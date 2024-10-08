@@ -1,0 +1,32 @@
+# Flask para la API
+Flask==3.0.3
+flask-cors
+flask-socketio
+
+# Redis para almacenamiento de sesiones
+redis==5.0.0
+
+# Langchain para integración con LLMs
+langchain
+langchain-community
+langchain-openai
+
+# OpenAI API para los modelos GPT (puedes ajustarlo si usas otro proveedor de LLMs)
+openai
+
+# Requests para manejar solicitudes HTTP a otras APIs (como OpenAI)
+requests==2.31.0
+
+# Python-dotenv para manejar variables de entorno (como claves API)
+python-dotenv==1.0.0
+
+# Pytest para pruebas
+pytest==7.4.0
+
+# Gunicorn para producción (manejar Flask en un servidor WSGI)
+gunicorn==20.1.0
+
+# Si usas Celery para procesamiento asíncrono (opcional)
+celery==5.3.4
+
+

@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  redis:
+    image: "redis:6-alpine"
+    container_name: redis_db
+    ports:
+      - "6379:6379"
+
+# version: '3'
+
+# services:
+#   backend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: flask_backend
+#     ports:
+#       - "5000:5000"
+#     volumes:
+#       - ./app:/app  # Ruta relativa para mapear el código de Flask en Docker
+#     environment:
+#       - FLASK_ENV=development
+#       - REDIS_HOST=redis
+#     depends_on:
+#       - redis
+
+#   redis:
+#     image: "redis:6-alpine"
+#     container_name: redis_db
+#     ports:
+#       - "6379:6379"
+
+#   frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     container_name: react_frontend
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       - backend
