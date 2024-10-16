@@ -6,6 +6,36 @@ import { ErrorBoundary, useErrorBoundary } from 'react-error-boundary';
 
 const socket = io('http://localhost:5000');
 
+// Función para generar un color hexadecimal basado en el nombre del usuario
+const getUserColor = (userName) => {
+  let hash = 0;
+  for (let i = 0; i < userName.length; i++) {
+    hash = userName.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  let color = "#";
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += ("00" + value.toString(16)).slice(-2);
+  }
+  return color;
+};
+
+
+// Función para determinar si el texto debe ser claro u oscuro basado en el fondo
+const getTextColorBasedOnBackground = (bgColor) => {
+  // Elimina el símbolo "#" si está presente
+  const color = bgColor.substring(1);
+  const rgb = parseInt(color, 16); // Convierte de hexadecimal a decimal
+  const r = (rgb >> 16) & 0xff;
+  const g = (rgb >> 8) & 0xff;
+  const b = (rgb >> 0) & 0xff;
+
+  // Calcula el brillo del color (luminancia)
+  const brightness = 0.299 * r + 0.587 * g + 0.114 * b;
+  return brightness > 150 ? 'black' : 'white'; // Texto oscuro si el fondo es claro, y viceversa
+};
+
+
 // Componente de fallback para el ErrorBoundary
 const ErrorFallback = ({ error, resetErrorBoundary }) => (
   <div role="alert">
@@ -42,6 +72,7 @@ const Chat = () => {
     socket.emit('join', { room_id: roomId });
   
     const handleMessageReceive = (data) => {
+      console.log("Mensaje recibido:", data);  // Añade esta línea para verificar la recepción
       setMessages((prevMessages) => [...prevMessages, data]);
     };
   
@@ -52,6 +83,11 @@ const Chat = () => {
       socket.off('receive_message', handleMessageReceive);
     };
   }, [roomId, showBoundary]);
+
+  useEffect(() => {
+    const chatBox = document.querySelector('.chat-box');
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, [messages]);
   
 
   const handleSend = (e) => {
@@ -66,12 +102,30 @@ const Chat = () => {
     <div className="chat-container">
       <h2>Sala: {roomId}</h2>
       <div className="chat-box">
-        {messages.map((msg, index) => (
-          <div key={index} className={msg.user_name === 'Bot' ? 'bot-message' : 'user-message'}>
-            <div className="message-author">{msg.user_name}</div>
-            <div className="message-content">{msg.message}</div>
-          </div>
-        ))}
+        {messages.map((msg, index) => {
+          const bgColor = getUserColor(msg.user_name);
+          const textColor = getTextColorBasedOnBackground(bgColor);
+          return (
+            <div
+              key={index}
+              className="user-message"
+              style={{ backgroundColor: bgColor }}
+            >
+              <div
+                className="message-author"
+                style={{ color: textColor }}
+              >
+                {msg.user_name}
+              </div>
+              <div
+                className="message-content"
+                style={{ color: textColor }}
+              >
+                {msg.message}
+              </div>
+            </div>
+          );
+        })}
       </div>
       <form onSubmit={handleSend} className="chat-input">
         <input

@@ -1,4 +1,5 @@
 import json
+from app.llm.chat_agent import get_response, should_react_to_conversation
 from flask import Flask, abort, request, jsonify
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, join_room
@@ -31,19 +32,37 @@ def handle_send_message(data):
     room_id = data['room_id']
     user_name = data['user_name']
     message = data['message']
+    print(f'Mensaje enviado: {data}')  # Log para depurar
+    user_message = {'user_name': user_name, 'message': message}
     
-    user_message =  {'user_name': user_name, 'message': message}
-    emit('receive_message', user_message, room=room_id) 
-
-    bot_response = generate_bot_response(message)
+    emit('receive_message', user_message, room=room_id)
     
+    # Almacenar mensajes en Redis
     r.rpush(room_id, json.dumps(user_message))
     
-    bot_message = {'user_name': 'Bot', 'message': bot_response}
-
-    emit('receive_message', bot_message, room=room_id)
+    # Recuperar los últimos 10 mensajes
+    raw_messages = r.lrange(room_id, -10, -1)
+    messages = [json.loads(msg) for msg in raw_messages]
     
-    r.rpush(room_id, json.dumps(bot_message))
+    
+    
+    should_react = should_react_to_conversation(messages)
+    
+    print(should_react)
+    
+    # Analizar si la conversación ha perdido el foco
+    if should_react:
+        # Proporcionar retroalimentación sobre la desviación del tema
+        bot_feedback = "Parece que nos hemos desviado del tema. "
+        
+        # Utiliza get_response para obtener una retroalimentación más profunda
+        # Solo si es necesario, aquí puedes poner lógica para decidir si es necesaria la llamada
+        bot_response = get_response(message, messages)
+        
+        # Combinar retroalimentación simple con respuesta de ChatGPT
+        bot_message = {'user_name': 'Bot', 'message': f"{bot_feedback}{bot_response}"}
+        emit('receive_message', bot_message, room=room_id)
+        r.rpush(room_id, json.dumps(bot_message))
 
 @socketio.on('join')
 def handle_join(data):
