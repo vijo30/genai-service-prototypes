@@ -1,11 +1,14 @@
 import json
-from app.llm.chat_agent import get_response, should_react_to_conversation
+from app.llm.chat_agent import evaluate_and_respond
 from flask import Flask, abort, request, jsonify
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, join_room
 import redis
 import uuid
 import random
+import time
+
+SECONDS_TO_RESPOND = 20
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -27,42 +30,43 @@ def create_room_api():
     r.set(f'room_{room_id}', 1)
     return jsonify({'room_id': room_id})
 
+
 @socketio.on('send_message')
 def handle_send_message(data):
     room_id = data['room_id']
     user_name = data['user_name']
     message = data['message']
-    print(f'Mensaje enviado: {data}')  # Log para depurar
     user_message = {'user_name': user_name, 'message': message}
     
+    # Emitir el mensaje del usuario al room
     emit('receive_message', user_message, room=room_id)
-    
-    # Almacenar mensajes en Redis
     r.rpush(room_id, json.dumps(user_message))
     
-    # Recuperar los últimos 10 mensajes
+    # Recuperar últimos 10 mensajes del room
     raw_messages = r.lrange(room_id, -10, -1)
     messages = [json.loads(msg) for msg in raw_messages]
     
+    # Comprobar si han pasado 20 segundos desde la última respuesta del bot
+    last_bot_response_time_key = f"last_bot_response_time_{room_id}"
+    current_time = time.time()
+    last_response_time = r.get(last_bot_response_time_key)
+
+    if last_response_time:
+        last_response_time = float(last_response_time)
+        if current_time - last_response_time < SECONDS_TO_RESPOND:
+            # No responder si no han pasado 20 segundos
+            return
     
+    # Evaluar si el bot debe responder y generar respuesta
+    evaluation = evaluate_and_respond(messages)
     
-    should_react = should_react_to_conversation(messages)
-    
-    print(should_react)
-    
-    # Analizar si la conversación ha perdido el foco
-    if should_react:
-        # Proporcionar retroalimentación sobre la desviación del tema
-        bot_feedback = "Parece que nos hemos desviado del tema. "
-        
-        # Utiliza get_response para obtener una retroalimentación más profunda
-        # Solo si es necesario, aquí puedes poner lógica para decidir si es necesaria la llamada
-        bot_response = get_response(message, messages)
-        
-        # Combinar retroalimentación simple con respuesta de ChatGPT
-        bot_message = {'user_name': 'Bot', 'message': f"{bot_feedback}{bot_response}"}
+    if evaluation["should_react"]:
+        bot_message = {'user_name': 'Bot', 'message': evaluation["response"]}
         emit('receive_message', bot_message, room=room_id)
         r.rpush(room_id, json.dumps(bot_message))
+        
+        # Actualizar el tiempo de la última respuesta del bot
+        r.set(last_bot_response_time_key, current_time)
 
 @socketio.on('join')
 def handle_join(data):
