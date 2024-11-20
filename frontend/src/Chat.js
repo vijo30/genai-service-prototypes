@@ -4,7 +4,13 @@ import io from 'socket.io-client';
 import './Chat.css';
 import { ErrorBoundary, useErrorBoundary } from 'react-error-boundary';
 
-const socket = io('http://localhost:5000');
+const socket = io('http://localhost:5000',
+    {
+        reconnection: true,
+        reconnectionAttempts: 5,
+        reconnectionDelay: 1000,
+    }
+);
 
 // Función para generar un color hexadecimal basado en el nombre del usuario
 const getUserColor = (userName) => {

@@ -38,9 +38,11 @@ def handle_send_message(data):
     message = data['message']
     user_message = {'user_name': user_name, 'message': message}
     
+    
+    r.rpush(room_id, json.dumps(user_message))
     # Emitir el mensaje del usuario al room
     emit('receive_message', user_message, room=room_id)
-    r.rpush(room_id, json.dumps(user_message))
+   
     
     # Recuperar últimos 10 mensajes del room
     raw_messages = r.lrange(room_id, -10, -1)

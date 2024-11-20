@@ -24,14 +24,6 @@ Durante mi estadía con la familia de Sebastián, estudiamos juntos en múltiple
 Le pregunté a Sebastián por qué tenía tanta vergüenza. Me dijo que, al hablar con su papá, éste le dijo que no podía darse el lujo de reprobar un ramo, que tenía que pasarlo sí o sí, estudiando día y noche, o de otro modo la familia se vería en serios problemas financieros. Pero le dejó muy claro, también que: “en esta familia nos ganamos las cosas, nadie nos regaló nada y no hacemos las cosas a medias o tomando atajos; trabaja duro y verás los resultados”. Y Alejandra, su mamá, le sugirió que hablara conmigo, para que lo ayudara. Después de todo, Sebastián me había ayudado “en las malas”, ¿por qué no iba a hacer lo mismo por él? Sebastián me dijo que estaba muy confundido, sabe que lo que pide me compromete, pero no ve mucha salida al problema. 
 Ni a Sebastián ni a mí nos gusta esto de la copia. De hecho, muchas veces hemos peleado con algunos compañeros porque nos hemos sentido perjudicados por su comportamiento: “ustedes sacan mejor nota que nosotros que no copiamos”, es lo que siempre les decimos. Incluso lo hemos hablado con varios profesores, porque nos molesta mucho que las conductas deshonestas finalmente sean premiadas. Parece que nos gusta vivir en un país en el que “hacerse el vivo” es una cualidad positiva. Los docentes siempre nos han dicho que, al final, por mucho que nuestros compañeros saquen mejores notas, serán siempre peores profesionales que nosotros: primero porque saldremos de la carrera literalmente sabiendo más (y, por consiguiente, mejor preparados); en segundo lugar, porque la honestidad y el trabajo esforzado son virtudes tremendamente deseables en el ámbito laboral. De todas formas, siempre quedamos con la sensación desagradable de que los compañeros que hacen trampa nos pasan a llevar. 
 En fin, me complica mucho la situación de Sebastián y francamente estoy confundido. Y yo que estaba tan contento por el examen de matemáticas. Ahora estoy metido en un lío. Este periodo de exámenes no lo olvidaré fácilmente. Realmente no sé qué hacer. Me siento muy angustiado.” 
-
-[Responde, proporcionando argumentos que  justifiquen tu respuesta] 
-Por un lado, Sebastián necesita pasar el examen y le debo mucho por su lealtad y amistad. 
-Incluso él y su familia me acogieron durante unos meses en pandemia. 
-Además, si no termina bien el curso, tendrá serios problemas financieros para seguir estudiando. 
-Y, por otro lado, con Sebastián hemos sido muy críticos de quienes copian o hacen trampa para avanzar en los cursos de la carrera. 
-Siempre peleamos con los “vivos”. Nos esforzamos mucho para pasar los cursoss y realmente queremos ser buenos profesionales. 
-Dada la situación de Sebastian, mi decisión sería: 
 """
 
 
@@ -66,6 +58,7 @@ Tienes la tarea de moderar una discusión sobre ética profesional según estas 
    - Muestran confusión explícita.
    - Se desvían completamente del tema ético.
    - Hacen una pregunta directa al bot.
+   - Si ves que hay consenso, introduce preguntas haciendo de abogado del diablo de la postura contraria a la que están de acuerdo.
 
 ### Discusión reciente:
 {context}
