@@ -4,8 +4,14 @@ import io from 'socket.io-client';
 import './Chat.css';
 import { ErrorBoundary, useErrorBoundary } from 'react-error-boundary';
 
-const socket = io('http://localhost:5000',
-    {
+const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
+
+const url = `https://${apiUrl}/api`
+
+const socket = io(url,
+    {   
+
         reconnection: true,
         reconnectionAttempts: 5,
         reconnectionDelay: 1000,
@@ -61,7 +67,7 @@ const Chat = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/chat/${roomId}`);
+        const response = await fetch(`${url}/chat/${roomId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch chat data');
         }
