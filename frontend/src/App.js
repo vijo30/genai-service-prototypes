@@ -7,7 +7,7 @@ import Chat from './Chat';   // Página del chat
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className='app-root'>
         {/* Barra de navegación (opcional) */}
         <nav>
           <ul>

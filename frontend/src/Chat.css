@@ -1,19 +1,27 @@
 .chat-container {
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
     height: 800px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     background-color: #f9f9f9;
+    max-width: 1000px;
 }
 
-.chat-box {
+
+
+.chat-box, .chat-header, .chat-case {
     flex: 1;
     overflow-y: auto;
     margin-bottom: 10px;
     max-width: 800px;
     padding: 20px;
+}
+
+.chat-case {
+    max-height: 400px;
 }
 
 /* Media Query para pantallas pequeñas (menores a 600px) */

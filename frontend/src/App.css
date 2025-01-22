@@ -12,3 +12,7 @@
   animation: fadeIn 1s ease-in;
 }
 
+.app-root {
+    overflow-y: scroll;
+}
+

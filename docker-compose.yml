@@ -1,42 +1,56 @@
-version: '3'
+version: '3.8'
 
 services:
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/backend  # Sync local code with the container
+    container_name: flask_backend
+    ports:
+      - "5000:5000"
+    command: gunicorn --worker-class eventlet --bind 0.0.0.0:5000 app:app
+    environment:
+      - FLASK_ENV=development
+      - REDIS_HOST=redis
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - redis
+
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend/src:/usr/src/app/src  # Sync React source code
+    container_name: react_frontend
+    ports:
+      - "3000:3000"
+    command: npm start
+    
   redis:
-    image: "redis:6-alpine"
+    image: redis:alpine
     container_name: redis_db
     ports:
       - "6379:6379"
 
-# version: '3'
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx_server
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
 
-# services:
-#   backend:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     container_name: flask_backend
-#     ports:
-#       - "5000:5000"
-#     volumes:
-#       - ./app:/app  # Ruta relativa para mapear el código de Flask en Docker
-#     environment:
-#       - FLASK_ENV=development
-#       - REDIS_HOST=redis
-#     depends_on:
-#       - redis
-
-#   redis:
-#     image: "redis:6-alpine"
-#     container_name: redis_db
-#     ports:
-#       - "6379:6379"
-
-#   frontend:
-#     build:
-#       context: ./frontend
-#       dockerfile: Dockerfile
-#     container_name: react_frontend
-#     ports:
-#       - "3000:3000"
-#     depends_on:
-#       - backend
+  worker:
+    build:
+      context: ./backend
+    container_name: rq_worker
+    command: python worker.py
+    environment:
+      - FLASK_ENV=development
+      - REDIS_HOST=redis
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - redis
