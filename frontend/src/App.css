@@ -13,6 +13,28 @@
 }
 
 .app-root {
-    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
 }
 
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 0; /* Sin margen por defecto */
+  transition: margin-left 0.3s ease-in-out; /* Transición suave */
+}
+
+
+/* Cuando la navbar está visible, agregar margen */
+.navbar.visible + .main-content {
+  margin-left: 300px; /* Margen igual al ancho de la navbar */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar.visible + .main-content {
+    margin-left: 0; /* Sin margen en móviles */
+  }
+}

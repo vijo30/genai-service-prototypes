@@ -1,0 +1,74 @@
+/* Contenedor de la navbar */
+.navbar {
+  width: 300px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+/* Clase para mostrar la navbar */
+.navbar.visible {
+  transform: translateX(0);
+}
+
+/* Botón para mostrar/ocultar la navbar */
+.navbar-toggle {
+  position: absolute; /* Posición absoluta dentro de la navbar */
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Botón circular */
+  width: 40px; /* Tamaño fijo */
+  height: 40px; /* Tamaño fijo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+}
+
+/* Enlace a Home dentro de la navbar */
+.navbar-home-link {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 50px; /* Espacio para evitar superposición con el botón */
+}
+
+.navbar-home-link:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el texto del caso Sebastián */
+.navbar pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    width: 80%; /* Ocupa el 80% del ancho en móviles */
+  }
+
+  .navbar-toggle {
+    display: flex; /* Asegura que el botón sea visible en móviles */
+  }
+}

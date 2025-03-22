@@ -20,6 +20,8 @@ REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
 REDIS_DB = int(os.getenv("REDIS_DB", 0))
 
+WINDOW_SIZE = 50
+
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 CORS(app, resources={r"/*": {"origins": [f"https://{ORIGIN_DOMAIN}", "http://localhost:3000"]}})
@@ -58,7 +60,7 @@ def get_timestamp():
 def process_message(room_id):
     """Procesa el mensaje y genera la respuesta del bot si es necesario."""
     # Obtener la conversación completa
-    conversation = [json.loads(msg) for msg in r.lrange(room_id, -10, -1)]
+    conversation = [json.loads(msg) for msg in r.lrange(room_id, -WINDOW_SIZE, -1)]
 
     # Obtener respuesta del moderador
     moderator_response = manage_agents(conversation)

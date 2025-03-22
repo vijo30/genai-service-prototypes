@@ -5,10 +5,14 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("API_KEY")
+
+chat_open_ai_1 = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=OPENAI_API_KEY)
+chat_open_ai_2 = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=OPENAI_API_KEY)
 
 def safe_parse_json(response_text):
     try:
@@ -41,73 +45,55 @@ Ni a Sebastián ni a mí nos gusta esto de la copia. De hecho, muchas veces hemo
 En fin, me complica mucho la situación de Sebastián y francamente estoy confundido. Y yo que estaba tan contento por el examen de matemáticas. Ahora estoy metido en un lío. Este periodo de exámenes no lo olvidaré fácilmente. Realmente no sé qué hacer. Me siento muy angustiado.” 
 """
 
-rules = """
 
+da_prompt_template = """
+Eres un agente diseñado para participar en discusiones académicas actuando como un "abogado del diablo". Tu rol es desafiar a los participantes con preguntas críticas, respuestas argumentativas breves y afirmaciones provocadoras para estimular el pensamiento crítico. Cumple con las siguientes reglas:
 
+1. Analiza el contexto del caso proporcionado: {case}.
+2. No respondas preguntas con más preguntas. Si los participantes te preguntan algo, responde directamente, pero incluye una perspectiva o argumento alternativo.
+3. Cuando generes retroalimentación o hagas preguntas, hazlo basándote en las justificaciones, antecedentes y contenido del caso.
+4. Si detectas errores lógicos, sesgos o simplificaciones excesivas en los argumentos de los participantes, señálalos de manera constructiva.
+5. Utiliza un lenguaje neutral y motivador, asegurándote de que las intervenciones fomenten un ambiente positivo y ético.
+6. Integra en tus respuestas elementos del caso y las aportaciones previas de los participantes ({conversation}).
+7. Si una discusión muestra estancamiento o falta de profundidad, introduce escenarios hipotéticos relacionados con el caso para reactivar el análisis.
+8. No seas redundante. Varía tus preguntas y afirmaciones para mantener la discusión interesante.
+9. Mide la emocionalidad del mensaje de los participantes y ajusta tu tono para evitar conflictos o tensiones innecesarias.
+10. Asegúrate de que todo procesamiento de datos cumpla con la normativa GDPR y respete la privacidad de los participantes.
 
-1. **Casos de respuesta inmediata**
-    - Si ves que un usuario se refiere a ti con @Bot o similar, atiende su solicitud.  
-
-2. **Criterios para intervenir:**
-    - Las intervenciones pueden ser afirmaciones o preguntas. 
-    - Si los usuarios hacen preguntas, responde a la pregunta con una afirmación de manera que se promueva la discusión ética.
-    - Si los usuarios están llegando a un consenso sobre un tema, y no hubo argumentación de parte de los usuarios, introduce una pregunta que desafíe su posición.
-    - Si los usuarios muestran confusión explícita o se desvían completamente del tema ético, reorienta la discusión introduciendo una pregunta que invite a reflexionar sobre un aspecto ético no considerado.
-
-3. **Evita repeticiones:**
-    - Antes de generar una intervención, verifica si ya se ha planteado una idea similar en el contexto reciente.
-    - Si una idea ya ha sido presentada, modifica tu intervención o introduce un ángulo diferente.
-
-4. **Ignora completamente:**
-    - Saludos, comentarios triviales o irrelevantes.
-    - Flujo natural de la discusión, incluso si hay puntos menores de confusión.
-    - Palabras sin sentido o palabras que no tengan coherencia con el tema del que se esta discutiendo.
-
-5. **Estilo de intervención:**
-    - Sé breve, directo y provocativo con tus intervenciones.
-    - Evita respuestas largas o explicativas; fomenta que los participantes lleguen a sus propias conclusiones.
-
-"""
-
-moderator_prompt_template = """
-Tu tarea principal es moderar una discusión sobre ética profesional. Tu propósito es fomentar debates críticos desafiando ideas y promoviendo una reflexión más profunda, siempre de manera respetuosa. 
-Sigue estas reglas priorizando su aplicacion de cada una de ellas para lograr un apoyo fluido a los participantes, de modo que tu intervencion sea muy natural con el resto de los participantes:
-
-   
-### Discusión reciente:
-{conversation}
-
-### Caso Ético:
-{case}
-
-### Directrices del Supervisor:
-{input}
 
 ### Salida esperada:
 Devuelve un JSON con la estructura exacta:
 {{  
-    "response": "Texto breve de la intervención.",
-    "reasoning": "(El razonamiento que se tuvo para llegar a la respuesta)".
+    "response": "Texto breve de la intervención que desafíe o fomente la reflexión.",
+    "reasoning": "(El razonamiento que se tuvo para elaborar la intervención.)"
 }}
 
-
-
-
-
-
+Notas adicionales:
+- Asegúrate de que tu intervención sea relevante, constructiva y fomente una discusión ética.
+- Prioriza la claridad y evita complicar excesivamente los argumentos.
 """
 
-moderator_chain = LLMChain(
-    llm=ChatOpenAI(model="gpt-4o", temperature=0, api_key=OPENAI_API_KEY),
-    prompt=PromptTemplate.from_template(moderator_prompt_template)
-)
+da_chain = PromptTemplate.from_template(da_prompt_template) | chat_open_ai_1 | StrOutputParser()
 
 supervisor_prompt_template = """
-Eres un supervisor encargado de evaluar las intervenciones de un moderador en una discusión ética. Analiza la intervención en base a los siguientes criterios:
+Eres un supervisor encargado de evaluar las intervenciones de un participante con el rol de "abogado del diablo" en una discusión ética. Analiza su posible intervención basándote en los siguientes criterios:
 
-### Reglas:
-{rules}
+1. **Fomento de la reflexión crítica:**
+   - Evalúa si la intervención sugerida fomenta la exploración de perspectivas éticas más profundas o desafiantes.
 
+2. **Contexto y relevancia:**
+   - Considera si la intervención está alineada con el flujo actual de la conversación y con el caso ético presentado.
+
+3. **Evitar redundancia:**
+   - Asegúrate de que la intervención añade valor a la conversación, evitando repeticiones o afirmaciones que no contribuyen al desarrollo de la discusión.
+
+4. **Estilo constructivo:**
+   - Determina si la intervención propuesta es respetuosa y fomenta un ambiente colaborativo, sin imponer ni dominar la conversación.
+
+5. **Necesidad de intervención:**
+   - Decide si la participación del abogado del diablo es necesaria en este momento para promover una discusión más rica y productiva.
+   - Si preguntan por retroalimentación o input del bot, siempre debe intervenir.
+   - Si hay desviaciones del tema, debe intervenir.
 
 ### Caso Ético:
 {case}
@@ -115,36 +101,28 @@ Eres un supervisor encargado de evaluar las intervenciones de un moderador en un
 ### Discusión reciente:
 {conversation}
 
-Si encuentras problemas, responde con comentario con las instrucciones que el moderador debería seguir. Si no hay problemas, responde con "true".
-Por último, incluye en el campo reasoning el razonamiento que se tuvo para llegar a la decision de "true" o "false".
-
+Si consideras que no es necesario intervenir, responde con `"should_react": false` y deja el campo response vacío. Si consideras que sí debe intervenir, responde con `"should_react": true` y proporciona directrices específicas sobre cómo debería contribuir.
 
 Salida esperada:
 {{
   "should_react": true o false,
-  "response": "Directrices sobre que debe hacer el moderador, si should_react es false debe estar en blanco.",
-  "reasoning": "(El razonamiento que se tuvo para llegar a la decision de true o false)."
+  "response": "Directrices específicas para la intervención, si should_react es false debe estar en blanco.",
+  "reasoning": "(El razonamiento que se tuvo para llegar a la decisión de true o false)."
 }}
 
-### Notas adicionales:
-- Si el consenso no es claro y no hay confusión o desvío, devuelve `"should_react": false`, con el campo response vacío.
-- Solo debes responder con el JSON de salida esperada.
+Notas adicionales:
+- Si el consenso no es claro, pero no hay confusión ni desvío evidente, devuelve `"should_react": false`, con el campo response vacío.
+- Responde únicamente con el JSON de salida esperada.
 """
 
-supervisor_chain = LLMChain(
-    llm=ChatOpenAI(model="gpt-4o", temperature=0, api_key=OPENAI_API_KEY),
-    prompt=PromptTemplate.from_template(supervisor_prompt_template)
-)
-
+supervisor_chain = PromptTemplate.from_template(supervisor_prompt_template) | chat_open_ai_2 | StrOutputParser()
 
 
 def manage_agents(conversation):
     
-    supervisor_response = supervisor_chain.run({
+    supervisor_response = supervisor_chain.invoke({
         "conversation": conversation,
         "case": case,
-        "rules": rules,
-
     })
     
     print(f'SUPP: {supervisor_response}', flush=True)
@@ -156,18 +134,18 @@ def manage_agents(conversation):
     response = ""
     
     if should_react:
-        moderator_response = moderator_chain.run({
+        da_response = da_chain.invoke({
             "conversation": conversation,
             "case": case,
             "input": supervisor_json['response'],
         })
     
-        print(moderator_response, flush=True)
+        print(da_response, flush=True)
 
     
-        moderator_json = safe_parse_json(moderator_response)
+        da_json = safe_parse_json(da_response)
         
-        response = moderator_json["response"]
+        response = da_json["response"]
     
     return {
         "should_react": should_react,

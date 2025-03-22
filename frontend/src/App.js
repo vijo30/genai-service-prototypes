@@ -1,29 +1,34 @@
 // App.js
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home';   // Página inicial
 import Chat from './Chat';   // Página del chat
+import Navbar from './Navbar';
 
 const App = () => {
+
+  const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsNavbarVisible(!isNavbarVisible);
+  };
+
   return (
     <Router>
       <div className='app-root'>
-        {/* Barra de navegación (opcional) */}
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
+        {/* Navbar */}
+        <Navbar isVisible={isNavbarVisible} onToggle={toggleNavbar} />
 
         {/* Definición de las rutas */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/chat/:roomId" element={<Chat />} />
-          <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/chat/:roomId" element={<Chat />} />
+            <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
 
-        </Routes>
+          </Routes>
+        </div>
+       
       </div>
     </Router>
   );

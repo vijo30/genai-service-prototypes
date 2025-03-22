@@ -12,16 +12,12 @@
 
 
 
-.chat-box, .chat-header, .chat-case {
+.chat-box, .chat-header {
     flex: 1;
     overflow-y: auto;
     margin-bottom: 10px;
     max-width: 800px;
     padding: 20px;
-}
-
-.chat-case {
-    max-height: 400px;
 }
 
 /* Media Query para pantallas pequeñas (menores a 600px) */
