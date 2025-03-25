@@ -60,6 +60,8 @@
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
+  padding-bottom: 20px; /* Espacio extra al final */
+  word-break: break-word; /* Rompe palabras largas */
 }
 
 /* Media Query para pantallas pequeñas */

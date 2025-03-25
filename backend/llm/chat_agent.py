@@ -23,7 +23,6 @@ def safe_parse_json(response_text):
             cleaned_text = cleaned_text
         else:
             cleaned_text = cleaned_text[cleaned_text.find("{"):cleaned_text.rfind("}") + 1]
-
         try:
             return json.loads(cleaned_text)
         except json.JSONDecodeError as e:
@@ -57,8 +56,6 @@ Eres un agente diseñado para participar en discusiones académicas actuando com
 6. Integra en tus respuestas elementos del caso y las aportaciones previas de los participantes ({conversation}).
 7. Si una discusión muestra estancamiento o falta de profundidad, introduce escenarios hipotéticos relacionados con el caso para reactivar el análisis.
 8. No seas redundante. Varía tus preguntas y afirmaciones para mantener la discusión interesante.
-9. Mide la emocionalidad del mensaje de los participantes y ajusta tu tono para evitar conflictos o tensiones innecesarias.
-10. Asegúrate de que todo procesamiento de datos cumpla con la normativa GDPR y respete la privacidad de los participantes.
 
 
 ### Salida esperada:
