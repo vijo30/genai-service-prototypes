@@ -31,6 +31,8 @@ eventlet==0.38.2  # Optional: for WebSocket support
 # Si usas Celery para procesamiento asíncrono (opcional)
 celery==5.3.4
 
-
+# Gemini
+google-generativeai
+langchain-google-genai
 
 

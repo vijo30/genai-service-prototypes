@@ -6,13 +6,24 @@ from dotenv import load_dotenv
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
 
-OPENAI_API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY")
+LLM_NAME = os.getenv("LLM_NAME")
 
-chat_open_ai_1 = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=OPENAI_API_KEY)
-chat_open_ai_2 = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=OPENAI_API_KEY)
+if LLM_NAME == 'ChatGPT':
+  chat_ai_1 = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=API_KEY)
+  chat_ai_2 = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=API_KEY)
+  
+elif LLM_NAME == 'Gemini':
+  chat_ai_1 = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, api_key=API_KEY)
+  chat_ai_2 = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, api_key=API_KEY)
+
+
+
+
 
 def safe_parse_json(response_text):
     try:
@@ -70,7 +81,7 @@ Notas adicionales:
 - Prioriza la claridad y evita complicar excesivamente los argumentos.
 """
 
-da_chain = PromptTemplate.from_template(da_prompt_template) | chat_open_ai_1 | StrOutputParser()
+da_chain = PromptTemplate.from_template(da_prompt_template) | chat_ai_1 | StrOutputParser()
 
 supervisor_prompt_template = """
 Eres un supervisor encargado de evaluar las intervenciones de un participante con el rol de "abogado del diablo" en una discusión ética. Analiza su posible intervención basándote en los siguientes criterios:
@@ -112,7 +123,7 @@ Notas adicionales:
 - Responde únicamente con el JSON de salida esperada.
 """
 
-supervisor_chain = PromptTemplate.from_template(supervisor_prompt_template) | chat_open_ai_2 | StrOutputParser()
+supervisor_chain = PromptTemplate.from_template(supervisor_prompt_template) | chat_ai_2 | StrOutputParser()
 
 
 def manage_agents(conversation):
