@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import sharedConfig from './shared_config/case_config.json';
 
 const Navbar = ({ isVisible, onToggle }) => {
-  const [text, setText] = useState('Cargando...');
-
-  useEffect(() => {
-    fetch('/caso-sebastian.txt')
-      .then((response) => response.text())
-      .then((data) => setText(data))
-      .catch((error) => {
-        console.error('Error al cargar el archivo de texto:', error);
-        setText('Error al cargar el contenido.');
-      });
-  }, []);
 
   return (
     <>
@@ -30,7 +20,7 @@ const Navbar = ({ isVisible, onToggle }) => {
         </Link>
 
         {/* Texto del caso Sebastián */}
-        <pre>{text}</pre>
+        <pre>{sharedConfig.caso_sebastian}</pre>
       </div>
     </>
   );
