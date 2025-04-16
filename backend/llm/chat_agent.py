@@ -5,11 +5,10 @@ from typing import Dict, List, Optional
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-load_dotenv()
+load_dotenv() 
 
 class EthicalDebateAgent:
     def __init__(self):
@@ -46,12 +45,13 @@ class EthicalDebateAgent:
         **Reglas de Operación:**
         1. Contexto del Caso: {case}
         2. Historial de Conversación: {conversation}
-        3. Priorizar intervenciones que conecten con los últimos 3 turnos de diálogo
-        4. Para juicios:
+        3. Instrucciones guía de Intervención: {guidelines}
+        4. Priorizar intervenciones que conecten con los últimos 3 turnos de diálogo
+        5. Para juicios:
           - Declarar explícitamente que es una perspectiva del sistema
           - Basarse en ≥2 marcos éticos
           - Mantener 30% de escepticismo hacia tu propia posición
-        5. Balancear estrategias:
+        6. Balancear estrategias:
           - 40% preguntas socráticas
           - 30% contraargumentos
           - 20% datos contextuales
@@ -84,19 +84,24 @@ class EthicalDebateAgent:
         1. Contexto del Caso: {case}
         2. Historial de Conversación: {conversation}
 
+
         **Matriz de Decisión:**
-        1. Necesidad de Respuesta (0-3 pts):
+        1. Necesidad de Respuesta (max 16):
           - Solicitud directa del usuario = 3
           - Error factual = 3
           - Estancamiento dialéctico = 2
           - Oportunidad educativa = 1.5
           - Desviación temática = 2.5
+          - Razonamiento falaz = 4.0
 
-        2. Riesgo de Intervención (0-3 pts):
+
+        2. Riesgo de Intervención (max 10,5):
           - Redundancia = 2
           - Sobrecarga informativa = 1.5
           - Sesgo detectable = 2
           - Conflicto ético = 3
+          - Saludos casuales = 2
+
 
         3. Balance Óptimo:
           - Si (Necesidad - Riesgo) ≥ 2 → Intervenir
@@ -124,6 +129,8 @@ class EthicalDebateAgent:
                 "detected_biases": ["list of potential biases"],
                 "blind_spots": ["unexplored areas"]
             }}
+            ,
+            "rationale": "Structured explanation of strategy used"
         }}
         
         Notas adicionales:
@@ -149,7 +156,6 @@ class EthicalDebateAgent:
             "case": case,
             "conversation": json.dumps(conversation),
         })
-        print(supervisor_response, flush=True)
         supervisor_data = self.safe_parse_json(supervisor_response)
         print(supervisor_data, flush=True)
         if not supervisor_data:

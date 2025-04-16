@@ -4,7 +4,7 @@ import os
 import uuid
 from datetime import datetime
 
-from requests import session
+from flask import session
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, join_room
@@ -78,9 +78,16 @@ def create_room():
 
 @app.route('/api/set_username', methods=['POST'])
 def set_username():
-    data = request.json
-    session['username'] = data.get('username', 'Anonymous')
-    return jsonify({'message': 'Username set successfully', 'username': session['username']}), 200
+    try:
+        data = request.get_json()
+        if not data or 'username' not in data:
+            return jsonify({'error': 'Missing username in request'}), 400
+        username = data['username']
+        session['username'] = username
+        return jsonify({'message': 'Username set successfully', 'username': username}), 200
+    except Exception as e:
+        logging.error(f"Error setting username: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 @socketio.on('send_message', namespace='/api')
 def handle_send_message(data):
@@ -117,6 +124,25 @@ def get_messages(room_id: str):
 def handle_join(data):
     room_id = data['room_id']
     join_room(room_id)
+    
+    
+@app.route('/api/simulate_message', methods=['POST'])
+def simulate_message_endpoint():
+    """Recibe un mensaje simulado vía HTTP y lo emite como evento de SocketIO."""
+    data = request.json
+    room_id = data.get('room_id')
+    user_name = data.get('user_name')
+    message = data.get('message')
+
+    if not all([room_id, user_name, message]):
+        abort(400)
+
+    timestamp = get_timestamp()
+    simulated_message = {'user_name': user_name, 'message': message, 'timestamp': timestamp}
+    redis_client.rpush(room_id, json.dumps(simulated_message))
+    socketio.emit('receive_message', simulated_message, room=room_id, namespace='/api')
+    task_queue.enqueue(process_message_task, room_id)
+    return jsonify({'status': 'Simulated message sent'}), 200
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
