@@ -9,8 +9,10 @@ from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
+from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
 from config.generated_config import SEBASTIAN_CASE
 from langchain_core.output_parsers import StrOutputParser
+import pandas as pd
 
 load_dotenv()
 
@@ -18,6 +20,7 @@ API_BASE_URL = "https://" + os.getenv("API_BASE_URL") + '/api'  # Ajusta la URL 
 SIMULATION_INTERVAL = 2  # Tiempo en segundos entre mensajes simulados
 LLM_NAME = os.getenv("LLM_NAME", "ChatGPT") # Default a ChatGPT si no está en .env
 OPENAI_API_KEY = os.getenv("API_KEY") # Asegúrate de tener tu API key en .env
+USER_MESSAGES_CSV = ".data_usr_msg.csv" # Ruta al archivo CSV con mensajes reales
 
 def initialize_llm():
     """Inicializa el modelo de lenguaje."""
@@ -29,6 +32,30 @@ def initialize_llm():
         raise ValueError(f"Modelo de lenguaje no soportado: {LLM_NAME}")
 
 llm = initialize_llm()
+
+def load_user_messages(csv_path: str) -> pd.DataFrame:
+    """Carga los mensajes de usuario desde un archivo CSV."""
+    try:
+        df = pd.read_csv(csv_path)
+        if 'user_id' not in df.columns or 'message' not in df.columns:
+            raise ValueError("El archivo CSV debe contener las columnas 'user_id' y 'message'.")
+        return df
+    except FileNotFoundError:
+        print(f"Error: El archivo CSV '{csv_path}' no fue encontrado.")
+        return pd.DataFrame()
+    except pd.errors.EmptyDataError:
+        print(f"Error: El archivo CSV '{csv_path}' está vacío.")
+        return pd.DataFrame()
+    except Exception as e:
+        print(f"Error inesperado al leer el archivo CSV '{csv_path}': {e}")
+        return pd.DataFrame()
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
+historical_messages_csv = os.path.join(base_dir, ".data_usr_msg.csv")
+user_messages_df = load_user_messages(historical_messages_csv)
+
+if user_messages_df.empty:
+    print("No se pudieron cargar los mensajes del usuario. La simulación podría no funcionar como se espera.")
 
 def create_room():
     """Crea una nueva sala de chat."""
@@ -71,40 +98,48 @@ def get_timestamp():
     """Genera un timestamp estandarizado."""
     return datetime.utcnow().isoformat() + "Z"
 
-def generate_simulated_message(participant_name, conversation_history, case, conversation_type="ideal"):
-    """Genera un mensaje simulado usando un LLM."""
+def generate_simulated_message(participant_name, conversation_history, case, user_messages , conversation_type="ideal"):
+    """Genera un mensaje simulado usando un LLM condicionado por el estilo de los mensajes reales."""
+
+        
+
     if conversation_type == "ideal":
-        prompt_template = f"""Eres {{participant_name}}, un participante en un debate ético sobre el caso de Sebastián.
-        Genera un mensaje corto (máximo 100 palabras) que contribuya a una discusión reflexiva y ética sobre el dilema que enfrenta Sebastián.
-        Intenta explorar diferentes perspectivas, posibles soluciones éticas y las implicaciones de las decisiones.
+        prompt = ChatPromptTemplate.from_messages([
+            HumanMessagePromptTemplate.from_template(f"""Eres {{participant_name}}, un participante en un debate ético sobre el caso de Sebastián.
+            Tu objetivo es generar un mensaje corto (máximo 3 oraciones) que contribuya a una discusión reflexiva y ética sobre el dilema que enfrenta Sebastián.
+            Intenta expresarte de una manera FIELMENTE similar a los siguientes mensajes de chat reales, incluyendo minúsculas y palabras no tan bien escritas, también la extensión:
+            {{user_messages}}
 
-        Caso:
-        {{case}}
+            Considera el siguiente caso:
+            {{case}}
 
-        Historial de conversación reciente:
-        {{conversation_history}}
-        """
+            Este es el historial de conversación reciente:
+            {{conversation_history}}
+            """)
+        ])
     elif conversation_type == "problematic":
-        prompt_template = f"""Eres {{participant_name}}, un participante en un debate ético sobre el caso de Sebastián.
-        Tu rol en esta conversación es explorar activamente formas en las que Sebastián podría hacer trampa sin ser descubierto, o minimizar las consecuencias negativas de hacerlo. No te preocupas demasiado por la integridad académica en este momento, tu principal interés es ayudar a Sebastián a salir de su apuro de la manera más fácil posible. También puedes ser un poco cortante o ignorar las preocupaciones éticas planteadas por otros.
+        prompt = ChatPromptTemplate.from_messages([
+            HumanMessagePromptTemplate.from_template(f"""Eres {{participant_name}}, un participante en un debate ético sobre el caso de Sebastián.
+            Tu rol en esta conversación es explorar activamente formas en las que Sebastián podría hacer trampa sin ser descubierto (máximo 3 oraciones), o minimizar las consecuencias negativas de hacerlo. No te preocupas demasiado por la integridad académica en este momento, tu principal interés es ayudar a Sebastián a salir de su apuro de la manera más fácil posible. También puedes ser un poco cortante o ignorar las preocupaciones éticas planteadas por otros.
+            Intenta expresarte de una manera FIELMENTE similar a los siguientes mensajes de chat reales, incluyendo minúsculas y palabras no tan bien escritas, también la extensión:
+            {{user_messages}}
 
-        Caso:
-        {{case}}
+            Considera el siguiente caso:
+            {{case}}
 
-        Historial de conversación reciente:
-        {{conversation_history}}
-
-        Genera un mensaje corto (máximo 100 palabras) que sugiera una estrategia para hacer trampa, minimice la gravedad de la acción, cuestione la importancia de la honestidad, o sea un poco despectivo con las preocupaciones éticas.
-        """
+            Este es el historial de conversación reciente:
+            {{conversation_history}}
+            """)
+        ])
     else:
         raise ValueError(f"Tipo de conversación no soportado: {conversation_type}")
 
-    prompt = PromptTemplate.from_template(prompt_template)
     chain = prompt | llm | StrOutputParser()
     return chain.invoke({
         "participant_name": participant_name,
         "conversation_history": conversation_history,
         "case": case,
+        "user_messages": user_messages,
     })
 
 def get_recent_messages(room_id: str, limit: int = 5):
@@ -119,7 +154,7 @@ def get_recent_messages(room_id: str, limit: int = 5):
         return []
 
 def simulate_conversation_with_agents(num_participants: int, num_messages_per_participant: int = 5, conversation_type="ideal"):
-    """Simula una conversación con múltiples participantes cuyos mensajes son generados por agentes."""
+    """Simula una conversación con múltiples participantes asegurando que todos participen al menos una vez."""
     room_id = create_room()
     if not room_id:
         return
@@ -127,38 +162,63 @@ def simulate_conversation_with_agents(num_participants: int, num_messages_per_pa
     print(f"Sala de chat creada con ID: {room_id} (Tipo: {conversation_type})")
     participants = [f"SimAgent_{i+1}" for i in range(num_participants)]
     participant_sessions = {}
+    has_participated = [False] * num_participants  # Registro de quién ha participado
 
     # Establecer nombres de usuario para cada participante
-    for participant in participants:
+    for i, participant in enumerate(participants):
         cookies = set_username(room_id, participant)
         if cookies:
             participant_sessions[participant] = cookies
             print(f"{participant} se unió a la sala.")
             time.sleep(0.5)
+        else:
+            has_participated[i] = True # Considerar como "participado" si no se pudo unir
 
     conversation_history = []
+    messages_sent = 0
+    total_messages = num_messages_per_participant * num_participants
 
-    # Simular el envío de mensajes por los agentes
-    for i in range(num_messages_per_participant * num_participants):
-        participant = random.choice(participants)
+    while messages_sent < total_messages:
+        # Priorizar a los participantes que aún no han enviado un mensaje
+        available_participants = [i for i, participated in enumerate(has_participated) if not participated]
+
+        if available_participants:
+            participant_index = random.choice(available_participants)
+        else:
+            # Si todos han participado al menos una vez, seleccionar aleatoriamente
+            participant_index = random.randrange(num_participants)
+
+        participant = participants[participant_index]
         recent_messages = get_recent_messages(room_id)
-        simulated_message = generate_simulated_message(participant, recent_messages, SEBASTIAN_CASE, conversation_type)
+        sample_size = min(5000, len(user_messages_df))
+        sample = ' '.join(random.sample(user_messages_df['message'].tolist(), sample_size))
+        simulated_message = generate_simulated_message(participant, recent_messages, SEBASTIAN_CASE, sample, conversation_type)
         cookies = participant_sessions.get(participant)
+
         if send_message(room_id, participant, simulated_message, cookies):
             print(f"{participant}: {simulated_message}")
             conversation_history.append({"user_name": participant, "message": simulated_message})
+            has_participated[participant_index] = True
+            messages_sent += 1
             time.sleep(random.uniform(SIMULATION_INTERVAL * 0.8, SIMULATION_INTERVAL * 1.2)) # Intervalo aleatorio
             time.sleep(1) # Pequeña pausa para el backend
+        else:
+            # Si falla el envío del mensaje, intentaremos con otro participante en la siguiente iteración
+            pass
+
+        # Si todos han participado y todavía faltan mensajes, reiniciar el registro
+        if all(has_participated) and messages_sent < total_messages:
+            has_participated = [False] * num_participants
 
 if __name__ == "__main__":
     # --- Elige la simulación que quieres ejecutar ---
 
     # Caso de conversación ideal (sin intervención del agente ético)
-    # print("\n--- Simulación de Conversación Ideal ---")
-    # simulate_conversation_with_agents(num_participants=3, num_messages_per_participant=5, conversation_type="ideal")
+    print("\n--- Simulación de Conversación Ideal ---")
+    simulate_conversation_with_agents(num_participants=3, num_messages_per_participant=1, conversation_type="ideal")
 
     # Caso de conversación problemática (debería activar al agente ético)
-    print("\n--- Simulación de Conversación Problemática ---")
-    simulate_conversation_with_agents(num_participants=2, num_messages_per_participant=5, conversation_type="problematic")
+    #print("\n--- Simulación de Conversación Problemática con Estilo del CSV (Participación Asegurada) ---")
+    #simulate_conversation_with_agents(num_participants=3, num_messages_per_participant=1, conversation_type="problematic")
 
     print("Simulación de conversación finalizada.")

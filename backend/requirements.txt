@@ -16,7 +16,7 @@ langchain-openai
 openai
 
 # Requests para manejar solicitudes HTTP a otras APIs (como OpenAI)
-requests==2.31.0
+requests
 
 # Python-dotenv para manejar variables de entorno (como claves API)
 python-dotenv==1.0.0
@@ -34,5 +34,7 @@ celery==5.3.4
 # Gemini
 google-generativeai
 langchain-google-genai
+
+pandas
 
 

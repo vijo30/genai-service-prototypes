@@ -49,7 +49,7 @@ class EthicalDebateAgent:
         4. Priorizar intervenciones que conecten con los últimos 3 turnos de diálogo
         5. Para juicios:
           - Declarar explícitamente que es una perspectiva del sistema
-          - Basarse en ≥2 marcos éticos
+          - Basarse en ≥ 2 marcos éticos
           - Mantener 30% de escepticismo hacia tu propia posición
         6. Balancear estrategias:
           - 40% preguntas socráticas
@@ -61,7 +61,7 @@ class EthicalDebateAgent:
         
         Salida esperada:
         {{
-            "response": "Intervention text (<120 words) with [MARKERS] for content type",
+            "response": "Intervention text (<120 words)",
             "metadata": {{
                 "intervention_type": ["socratic_question", "counterargument", "contextual_data", "qualified_judgment"],
                 "frameworks": ["list of applied ethical frameworks"],
@@ -86,21 +86,15 @@ class EthicalDebateAgent:
 
 
         **Matriz de Decisión:**
-        1. Necesidad de Respuesta (max 16):
+        1. Necesidad de Respuesta (max 10):
           - Solicitud directa del usuario = 3
           - Error factual = 3
-          - Estancamiento dialéctico = 2
-          - Oportunidad educativa = 1.5
-          - Desviación temática = 2.5
           - Razonamiento falaz = 4.0
 
 
-        2. Riesgo de Intervención (max 10,5):
+        2. Riesgo de Intervención (max 3,5):
           - Redundancia = 2
           - Sobrecarga informativa = 1.5
-          - Sesgo detectable = 2
-          - Conflicto ético = 3
-          - Saludos casuales = 2
 
 
         3. Balance Óptimo:

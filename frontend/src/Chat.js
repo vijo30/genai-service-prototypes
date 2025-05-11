@@ -10,12 +10,12 @@ const apiUrl = process.env.REACT_APP_API_BASE_URL;
 const url = `https://${apiUrl}/api`
 
 const socket = io(url,
-    {   
-        withCredentials: true,
-        reconnection: true,
-        reconnectionAttempts: 5,
-        reconnectionDelay: 1000,
-    }
+  {
+    withCredentials: true,
+    reconnection: true,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000,
+  }
 );
 
 
@@ -100,6 +100,7 @@ const Chat = () => {
 
   // Efecto: Desplazarse al final cuando llegan mensajes nuevos (si no hay scroll manual)
   useEffect(() => {
+    console.log('Estado de mensajes actualizado:', messages);
     if (!isUserScrolling.current) {
       scrollToBottom();
     }
@@ -112,101 +113,113 @@ const Chat = () => {
       setIsUsernameSet(true);
     }
   }, []);
-  
-  const getMessages = async () => {
 
+  const getMessages = async () => {
     try {
-        const response = await fetch(`${url}/chat/${roomId}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch chat data');
-        }
-        const data = await response.json();
-        setMessages(data.messages);
-      } catch (error) {
-        showBoundary(error); // Muestra el error al ErrorBoundary
+      const response = await fetch(`${url}/chat/${roomId}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch chat data');
+      }
+      const data = await response.json();
+      console.log('Mensajes recibidos de la API:', data.messages);
+      setMessages(data.messages);
+    } catch (error) {
+      console.error('Error fetching messages:', error);
+      showBoundary(error); // Muestra el error al ErrorBoundary
     }
   };
 
-  
 
   useEffect( () => {
-    
+    console.log('Componente Chat montado o roomId cambiado:', roomId, 'isUsernameSet:', isUsernameSet);
+
     getMessages();
-    
+
     if (isUsernameSet) {
-        socket.emit('join', { room_id: roomId });
-  
-        const handleMessageReceive = (data) => {
-          setMessages((prevMessages) => [...prevMessages, data]);
-        };
-  
-        socket.on('receive_message', handleMessageReceive);
-        
-  
-        return () => {
-          socket.off('receive_message', handleMessageReceive);
-        };
-      }
-    }, [roomId, isUsernameSet]);
-  
-    const handleSend = (e) => {
-      e.preventDefault();
-      if (!input) return;
-  
-      socket.emit('send_message', { room_id: roomId, user_name: username, message: input });
-      setInput('');
-    };
-  
-    const handleSetUsername = async (e) => {
-        e.preventDefault();
-        if (username.trim()) {
-          try {
-            // Send username to the backend
-            const response = await fetch(`${url}/set_username`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ username }),
-              credentials: 'include', // Ensures session cookie is sent
-            });
-      
-            if (!response.ok) {
-              throw new Error('Failed to set username on the server.');
-            }
-      
-            const data = await response.json();
-      
-            // Update frontend state with the confirmed username
-            if (data.message === 'Username set successfully') {
-              setIsUsernameSet(true);
-              setUsername(data.username); // Use the username returned by the backend
-              localStorage.setItem('username', data.username); // Sync with localStorage
-            }
-          } catch (error) {
-            console.error('Error setting username:', error);
-          }
-        }
+      socket.emit('join', { room_id: roomId });
+      console.log('Emitiendo "join" para la sala:', roomId);
+
+      socket.on('connect', () => {
+        console.log('Socket.IO connected');
+        socket.emit('join', { room_id: roomId }); // Emit join again on reconnect
+      });
+
+      socket.on('disconnect', () => {
+        console.log('Socket.IO disconnected');
+      });
+
+      const handleMessageReceive = (data) => {
+        console.log('Mensaje recibido por Socket:', data);
+        setMessages((prevMessages) => [...prevMessages, data]);
       };
-  
-  if (!isUsernameSet) {
-    return (
-      <div className="username-container">
-        <form onSubmit={handleSetUsername}>
-          <label htmlFor="username">Enter your username:</label>
-          <input
-            required
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Elige un nombre de usuario..."
-          />
-          <button type="submit">Unirse al Chat</button>
-        </form>
-      </div>
-    );
-  }
+
+      socket.on('receive_message', handleMessageReceive);
+
+      return () => {
+        socket.off('receive_message', handleMessageReceive);
+        console.log('Desmontando el listener de "receive_message"');
+      };
+    }
+  }, [roomId, isUsernameSet]);
+
+  const handleSend = (e) => {
+    e.preventDefault();
+    if (!input) return;
+
+    socket.emit('send_message', { room_id: roomId, user_name: username, message: input });
+    setInput('');
+  };
+
+  const handleSetUsername = async (e) => {
+    e.preventDefault();
+    if (username.trim()) {
+      try {
+        // Send username to the backend
+        const response = await fetch(`${url}/set_username`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username }),
+          credentials: 'include', // Ensures session cookie is sent
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to set username on the server.');
+        }
+
+        const data = await response.json();
+
+        // Update frontend state with the confirmed username
+        if (data.message === 'Username set successfully') {
+          setIsUsernameSet(true);
+          setUsername(data.username); // Use the username returned by the backend
+          localStorage.setItem('username', data.username); // Sync with localStorage
+        }
+      } catch (error) {
+        console.error('Error setting username:', error);
+      }
+    }
+  };
+
+if (!isUsernameSet) {
+  return (
+    <div className="username-container">
+      <form onSubmit={handleSetUsername}>
+        <label htmlFor="username">Enter your username:</label>
+        <input
+          required
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Elige un nombre de usuario..."
+        />
+        <button type="submit">Unirse al Chat</button>
+      </form>
+    </div>
+  );
+}
 
   const handleExportChat = () => {
     if (messages.length === 0) {
@@ -235,44 +248,44 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
-        <div className="chat-header">
-            <h2>Sala: {roomId}</h2>
-            <button onClick={handleExportChat}>Exportar Chat</button>
-            
+      <div className="chat-header">
+        <h2>Sala: {roomId}</h2>
+        <button onClick={handleExportChat}>Exportar Chat</button>
 
-        </div>
 
-        
-        <div className="chat-box" ref={chatRef} onScroll={handleScroll}>
-        
-        <h2>Chat</h2>
-            {messages.map((msg, index) => {
-            const bgColor = getUserColor(msg.user_name);
-            const textColor = getTextColorBasedOnBackground(bgColor);
-            const formattedTime = new Date(msg.timestamp).toLocaleString();
-            return (
-                <div key={index} className="user-message" style={{ backgroundColor: bgColor }}>
-                    <div className="message-author" style={{ color: textColor }}>
-                        {msg.user_name} <span className="message-time">{formattedTime}</span>
-                    </div>
-                    <div className="message-content"style={{ color: textColor }}>
-                        {msg.message}
-                    </div>
-                </div>
-            );
-            })}
-          <div ref={messagesEndRef} />
-        </div>
-        <form onSubmit={handleSend} className="chat-input">
-            <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Escribe tu mensaje..."
-            />
-            <button type="submit">Enviar</button>
-        </form>
-        </div>
+      </div>
+
+
+      <div className="chat-box" ref={chatRef} onScroll={handleScroll}>
+
+      <h2>Chat</h2>
+        {messages.map((msg, index) => {
+          const bgColor = getUserColor(msg.user_name);
+          const textColor = getTextColorBasedOnBackground(bgColor);
+          const formattedTime = new Date(msg.timestamp).toLocaleString();
+          return (
+            <div key={index} className="user-message" style={{ backgroundColor: bgColor }}>
+              <div className="message-author" style={{ color: textColor }}>
+                {msg.user_name} <span className="message-time">{formattedTime}</span>
+              </div>
+              <div className="message-content"style={{ color: textColor }}>
+                {msg.message}
+              </div>
+            </div>
+          );
+        })}
+        <div ref={messagesEndRef} />
+      </div>
+      <form onSubmit={handleSend} className="chat-input">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Escribe tu mensaje..."
+        />
+        <button type="submit">Enviar</button>
+      </form>
+      </div>
   );
 };
 

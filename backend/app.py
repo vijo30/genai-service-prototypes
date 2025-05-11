@@ -23,6 +23,7 @@ REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
 REDIS_DB = int(os.getenv("REDIS_DB", 0))
 
 CONVERSATION_WINDOW = 50
+CHAT_HISTORY_KEY_PREFIX = "chat_history:"
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -33,8 +34,6 @@ socketio = SocketIO(app, async_mode='eventlet', message_queue=f"redis://{REDIS_H
 redis_client = redis.StrictRedis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=False, db=REDIS_DB)
 task_queue = Queue(connection=redis_client)
 
-  
-
 def get_timestamp():
     """Generar un timestamp estandarizado."""
     return datetime.utcnow().isoformat() + "Z"  # UTC
@@ -43,7 +42,8 @@ def process_message_task(room_id: str):
     """Background task to process messages and generate responses"""
     try:
         # Get recent conversation history
-        raw_messages = redis_client.lrange(room_id, -CONVERSATION_WINDOW, -1)
+        chat_history_key = f"{CHAT_HISTORY_KEY_PREFIX}{room_id}"
+        raw_messages = redis_client.lrange(chat_history_key, -CONVERSATION_WINDOW, -1)
         conversation = [json.loads(msg) for msg in raw_messages]
 
         # Get agent response
@@ -59,11 +59,10 @@ def process_message_task(room_id: str):
                 'timestamp': get_timestamp(),
                 'metadata': agent_response.get("metadata", {})
             }
-            
+
             # Store and broadcast
-            redis_client.rpush(room_id, json.dumps(bot_message))
+            redis_client.rpush(chat_history_key, json.dumps(bot_message))
             socketio.emit('receive_message', bot_message, room=room_id, namespace='/api')
-            
 
     except Exception as e:
         logging.error(f"Error processing message: {e}")
@@ -73,7 +72,7 @@ def process_message_task(room_id: str):
 def create_room():
     """Create new conversation room"""
     room_id = str(uuid.uuid4())
-    redis_client.set(f"room:{room_id}", "active", ex=86400)  # 24h TTL
+    # No TTL for permanent storage
     return jsonify({"room_id": room_id})
 
 @app.route('/api/set_username', methods=['POST'])
@@ -97,35 +96,35 @@ def handle_send_message(data):
     timestamp = get_timestamp()
 
     user_message = {'user_name': user_name, 'message': message, 'timestamp': timestamp}
-    redis_client.rpush(room_id, json.dumps(user_message))
+    chat_history_key = f"{CHAT_HISTORY_KEY_PREFIX}{room_id}"
+    redis_client.rpush(chat_history_key, json.dumps(user_message))
     emit('receive_message', user_message, room=room_id)
-
-
 
     # Encolar la tarea para procesar el mensaje
     task_queue.enqueue(process_message_task, room_id)
 
-            
-
-    
-    
-
-
 @app.route('/api/chat/<room_id>', methods=['GET'])
 def get_messages(room_id: str):
     """Retrieve conversation history"""
-    if not redis_client.exists(f"room:{room_id}"):
-        abort(404)
-    
-    messages = redis_client.lrange(room_id, 0, -1)
+    chat_history_key = f"{CHAT_HISTORY_KEY_PREFIX}{room_id}"
+    messages = redis_client.lrange(chat_history_key, 0, -1)
     return jsonify({"messages": [json.loads(m) for m in messages]})
+
+@app.route('/api/delete_chat/<room_id>', methods=['DELETE'])
+def delete_chat(room_id: str):
+    """Delete the entire chat history for a given room ID."""
+    chat_history_key = f"{CHAT_HISTORY_KEY_PREFIX}{room_id}"
+    if redis_client.exists(chat_history_key):
+        redis_client.delete(chat_history_key)
+        return jsonify({'message': f'Chat history for room {room_id} deleted successfully'}), 200
+    else:
+        return jsonify({'error': f'Chat history not found for room {room_id}'}), 404
 
 @socketio.on('join', namespace='/api')
 def handle_join(data):
     room_id = data['room_id']
     join_room(room_id)
-    
-    
+
 @app.route('/api/simulate_message', methods=['POST'])
 def simulate_message_endpoint():
     """Recibe un mensaje simulado vía HTTP y lo emite como evento de SocketIO."""
@@ -139,7 +138,8 @@ def simulate_message_endpoint():
 
     timestamp = get_timestamp()
     simulated_message = {'user_name': user_name, 'message': message, 'timestamp': timestamp}
-    redis_client.rpush(room_id, json.dumps(simulated_message))
+    chat_history_key = f"{CHAT_HISTORY_KEY_PREFIX}{room_id}"
+    redis_client.rpush(chat_history_key, json.dumps(simulated_message))
     socketio.emit('receive_message', simulated_message, room=room_id, namespace='/api')
     task_queue.enqueue(process_message_task, room_id)
     return jsonify({'status': 'Simulated message sent'}), 200

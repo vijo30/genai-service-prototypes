@@ -5,7 +5,7 @@ services:
     build:
       context: ./backend
     volumes:
-      - ./backend:/backend  # Sync local code with the container
+      - ./backend:/backend   # Sync local code with the container
     container_name: flask_backend
     ports:
       - "5000:5000"
@@ -21,17 +21,19 @@ services:
     build:
       context: ./frontend
     volumes:
-      - ./frontend/src:/usr/src/app/src  # Sync React source code
+      - ./frontend/src:/usr/src/app/src   # Sync React source code
     container_name: react_frontend
     ports:
       - "3000:3000"
     command: npm start
-    
+
   redis:
     image: redis:alpine
     container_name: redis_db
     ports:
       - "6379:6379"
+    volumes:
+      - redis_data:/data  # Monta el volumen 'redis_data' en el directorio de datos de Redis
 
   nginx:
     build:
@@ -54,3 +56,6 @@ services:
       - PYTHONUNBUFFERED=1
     depends_on:
       - redis
+
+volumes:
+  redis_data: # Define el volumen llamado 'redis_data'
