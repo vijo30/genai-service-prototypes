@@ -1,6 +1,6 @@
 import unittest
 import json
-from llm.chat_agent import ethical_agent
+from backend.chat_agent import ethical_agent
 from config.generated_config import SEBASTIAN_CASE
 
 class TestSebastianCaseLive(unittest.TestCase):

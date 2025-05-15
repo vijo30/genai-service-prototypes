@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from llm.chat_agent import EthicalDebateAgent
+from backend.chat_agent import EthicalDebateAgent
 import json
 
 

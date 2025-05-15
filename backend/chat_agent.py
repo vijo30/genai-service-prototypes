@@ -86,15 +86,15 @@ class EthicalDebateAgent:
 
 
         **Matriz de Decisión:**
-        1. Necesidad de Respuesta (max 10):
+        1. Necesidad de Respuesta (max 8):
           - Solicitud directa del usuario = 3
-          - Error factual = 3
-          - Razonamiento falaz = 4.0
+          - Error factual = 2
+          - Razonamiento falaz = 3
 
 
-        2. Riesgo de Intervención (max 3,5):
+        2. Riesgo de Intervención (max 3):
           - Redundancia = 2
-          - Sobrecarga informativa = 1.5
+          - Sobrecarga informativa = 1
 
 
         3. Balance Óptimo:

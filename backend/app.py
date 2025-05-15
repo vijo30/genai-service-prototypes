@@ -11,7 +11,7 @@ from flask_socketio import SocketIO, emit, join_room
 import redis
 from rq import Queue
 from dotenv import load_dotenv
-from llm.chat_agent import ethical_agent
+from chat_agent import ethical_agent
 from config.generated_config import SEBASTIAN_CASE
 
 # Cargar configuraciones

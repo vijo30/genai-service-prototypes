@@ -1,5 +1,5 @@
 import unittest
-from llm.chat_agent import ethical_agent
+from backend.chat_agent import ethical_agent
 
 class TestResponseQuality(unittest.TestCase):
     
