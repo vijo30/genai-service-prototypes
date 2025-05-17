@@ -86,20 +86,60 @@ class EthicalDebateAgent:
 
 
         **Matriz de Decisión:**
-        1. Necesidad de Respuesta (max 8):
-          - Solicitud directa del usuario = 3
-          - Error factual = 2
-          - Razonamiento falaz = 3
+        1. Necesidad de Respuesta (max 15):
+          - Solicitud Directa del Usuario (3 puntos):
+            Descripción: El usuario formula una pregunta o pide una acción específica. La necesidad de respuesta es inherente a la interacción.
+            Respaldo Teórico: Principios básicos de la interacción conversacional y la teoría de actos de habla (el usuario espera una respuesta a su directiva).
+          
+          - Error Factual (2 puntos):
+            Descripción: El chatbot proporciona información incorrecta o que no se corresponde con la realidad verificable.
+            Respaldo Teórico: Principios de precisión y veracidad en la comunicación, ética de la información.
+          
+          - Razonamiento Falaz (3 puntos):
+            Descripción: El chatbot presenta argumentos lógicamente inválidos o conclusiones que no se derivan de las premisas.
+            Respaldo Teórico: Lógica formal e informal, teoría de la argumentación.
+          
+          - Ambigüedad en la pregunta del usuario (3 puntos): 
+            La pregunta del usuario es vaga, susceptible a múltiples interpretaciones o requiere clarificación para ser respondida adecuadamente.
+            Respaldo Teórico: Principios de la comunicación efectiva, teoría de la información (reducción de la incertidumbre), pragmática del lenguaje (necesidad de contexto para la interpretación).
+          
+          - Respuesta del chatbot poco clara o confusa (2 puntos): 
+            La respuesta del chatbot es difícil de entender, utiliza un lenguaje ambiguo o podría generar más dudas en el usuario.
+            Respaldo Teórico: Heurísticas de usabilidad y diseño de interfaces conversacionales (claridad y comprensibilidad), principios de redacción clara y concisa.
+            
+          - Respuesta tangencial o irrelevante (2 puntos): 
+            La respuesta del chatbot no aborda directamente la pregunta o la necesidad principal del usuario, desviándose del tema central de la conversación.
+            Respaldo Teórico: Teoría de la relevancia en la pragmática del lenguaje (la expectativa de que las contribuciones sean relevantes para el contexto), principios de diseño de conversación enfocada en el objetivo.
 
-
-        2. Riesgo de Intervención (max 3):
-          - Redundancia = 2
-          - Sobrecarga informativa = 1
+        2. Riesgo de Intervención (max 9):
+          - Redundancia (2 puntos):
+            Descripción: La intervención del controlador repite información que ya ha sido proporcionada o que es evidente en el contexto de la conversación.
+            Respaldo Teórico: Principios de eficiencia en la comunicación, heurísticas de usabilidad (evitar información innecesaria).
+            
+          - Sobrecarga Informativa (1 punto):
+            Descripción: La intervención del controlador introduce demasiada información nueva o compleja de una sola vez, lo que podría confundir o abrumar al usuario.
+            Respaldo Teórico: Psicología cognitiva (limitaciones de la memoria de trabajo), principios de diseño de información clara y progresiva.
+            
+          - Interrupción abrupta o inesperada (2 puntos): 
+            La intervención del controlador se siente intrusiva, rompiendo la naturalidad y el ritmo del diálogo.
+            Respaldo Teórico: Principios de diseño de conversación fluida, estudios sobre la interacción humano-computadora (experiencia del usuario).
+            
+          - Cambio de tema no solicitado (1 punto): 
+            La intervención del controlador desvía la conversación hacia un tema diferente sin una justificación clara o sin la solicitud del usuario.
+            Respaldo Teórico: Mantenimiento del tópico en el análisis del discurso, principios de relevancia conversacional.
+            
+          - Pérdida de Autonomía del Usuario (hasta 1 punto):
+            La intervención del controlador limita la capacidad del usuario para explorar, experimentar o incluso cometer errores que podrían ser parte de su proceso de aprendizaje o descubrimiento.
+            Respaldo Teórico: Principios de diseño centrado en el usuario (empoderamiento del usuario), teorías pedagógicas constructivistas (el aprendizaje a través de la exploración).
+            
+          - Mensajes contradictorios o poco claros del controlador (2 puntos): 
+            La intervención del controlador introduce información que contradice lo dicho previamente por el chatbot o por el propio controlador, generando confusión en el usuario.
+            Respaldo Teórico: Principios de coherencia y consistencia en la comunicación, heurísticas de usabilidad (previsibilidad).
 
 
         3. Balance Óptimo:
           - Si (Necesidad - Riesgo) ≥ 2 → Intervenir
-          - Si 1 ≤ (Necesidad - Riesgo) < 2 → Intervención Modulada
+          - Si 1 ≤ (Necesidad - Riesgo) < 2 → Intervención Modulada (La intervención podría ser más suave, como ofrecer una sugerencia o una pregunta aclaratoria en lugar de una corrección directa).
           - Si <1 → No intervenir
           
           

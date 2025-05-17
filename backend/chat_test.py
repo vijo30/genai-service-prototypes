@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
-from evaluator_agent import EvaluatorAgent
 from config.generated_config import SEBASTIAN_CASE
 from langchain_core.output_parsers import StrOutputParser
 import pandas as pd
@@ -41,31 +40,38 @@ class LLMAgent:
     def initialize_llm(self):
         """Inicializa el modelo de lenguaje adecuado."""
         if self.llm_name == 'ChatGPT':
-            return ChatOpenAI(model="gpt-3.5-turbo", temperature=0.7, api_key=self.api_key)
+            return ChatOpenAI(model="gpt-3.5-turbo", temperature=0.5, api_key=self.api_key)
         elif self.llm_name == 'Gemini':
-            return ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0.7, google_api_key=self.api_key)
+            return ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0.5, google_api_key=self.api_key)
         else:
             raise ValueError(f"Modelo de lenguaje no soportado: {self.llm_name}")
 
     def build_typical_user_chain(self) -> Runnable:
-        """Construye la cadena para generar mensajes como un usuario típico de EthicApp."""
-        prompt = ChatPromptTemplate.from_messages([
-            HumanMessagePromptTemplate.from_template(
-                """Eres {participant_name}, un estudiante universitario típico participando en un debate ético sobre el caso de Sebastián.
-                 Tu objetivo es generar un mensaje corto (entre 3 y 6 oraciones) que refleje la forma en que los estudiantes suelen expresarse en EthicApp.
-                 Es fundamental que tu forma de expresarte, incluyendo el uso de mayúsculas, minúsculas, errores ortográficos leves, la extensión de los mensajes
-                 y el contenido general, sea LO MÁS SIMILAR POSIBLE a los siguientes ejemplos de mensajes reales de usuarios de EthicApp:
-                 {user_messages}
+      """Construye la cadena para generar mensajes como un usuario típico de EthicApp,
+      caracterizado por un nivel de discusión no muy profundo, similar a los ejemplos.
+      """
+      prompt = ChatPromptTemplate.from_messages([
+          HumanMessagePromptTemplate.from_template(
+              """Eres {participant_name}, un estudiante universitario típico participando en un debate ético sobre el caso de Sebastián.
 
-                 Considera el siguiente caso:
-                 {case}
+              Tu objetivo es generar un mensaje corto (entre 3 y 6 oraciones) que refleje la forma en que los estudiantes suelen expresarse en EthicApp, caracterizada por un nivel de discusión que NO suele ser muy profundo ni con argumentos elaborados.
+              Los mensajes tienden a ser más directos, expresando opiniones iniciales, reacciones al caso o comentarios breves sobre lo que otros han dicho, sin necesariamente profundizar en el razonamiento o presentar contraargumentos detallados.
 
-                 Este es el historial de conversación reciente:
-                 {conversation_history}
-                 """
-            )
-        ])
-        return prompt | self.llm | self.output_parser
+              Es fundamental que tu forma de expresarte, incluyendo el uso de mayúsculas, minúsculas, errores ortográficos leves, la extensión de los mensajes
+              y el contenido general, sea LO MÁS SIMILAR POSIBLE a los siguientes ejemplos de mensajes reales de usuarios de EthicApp:
+              {user_messages}
+
+              Considera el siguiente caso:
+              {case}
+
+              Este es el historial de conversación reciente:
+              {conversation_history}
+
+              Genera un mensaje que sea típico de la participación de los estudiantes en EthicApp, manteniendo un nivel de discusión similar al que se observa en los ejemplos.
+              """
+          )
+      ])
+      return prompt | self.llm | self.output_parser
 
     def generate_message(self, participant_name, conversation_history, case, user_messages, conversation_type="typical"):
         """Genera un mensaje como un usuario típico."""
@@ -285,8 +291,8 @@ class MultiRoomSimulationManager:
         simulation = Simulation(
             room_manager=self.room_manager,
             agent=self.agent,
-            num_participants=4,  # Ajusta según necesites
-            num_messages_per_participant=5,  # Ajusta según necesites
+            num_participants=3,  # Ajusta según necesites
+            num_messages_per_participant=3,  # Ajusta según necesites
             conversation_type=conversation_type,
             case=case_text,
             simulation_id=simulation_id,
@@ -325,7 +331,7 @@ if __name__ == "__main__":
     # --- Inicializa los objetos ---
     agent = LLMAgent(LLM_NAME, OPENAI_API_KEY)
     room_manager = RoomManager(API_BASE_URL)
-    evaluator = EvaluatorAgent(LLM_NAME, OPENAI_API_KEY)
+    
 
     # --- Define los casos a simular con el número de repeticiones y configuración del bot ---
     cases_to_simulate = {
@@ -345,55 +351,4 @@ if __name__ == "__main__":
     multi_room_manager.run_all_simulations()
     print("\n--- Simulación de conversaciones finalizada. Los archivos CSV se han guardado en la carpeta 'simulated_conversations' ---")
 
-    # --- Evalúa las conversaciones exportadas y escribe los resultados ---
-    print("\n--- Evaluando las conversaciones simuladas (evaluación general) y escribiendo resultados ---")
-    evaluation_output_file = os.path.join(OUTPUT_DIR, "evaluation_results.csv")
-    with open(evaluation_output_file, 'w', newline='', encoding='utf-8') as outfile:
-        csv_writer = csv.writer(outfile)
-        # Escribir encabezado del CSV
-        csv_writer.writerow(["filename", "caso", "con_bot", "coherencia_general", "tono_general", "pertinencia_general", "reflexion_general"])
-
-        for filename in os.listdir(OUTPUT_DIR):
-            if filename.endswith(".csv") and "conversation_" in filename:
-                filepath = os.path.join(OUTPUT_DIR, filename)
-                try:
-                    conversation_df = pd.read_csv(filepath)
-                    print(f"\nEvaluando la conversación general de: {filename}")
-
-                    # Construir el log de conversación completo
-                    conversation_log = ""
-                    for index, row in conversation_df.iterrows():
-                        timestamp = row.get('timestamp', 'N/A')
-                        user_name = row['user_name']
-                        message = row['message']
-                        conversation_log += f"[{timestamp}] {user_name}: {message}\n"
-
-                    # Inferir el caso y si se usó bot del nombre del archivo
-                    if "sebastian" in filename:
-                        current_case = "caso_sebastian"
-                        case_text = SEBASTIAN_CASE
-                    else:
-                        current_case = "caso_desconocido"
-                        case_text = "Caso desconocido"
-
-                    con_bot = "con_bot" in filename and "_api" in filename
-
-                    # Evaluar la conversación completa
-                    evaluation_result = evaluator.evaluate_conversation(conversation_log, case_text)
-                    print(f"  Evaluación General: {evaluation_result}")
-
-                    # Escribir los resultados en el archivo CSV
-                    csv_writer.writerow([
-                        filename,
-                        current_case,
-                        con_bot,
-                        evaluation_result.get("coherencia_general"),
-                        evaluation_result.get("tono_general"),
-                        evaluation_result.get("pertinencia_general"),
-                        evaluation_result.get("reflexion_general")
-                    ])
-
-                except Exception as e:
-                    print(f"Error al leer o evaluar el archivo {filename}: {e}")
-
-    print(f"\n--- Evaluación general de las conversaciones finalizada. Los resultados se han guardado en: {evaluation_output_file} ---")
+    

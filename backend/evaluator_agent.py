@@ -1,8 +1,21 @@
+import csv
+import os
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import Runnable
+import pandas as pd
+
+from config.generated_config import SEBASTIAN_CASE
+
+load_dotenv() 
+OUTPUT_DIR = "simulated_conversations"
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+LLM_NAME = os.getenv("LLM_NAME", "ChatGPT")
+OPENAI_API_KEY = os.getenv("API_KEY")
 
 class EvaluatorAgent:
     """Agente evaluador de la calidad y características GENERALES de la conversación en debates éticos."""
@@ -64,3 +77,59 @@ class EvaluatorAgent:
             "conversation_log": conversation_log,
             "case": case
         })
+        
+if __name__ == "__main__":
+
+# --- Evalúa las conversaciones exportadas y escribe los resultados ---
+    print("\n--- Evaluando las conversaciones simuladas (evaluación general) y escribiendo resultados ---")
+    evaluator = EvaluatorAgent(LLM_NAME, OPENAI_API_KEY)
+    evaluation_output_file = os.path.join(OUTPUT_DIR, "evaluation_results.csv")
+    with open(evaluation_output_file, 'w', newline='', encoding='utf-8') as outfile:
+        csv_writer = csv.writer(outfile)
+        # Escribir encabezado del CSV
+        csv_writer.writerow(["filename", "caso", "con_bot", "coherencia_general", "tono_general", "pertinencia_general", "reflexion_general"])
+
+        for filename in os.listdir(OUTPUT_DIR):
+            if filename.endswith(".csv") and "conversation_" in filename:
+                filepath = os.path.join(OUTPUT_DIR, filename)
+                try:
+                    conversation_df = pd.read_csv(filepath)
+                    print(f"\nEvaluando la conversación general de: {filename}")
+
+                    # Construir el log de conversación completo
+                    conversation_log = ""
+                    for index, row in conversation_df.iterrows():
+                        timestamp = row.get('timestamp', 'N/A')
+                        user_name = row['user_name']
+                        message = row['message']
+                        conversation_log += f"[{timestamp}] {user_name}: {message}\n"
+
+                    # Inferir el caso y si se usó bot del nombre del archivo
+                    if "sebastian" in filename:
+                        current_case = "caso_sebastian"
+                        case_text = SEBASTIAN_CASE
+                    else:
+                        current_case = "caso_desconocido"
+                        case_text = "Caso desconocido"
+
+                    con_bot = "con_bot" in filename and "_api" in filename
+
+                    # Evaluar la conversación completa
+                    evaluation_result = evaluator.evaluate_conversation(conversation_log, case_text)
+                    print(f"  Evaluación General: {evaluation_result}")
+
+                    # Escribir los resultados en el archivo CSV
+                    csv_writer.writerow([
+                        filename,
+                        current_case,
+                        con_bot,
+                        evaluation_result.get("coherencia_general"),
+                        evaluation_result.get("tono_general"),
+                        evaluation_result.get("pertinencia_general"),
+                        evaluation_result.get("reflexion_general")
+                    ])
+
+                except Exception as e:
+                    print(f"Error al leer o evaluar el archivo {filename}: {e}")
+
+    print(f"\n--- Evaluación general de las conversaciones finalizada. Los resultados se han guardado en: {evaluation_output_file} ---")
