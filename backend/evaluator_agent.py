@@ -1,5 +1,6 @@
 import csv
 import os
+import time  # Importar la librería time
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -10,12 +11,20 @@ import pandas as pd
 
 from config.generated_config import SEBASTIAN_CASE
 
-load_dotenv() 
+load_dotenv()
 OUTPUT_DIR = "simulated_conversations"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 LLM_NAME = os.getenv("LLM_NAME", "ChatGPT")
 OPENAI_API_KEY = os.getenv("API_KEY")
+
+# --- Configuración del tiempo de espera ---
+DEFAULT_WAIT_TIME = 5  # Tiempo de espera en segundos
+WAIT_TIME = int(os.getenv("EVALUATION_WAIT_TIME", DEFAULT_WAIT_TIME))
+print(f"Tiempo de espera configurado para la evaluación: {WAIT_TIME} segundos")
+
+# --- Configuración del nombre de usuario del bot ---
+BOT_USERNAME = "Bot"
 
 class EvaluatorAgent:
     """Agente evaluador de la calidad y características GENERALES de la conversación en debates éticos."""
@@ -77,46 +86,60 @@ class EvaluatorAgent:
             "conversation_log": conversation_log,
             "case": case
         })
-        
+
 if __name__ == "__main__":
 
-# --- Evalúa las conversaciones exportadas y escribe los resultados ---
     print("\n--- Evaluando las conversaciones simuladas (evaluación general) y escribiendo resultados ---")
     evaluator = EvaluatorAgent(LLM_NAME, OPENAI_API_KEY)
     evaluation_output_file = os.path.join(OUTPUT_DIR, "evaluation_results.csv")
-    with open(evaluation_output_file, 'w', newline='', encoding='utf-8') as outfile:
+
+    # Leer los resultados existentes para verificar si ya se evaluó el archivo
+    evaluated_files = set()
+    if os.path.exists(evaluation_output_file):
+        try:
+            df_existing_results = pd.read_csv(evaluation_output_file)
+            evaluated_files = set(df_existing_results['filename'])
+            print(f"Se encontraron {len(evaluated_files)} resultados existentes.")
+        except pd.errors.EmptyDataError:
+            print("El archivo de resultados existente está vacío.")
+        except Exception as e:
+            print(f"Error al leer el archivo de resultados existente: {e}")
+
+    with open(evaluation_output_file, 'a', newline='', encoding='utf-8') as outfile:
         csv_writer = csv.writer(outfile)
-        # Escribir encabezado del CSV
-        csv_writer.writerow(["filename", "caso", "con_bot", "coherencia_general", "tono_general", "pertinencia_general", "reflexion_general"])
+        # Escribir encabezado solo si el archivo no existe o está vacío
+        if not os.path.exists(evaluation_output_file) or os.stat(evaluation_output_file).st_size == 0:
+            csv_writer.writerow(["filename", "caso", "con_bot", "coherencia_general", "tono_general", "pertinencia_general", "reflexion_general", "bot_interventions"])
 
         for filename in os.listdir(OUTPUT_DIR):
             if filename.endswith(".csv") and "conversation_" in filename:
                 filepath = os.path.join(OUTPUT_DIR, filename)
+                if filename in evaluated_files:
+                    print(f"La conversación {filename} ya ha sido evaluada. Omitiendo.")
+                    continue
+
                 try:
                     conversation_df = pd.read_csv(filepath)
                     print(f"\nEvaluando la conversación general de: {filename}")
 
-                    # Construir el log de conversación completo
                     conversation_log = ""
+                    bot_interventions = 0
                     for index, row in conversation_df.iterrows():
                         timestamp = row.get('timestamp', 'N/A')
                         user_name = row['user_name']
                         message = row['message']
-                        conversation_log += f"[{timestamp}] {user_name}: {message}\n"
+                        if user_name != BOT_USERNAME:  # Solo incluir si el usuario no es el bot
+                            conversation_log += f"[{timestamp}] {user_name}: {message}\n"
+                        if user_name == BOT_USERNAME:
+                            bot_interventions += 1
 
-                    # Inferir el caso y si se usó bot del nombre del archivo
-                    if "sebastian" in filename:
-                        current_case = "caso_sebastian"
-                        case_text = SEBASTIAN_CASE
-                    else:
-                        current_case = "caso_desconocido"
-                        case_text = "Caso desconocido"
-
+                    current_case = "caso_sebastian" if "sebastian" in filename else "caso_desconocido"
+                    case_text = SEBASTIAN_CASE if current_case == "caso_sebastian" else "Caso desconocido"
                     con_bot = "con_bot" in filename and "_api" in filename
 
                     # Evaluar la conversación completa
                     evaluation_result = evaluator.evaluate_conversation(conversation_log, case_text)
-                    print(f"  Evaluación General: {evaluation_result}")
+                    print(f"  Evaluación General: {evaluation_result}, Intervenciones del Bot: {bot_interventions}")
 
                     # Escribir los resultados en el archivo CSV
                     csv_writer.writerow([
@@ -126,8 +149,11 @@ if __name__ == "__main__":
                         evaluation_result.get("coherencia_general"),
                         evaluation_result.get("tono_general"),
                         evaluation_result.get("pertinencia_general"),
-                        evaluation_result.get("reflexion_general")
+                        evaluation_result.get("reflexion_general"),
+                        bot_interventions
                     ])
+
+                    time.sleep(WAIT_TIME)  # Añadir el tiempo de espera configurable
 
                 except Exception as e:
                     print(f"Error al leer o evaluar el archivo {filename}: {e}")
