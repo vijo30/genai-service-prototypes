@@ -11,6 +11,7 @@ rq
 langchain
 langchain-community
 langchain-openai
+langchain-deepseek
 
 # OpenAI API para los modelos GPT (puedes ajustarlo si usas otro proveedor de LLMs)
 openai

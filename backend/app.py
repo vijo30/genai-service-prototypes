@@ -12,7 +12,7 @@ from flask_socketio import SocketIO, emit, join_room
 import redis
 from rq import Queue
 from dotenv import load_dotenv
-from chat_agent import ethical_agent
+from chat_agent import EthicalDebateAgent
 from config.generated_config import SEBASTIAN_CASE
 
 # Cargar configuraciones
@@ -39,13 +39,16 @@ def get_timestamp():
     """Generar un timestamp estandarizado."""
     return datetime.utcnow().isoformat() + "Z"  # UTC
 
-def process_message_task(room_id: str):
+def process_message_task(room_id: str, llm_choice_for_bot: str):
     """Background task to process messages and generate responses"""
     try:
         # Get recent conversation history
         chat_history_key = f"{CHAT_HISTORY_KEY_PREFIX}{room_id}"
         raw_messages = redis_client.lrange(chat_history_key, -CONVERSATION_WINDOW, -1)
         conversation = [json.loads(msg) for msg in raw_messages]
+
+        # Usar el llm_choice_for_bot recibido
+        ethical_agent = EthicalDebateAgent(llm_choice_for_bot)
 
         # Get agent response
         agent_response = ethical_agent.manage_conversation(
@@ -58,7 +61,8 @@ def process_message_task(room_id: str):
                 'user_name': 'Bot',
                 'message': agent_response["response"],
                 'timestamp': get_timestamp(),
-                'metadata': agent_response.get("metadata", {})
+                'metadata': agent_response.get("metadata", {}),
+                'timing_info': agent_response.get("timing_info", {}) # <--- AÑADIDO: Guardar timing_info
             }
 
             # Store and broadcast
@@ -102,7 +106,11 @@ def handle_send_message(data):
     emit('receive_message', user_message, room=room_id)
 
     # Encolar la tarea para procesar el mensaje
-    task_queue.enqueue(process_message_task, room_id)
+    # Aquí, como es desde un cliente real, no se puede pasar llm_choice_for_bot
+    # Se usará el valor por defecto en EthicalDebateAgent si no se especifica.
+    # Si quieres que clientes reales también puedan elegir el LLM, deberías modificar el frontend.
+    # Por ahora, para la simulación, usaremos simulate_message_endpoint.
+    task_queue.enqueue(process_message_task, room_id, llm_choice_for_bot="Gemini") # <--- AÑADIDO default para el cliente real
 
 @app.route('/api/chat/<room_id>', methods=['GET'])
 def get_messages(room_id: str):
@@ -133,6 +141,8 @@ def simulate_message_endpoint():
     room_id = data.get('room_id')
     user_name = data.get('user_name')
     message = data.get('message')
+    # NUEVO: Obtener la elección del LLM para el bot del cuerpo de la solicitud
+    llm_choice_for_bot = data.get('llm_choice_for_bot', 'Gemini') # <-- Añadir un default por si no se envía
 
     if not all([room_id, user_name, message]):
         abort(400)
@@ -142,7 +152,9 @@ def simulate_message_endpoint():
     chat_history_key = f"{CHAT_HISTORY_KEY_PREFIX}{room_id}"
     redis_client.rpush(chat_history_key, json.dumps(simulated_message))
     socketio.emit('receive_message', simulated_message, room=room_id, namespace='/api')
-    task_queue.enqueue(process_message_task, room_id)
+
+    # Encolar la tarea para procesar el mensaje, pasando la elección del LLM
+    task_queue.enqueue(process_message_task, room_id, llm_choice_for_bot) # <-- ¡Pasa el nuevo argumento!
     return jsonify({'status': 'Simulated message sent'}), 200
 
 if __name__ == '__main__':
