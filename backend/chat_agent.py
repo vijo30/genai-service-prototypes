@@ -84,41 +84,29 @@ class EthicalDebateAgent:
     def _create_devils_advocate_chain(self):
         # El contenido de esta cadena permanece igual, ya que es agnóstica al LLM.
         prompt_template = """
-        Como Provocador de Debate Ético, tu rol es estimular el análisis ético profundo mediante:
-        - Cuestionar supuestos no examinados
-        - Introducir perspectivas alternativas
-        - Proporcionar marcos éticos relevantes
-        - Señalar inconsistencias lógicas
-        - Ofrecer juicios calificados cuando se soliciten
+        Eres un Provocador de Debate Ético. Tu rol es romper el estancamiento argumentativo detectado. Tu intervención debe ser una acción estratégica, breve y directa (menos de 80 palabras).
 
-        **Reglas de Operación:**
-        1. Contexto del Caso: {case}
-        2. Historial de Conversación: {conversation}
-        3. Instrucciones guía de Intervención: {guidelines}
-        4. Priorizar intervenciones que conecten con los últimos 3 turnos de diálogo
-        5. Para juicios:
-          - Declarar explícitamente que es una perspectiva del sistema
-          - Basarse en ≥ 2 marcos éticos
-          - Mantener 30% de escepticismo hacia tu propia posición
-        6. Balancear estrategias:
-          - 40% preguntas socráticas
-          - 30% contraargumentos
-          - 20% datos contextuales
-          - 10% juicios calificados
+        Contexto del Caso: {case}
+        Historial de Conversación: {conversation}
+        
+        Sigue esta JERARQUÍA DE ESTRATEGIAS para formular tu intervención. Usa la primera estrategia que sea aplicable y relevante:
+
+        1.  **PRIORIDAD 1 (La más suave): HAZ UNA PREGUNTA SOCRÁTICA.** Cuestiona un supuesto fundamental que el grupo está dando por sentado o pide una definición más profunda de un concepto clave que usan (ej: 'justicia', 'deber').
+            *Ejemplo: "Estamos asumiendo que el objetivo principal es X. ¿Hay algún otro valor fundamental que podríamos estar pasando por alto?"*
+
+        2.  **PRIORIDAD 2 (Si una pregunta no es suficiente): PRESENTA UNA PERSPECTIVA ALTERNATIVA.** Introduce el punto de vista de una parte interesada que no ha sido considerada por el grupo.
+            *Ejemplo: "Desde la perspectiva de [la familia del afectado / la comunidad / la empresa], ¿cómo se vería esta decisión?"*
+
+        3.  **PRIORIDAD 3 (El último recurso): SEÑALA UNA INCONSISTENCIA LÓGICA.** Si hay una contradicción clara en los últimos mensajes, señálala de forma neutral para que el grupo la resuelva.
+            *Ejemplo: "Noto que al principio se argumentó A, pero la propuesta actual B parece contradecir ese punto. ¿Podemos aclarar esta aparente inconsistencia?"*
+
+        **INSTRUCCIÓN:** Genera únicamente el texto de tu intervención. No incluyas el nombre de la estrategia, ni metadatos, ni explicaciones. Solo el mensaje que se enviará al chat.
         
         Debes responder siempre en el siguiente formato JSON:
         
         Salida esperada:
         {{
-            "response": "Intervention text (<120 words)",
-            "metadata": {{
-                "intervention_type": ["socratic_question", "counterargument", "contextual_data", "qualified_judgment"],
-                "frameworks": ["list of applied ethical frameworks"],
-                "certainty_score": 0-1,
-                "relevance_score": 0-1,
-                "provocation_score": 0-1
-            }},
-            "rationale": "Structured explanation of strategy used"
+            "response": "Intervention text"
         }}
         
         Notas adicionales:
@@ -129,92 +117,28 @@ class EthicalDebateAgent:
     def _create_supervisor_chain(self):
         # El contenido de esta cadena permanece igual, ya que es agnóstica al LLM.
         prompt_template = """
-        Como Controlador de Diálogo Ético, evalúa intervenciones usando:
-        
-        1. Contexto del Caso: {case}
-        2. Historial de Conversación: {conversation}
+        Eres un Controlador de Diálogo Ético. Tu única función es determinar si la conversación actual muestra signos de ESTANCAMIENTO ARGUMENTATIVO.
+        Analiza el contexto del caso y el historial de la conversación.
 
+        Contexto del Caso: {case}
+        Historial de Conversación: {conversation}
 
-        **Matriz de Decisión:**
-        1. Necesidad de Respuesta (max 15):
-          - Solicitud Directa del Usuario (3 puntos):
-            Descripción: El usuario formula una pregunta o pide una acción específica. La necesidad de respuesta es inherente a la interacción.
-            Respaldo Teórico: Principios básicos de la interacción conversacional y la teoría de actos de habla (el usuario espera una respuesta a su directiva).
-          
-          - Error Factual (2 puntos):
-            Descripción: El chatbot proporciona información incorrecta o que no se corresponde con la realidad verificable.
-            Respaldo Teórico: Principios de precisión y veracidad en la comunicación, ética de la información.
-          
-          - Razonamiento Falaz (3 puntos):
-            Descripción: El chatbot presenta argumentos lógicamente inválidos o conclusiones que no se derivan de las premisas.
-            Respaldo Teórico: Lógica formal e informal, teoría de la argumentación.
-          
-          - Ambigüedad en la pregunta del usuario (3 puntos): 
-            La pregunta del usuario es vaga, susceptible a múltiples interpretaciones o requiere clarificación para ser respondida adecuadamente.
-            Respaldo Teórico: Principios de la comunicación efectiva, teoría de la información (reducción de la incertidumbre), pragmática del lenguaje (necesidad de contexto para la interpretación).
-          
-          - Respuesta del chatbot poco clara o confusa (2 puntos): 
-            La respuesta del chatbot es difícil de entender, utiliza un lenguaje ambiguo o podría generar más dudas en el usuario.
-            Respaldo Teórico: Heurísticas de usabilidad y diseño de interfaces conversacionales (claridad y comprensibilidad), principios de redacción clara y concisa.
-            
-          - Respuesta tangencial o irrelevante (2 puntos): 
-            La respuesta del chatbot no aborda directamente la pregunta o la necesidad principal del usuario, desviándose del tema central de la conversación.
-            Respaldo Teórico: Teoría de la relevancia en la pragmática del lenguaje (la expectativa de que las contribuciones sean relevantes para el contexto), principios de diseño de conversación enfocada en el objetivo.
+        Ahora, responde a la siguiente pregunta basándote ESTRICTAMENTE en si se cumple AL MENOS UNA de las siguientes condiciones:
 
-        2. Riesgo de Intervención (max 9):
-          - Redundancia (2 puntos):
-            Descripción: La intervención del controlador repite información que ya ha sido proporcionada o que es evidente en el contexto de la conversación.
-            Respaldo Teórico: Principios de eficiencia en la comunicación, heurísticas de usabilidad (evitar información innecesaria).
-            
-          - Sobrecarga Informativa (1 punto):
-            Descripción: La intervención del controlador introduce demasiada información nueva o compleja de una sola vez, lo que podría confundir o abrumar al usuario.
-            Respaldo Teórico: Psicología cognitiva (limitaciones de la memoria de trabajo), principios de diseño de información clara y progresiva.
-            
-          - Interrupción abrupta o inesperada (2 puntos): 
-            La intervención del controlador se siente intrusiva, rompiendo la naturalidad y el ritmo del diálogo.
-            Respaldo Teórico: Principios de diseño de conversación fluida, estudios sobre la interacción humano-computadora (experiencia del usuario).
-            
-          - Cambio de tema no solicitado (1 punto): 
-            La intervención del controlador desvía la conversación hacia un tema diferente sin una justificación clara o sin la solicitud del usuario.
-            Respaldo Teórico: Mantenimiento del tópico en el análisis del discurso, principios de relevancia conversacional.
-            
-          - Pérdida de Autonomía del Usuario (hasta 1 punto):
-            La intervención del controlador limita la capacidad del usuario para explorar, experimentar o incluso cometer errores que podrían ser parte de su proceso de aprendizaje o descubrimiento.
-            Respaldo Teórico: Principios de diseño centrado en el usuario (empoderamiento del usuario), teorías pedagógicas constructivistas (el aprendizaje a través de la exploración).
-            
-          - Mensajes contradictorios o poco claros del controlador (2 puntos): 
-            La intervención del controlador introduce información que contradice lo dicho previamente por el chatbot o por el propio controlador, generando confusión en el usuario.
-            Respaldo Teórico: Principios de coherencia y consistencia en la comunicación, heurísticas de usabilidad (previsibilidad).
+        1.  **CONSENSO PREMATURO:** ¿Múltiples participantes han expresado acuerdo con la primera o segunda solución propuesta sin que se haya presentado una alternativa significativa?
+        2.  **REPETICIÓN DE IDEAS:** ¿Se están repitiendo los mismos argumentos o frases sin añadir nueva información o profundidad?
+        3.  **FALACIA LÓGICA EVIDENTE:** ¿Se ha utilizado un ataque personal (ad hominem) o una generalización burda y sin fundamento?
+        4.  **PREGUNTA CLAVE IGNORADA:** ¿Un participante hizo una pregunta relevante que fue ignorada por los demás en los turnos siguientes?
 
+        **PREGUNTA:** ¿Se ha detectado estancamiento argumentativo según los criterios anteriores?
 
-        3. Balance Óptimo:
-          - Si (Necesidad - Riesgo) ≥ 2 → Intervenir
-          - Si 1 ≤ (Necesidad - Riesgo) < 2 → Intervención Modulada (La intervención podría ser más suave, como ofrecer una sugerencia o una pregunta aclaratoria en lugar de una corrección directa).
-          - Si <1 → No intervenir
-          
+        **RESPUESTA:** Responde únicamente en el apartado "should_intervene". No añadas ninguna explicación o texto adicional.
           
         Debes responder siempre en el siguiente formato JSON:
         
         Salida esperada:
         {{
-            "decision_metrics": {{
-                "need_score": X.X,
-                "risk_score": X.X,
-                "differential": X.X
-            }},
-            "should_intervene": boolean,
-            "intervention_guidelines": {{
-                "mode": ["reactive", "proactive"],
-                "required_components": ["list of required elements"],
-                "warnings": ["aspects to avoid"]
-            }},
-            "ethical_scaffolding": {{
-                "suggested_frameworks": ["list of ethical frameworks"],
-                "detected_biases": ["list of potential biases"],
-                "blind_spots": ["unexplored areas"]
-            }}
-            ,
-            "rationale": "Structured explanation of strategy used"
+            "should_intervene": boolean
         }}
         
         Notas adicionales:
@@ -239,7 +163,7 @@ class EthicalDebateAgent:
 
     def manage_conversation(self, case: str, conversation: List[Dict]) -> Dict:
         """Orchestrate the dual-agent conversation flow and measure response times."""
-        logging.info(f"Iniciando manage_conversation para el caso: {case}")
+        logging.info(f"Iniciando manage_conversation")
 
         total_llm_processing_time = 0.0 # Inicializar el contador de tiempo total
 
@@ -262,7 +186,7 @@ class EthicalDebateAgent:
                 "timing_info": {"total_llm_processing_time_seconds": total_llm_processing_time} # Aquí ya se incluye el tiempo
             }
 
-        logging.info(f"Decisión del Supervisor: {json.dumps(supervisor_data.get('decision_metrics', {}))}, ¿Debe intervenir?: {supervisor_data['should_intervene']}")
+        logging.info(f"Decisión del Supervisor: ¿Debe intervenir?: {supervisor_data['should_intervene']}")
 
         if supervisor_data["should_intervene"]:
             logging.info("El supervisor decidió intervenir. Solicitando intervención al Provocador de Debate Ético.")
@@ -272,7 +196,6 @@ class EthicalDebateAgent:
             da_response = self.da_chain.invoke({
                 "case": case,
                 "conversation": json.dumps(conversation),
-                "guidelines": supervisor_data.get("intervention_guidelines", {})
             })
             end_time_da = time.perf_counter()
             total_llm_processing_time += (end_time_da - start_time_da) # Suma el tiempo del DA
@@ -291,8 +214,6 @@ class EthicalDebateAgent:
             return {
                 "should_intervene": True,
                 "response": da_data.get("response", ""),
-                "metadata": da_data.get("metadata", {}), # Metadatos propios del DA
-                "supervisor_rationale": supervisor_data.get("decision_metrics", {}),
                 "timing_info": {"total_llm_processing_time_seconds": total_llm_processing_time} # ¡Aquí está la clave!
             }
 

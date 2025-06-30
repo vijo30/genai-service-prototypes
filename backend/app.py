@@ -61,8 +61,7 @@ def process_message_task(room_id: str, llm_choice_for_bot: str):
                 'user_name': 'Bot',
                 'message': agent_response["response"],
                 'timestamp': get_timestamp(),
-                'metadata': agent_response.get("metadata", {}),
-                'timing_info': agent_response.get("timing_info", {}) # <--- AÑADIDO: Guardar timing_info
+                'timing_info': agent_response.get("timing_info", {})
             }
 
             # Store and broadcast
