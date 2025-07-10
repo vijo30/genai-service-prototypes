@@ -4,117 +4,131 @@ Este repositorio contiene el código fuente y los artefactos de investigación p
 
 El proyecto consiste en un prototipo de agente de IA (v1.0) diseñado para intervenir en discusiones, y un framework completo para su simulación y evaluación en un entorno controlado.
 
+
 ## Estructura del Repositorio
-
--   `/backend`: Contiene el servicio Flask que actúa como API, el gestor de WebSockets y la lógica del agente de IA (`chat_agent.py`).
--   `/frontend`: Una aplicación simple en React para visualizar e interactuar con el chat en tiempo real.
--   `/simulation_scripts`: Scripts de Python para ejecutar las simulaciones (`chat_test.py`) y analizar los resultados (`1_calculate_metrics.py`, `2_run_analysis.py`).
--   `/simulated_conversations`: Directorio donde se guardan los resultados de las simulaciones (archivos `.csv`).
--   `/nginx`: Configuración de Nginx para actuar como reverse proxy.
--   `docker-compose.yml`: Archivo para orquestar todos los servicios con Docker.
--   `.env.example`: Plantilla para las variables de entorno necesarias.
-
----
-
-## Requisitos Previos
-
--   Docker (`20.10+`)
--   Docker Compose (`1.29+`)
--   Python (`3.9+`) con `pip` para los scripts de análisis.
--   Git
+- `/backend`: Servicio Flask (API y lógica del agente).
+- `/frontend`: Aplicación en React para la interfaz de chat.
+- `/simulation_scripts`: Scripts de Python para ejecutar y analizar las simulaciones.
+- `/shared`: Configuraciones compartidas (`.env.public`, `.env.private`, `caso-sebastian.txt`).
+- `/nginx`: Configuración de Nginx como reverse proxy.
+- `docker-compose.yml`: Orquestador de servicios.
+- `sync-config.js`: Script para sincronizar configuraciones de forma segura.
 
 ---
 
 ## Guía de Puesta en Marcha y Replicación del Estudio
 
-Para replicar completamente este estudio, siga los siguientes pasos en orden.
+Para replicar este estudio, siga los siguientes pasos en orden.
 
-### Paso 1: Configuración del Entorno
+### Requisitos Previos
+- Docker (`20.10+`) y Docker Compose (`1.29+`)
+- Node.js (`16+`) y npm (para el script de configuración)
+- Python (`3.9+`) y `pip` (para los scripts de análisis)
+- Git
+
+### Paso 1: Configuración Inicial del Entorno
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [URL-DE-TU-REPOSITORIO]
-    cd [NOMBRE-DE-TU-REPOSITORIO]
+    git clone https://github.com/vijo30/genai-service-prototypes.git
+    cd genai-service-prototypes
     ```
 
-2.  **Configurar las variables de entorno:**
-    -   Cree una copia del archivo de ejemplo:
-        ```bash
-        cp .env.example .env
-        ```
-    -   Abra el archivo `.env` con un editor de texto y añada sus claves de API para los LLMs (OpenAI, Google Gemini, DeepSeek).
+2.  **Instalar dependencias de Node.js:**
+    ```bash
+    npm install
+    ```
 
-    ```dotenv
-    # .env
-    OPENAI_API_KEY="sk-..."
-    GOOGLE_API_KEY="AIzaSy..."
-    DEEPSEEK_API_KEY="sk-..."
-    # No es necesario modificar las otras variables si se usa Docker.
+3.  **Configurar las variables de entorno (Paso Crítico):**
+    Este proyecto separa la configuración pública de la privada para máxima seguridad. Deberá crear dos archivos `.env` a partir de las plantillas en la carpeta `/shared`.
+
+    a. **Variables Privadas (Solo para el Backend):**
+    -   Copie el archivo de ejemplo: `cp shared/.env.private.example shared/.env.private`
+    -   Abra `shared/.env.private` y **añada sus claves de API**. Estas claves NUNCA saldrán del backend.
+        ```dotenv
+        # shared/.env.private
+        OPENAI_API_KEY="sk-..."
+        GOOGLE_API_KEY="AIzaSy..."
+        DEEPSEEK_API_KEY="sk-..."
+        ```
+
+    b. **Variables Públicas (Compartidas con el Frontend):**
+    -   Copie el archivo de ejemplo: `cp shared/.env.public.example shared/.env.public`
+    -   Abra `shared/.env.public` y configure las variables que necesiten ser conocidas por el frontend. Por defecto, puede dejar la URL de la API.
+        ```dotenv
+        # shared/.env.public
+        API_BASE_URL=http://localhost:80
+        ```
+
+4.  **Sincronizar las configuraciones:**
+    Ejecute el script de sincronización. Este comando distribuirá de forma inteligente y segura las variables a los directorios `/backend` y `/frontend`.
+    ```bash
+    node sync-config.js
     ```
 
 ### Paso 2: Ejecutar los Servicios con Docker
 
-El sistema completo (backend, frontend, Redis, etc.) se levanta con un solo comando. Esto es necesario para que el script de simulación pueda interactuar con el bot.
+El sistema completo se levanta con un solo comando.
 
 ```bash
 docker-compose up --build -d
 ```
--   `--build`: Fuerza la reconstrucción de las imágenes si ha habido cambios en el código.
--   `-d`: Ejecuta los contenedores en segundo plano (detached mode).
+Esto lanzará el backend, frontend, Redis, el worker y Nginx. Por defecto, Nginx expondrá la aplicación en el puerto `80` de su máquina local.
 
-Para verificar que todo está funcionando, puede revisar los logs:
-```bash
-docker-compose logs -f backend worker
-```
-Presione `Ctrl+C` para salir de los logs.
+### Paso 3 (Opcional): Exponer el Servicio con Ngrok
 
-### Paso 3: Ejecutar el Banco de Pruebas Sintético
+Si necesita que la API de su bot sea accesible desde una URL pública (por ejemplo, para pruebas externas o para que los LLMs que corren en la nube puedan hacer callbacks si fuera necesario), puede usar `ngrok`.
 
-Estas simulaciones generan los datos crudos que se usarán en el análisis. **Este es el paso más largo y puede tardar varias horas**, dependiendo del número de repeticiones y la latencia de las APIs de los LLMs.
+1.  **Asegúrese de tener ngrok instalado y autenticado.**
+2.  **Exponga el puerto 80**, que es donde Nginx está escuchando:
+    ```bash
+    ngrok http 80
+    ```
+3.  Ngrok le proporcionará una URL pública (`https://<hash>.ngrok-free.app`). Debe tomar esta URL base y actualizar la variable `API_BASE_URL` en el archivo `.env` del backend (y volver a sincronizar si es necesario) para que los scripts de simulación apunten a la dirección correcta.
+
+### Paso 4: Ejecutar el Banco de Pruebas Sintético
+
+Este es el paso más largo y consume recursos de las APIs.
 
 1.  **Navegue a la carpeta de scripts:**
     ```bash
     cd simulation_scripts
     ```
 
-2.  **Instale las dependencias necesarias para los scripts:**
+2.  **Instale las dependencias de Python:**
     ```bash
     pip install -r requirements.txt
     ```
-    *(Nota: Asegúrese de que `requirements.txt` en esta carpeta contenga `pandas`, `pysentimiento`, `readability-lxml`, `scipy`, etc.)*
 
 3.  **Ejecute el script de simulación:**
     ```bash
     python chat_test.py
     ```
-    El script imprimirá en la consola el progreso de cada simulación. Al finalizar, todos los archivos `.csv` de las conversaciones se encontrarán en la carpeta `simulated_conversations`.
+    Las conversaciones se guardarán en la carpeta `simulated_conversations`.
 
-### Paso 4: Realizar el Análisis de Resultados
+### Paso 5: Realizar el Análisis de Resultados
 
-Una vez que todas las simulaciones han finalizado, se procede a analizar los datos generados. Este proceso está dividido en dos fases para mayor modularidad.
+Una vez finalizadas las simulaciones:
 
 1.  **Calcular las métricas proxy:**
-    Este script lee todos los CSVs de conversaciones y calcula las métricas objetivas para cada una.
     ```bash
     python 1_calculate_metrics.py
     ```
-    Esto generará un archivo `raw_metrics_summary.csv` dentro de la carpeta `simulated_conversations`.
 
 2.  **Ejecutar el análisis estadístico global:**
-    Este script toma el resumen anterior, calcula el índice compuesto (ICCA) y realiza las comparaciones estadísticas.
     ```bash
     python 2_run_analysis.py
     ```
-    Los resultados del análisis se imprimirán directamente en la consola y se guardará un archivo final `final_analysis_with_icca.csv` con todos los datos procesados. Los resultados impresos en la consola son los que se reportan en el informe de tesis.
+    Esto generará los gráficos en `simulated_conversations/analysis_plots` y los informes estadísticos en formato `.csv`.
 
-### Paso 5: Detener los Servicios
+### Paso 6: Detener los Servicios
 
-Cuando haya terminado con las simulaciones y el análisis, puede detener todos los servicios de Docker con el siguiente comando desde la raíz del proyecto:
+Cuando haya terminado, detenga todos los contenedores:
 ```bash
 docker-compose down
 ```
-
 ---
+
 
 ## Estructura del Código Clave
 

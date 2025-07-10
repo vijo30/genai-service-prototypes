@@ -1,72 +1,90 @@
 const fs = require('fs');
 const path = require('path');
+const dotenv = require('dotenv');
 
-// Configuración de rutas
+console.log('🚀 Iniciando script de sincronización de configuraciones...');
+
+// --- CONFIGURACIÓN DE RUTAS ---
+const BASE_DIR = __dirname;
 const PATHS = {
   shared: {
-    case: path.join(__dirname, 'shared', 'caso-sebastian.txt'),
-    env: path.join(__dirname, 'shared', '.env.shared')
+    case: path.join(BASE_DIR, 'shared', 'caso-sebastian.txt'),
+    publicEnv: path.join(BASE_DIR, 'shared', '.env.public'), // Archivo para variables públicas
+    privateEnv: path.join(BASE_DIR, 'shared', '.env.private') // Archivo para secretos
   },
   backend: {
-    config: path.join(__dirname, 'backend', 'config', 'generated_config.py'),
-    env: path.join(__dirname, 'backend', '.env')
+    configDir: path.join(BASE_DIR, 'backend', 'config'),
+    configFile: path.join(BASE_DIR, 'backend', 'config', 'generated_config.py'),
+    envFile: path.join(BASE_DIR, 'backend', '.env')
   },
   frontend: {
-    config: path.join(__dirname, 'frontend', 'src', 'shared_config', 'case_config.json'),
-    env: path.join(__dirname, 'frontend', '.env')
+    configDir: path.join(BASE_DIR, 'frontend', 'src', 'shared_config'),
+    configFile: path.join(BASE_DIR, 'frontend', 'src', 'shared_config', 'case_config.json'),
+    envFile: path.join(BASE_DIR, 'frontend', '.env')
   }
 };
 
-// Función para leer archivos seguros
-const readFileSafe = (path) => {
-  try {
-    return fs.readFileSync(path, 'utf-8');
-  } catch (error) {
-    console.error(`Error leyendo ${path}:`, error.message);
-    return '';
-  }
+// --- FUNCIONES AUXILIARES (más robustas) ---
+
+const readFileSafe = (filePath) => (fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf-8') : '');
+const parseEnvFile = (filePath) => (fs.existsSync(filePath) ? dotenv.parse(Buffer.from(readFileSafe(filePath))) : {});
+
+const writeFileSafe = (filePath, content) => {
+  const dir = path.dirname(filePath);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(filePath, content, 'utf-8');
 };
 
-// 1. Sincronizar el caso ético
-const syncCase = () => {
+const writeEnvFile = (filePath, envObject) => {
+  const content = Object.entries(envObject).map(([key, value]) => `${key}=${value}`).join('\n');
+  writeFileSafe(filePath, content);
+};
+
+// --- LÓGICA DE SINCRONIZACIÓN ---
+
+const syncCaseFile = () => {
+  console.log('🔄 Sincronizando caso de estudio...');
   const caseContent = readFileSafe(PATHS.shared.case);
-
-  // Backend (Python)
-  const backendContent = `# GENERADO AUTOMÁTICAMENTE - NO EDITAR MANUALMENTE\n\n` +
-                        `SEBASTIAN_CASE = """\n${caseContent}\n"""`;
-  fs.writeFileSync(PATHS.backend.config, backendContent);
-
-  // Frontend (JSON)
+  if (!caseContent) {
+    console.warn('⚠️  El archivo del caso está vacío o no se pudo leer.');
+    return;
+  }
+  const backendContent = `# GENERADO AUTOMÁTICAMENTE\n\nSEBASTIAN_CASE = """${caseContent.replace(/"/g, '\\"')}"""`;
+  writeFileSafe(PATHS.backend.configFile, backendContent);
   const frontendContent = JSON.stringify({ caso_sebastian: caseContent }, null, 2);
-  fs.writeFileSync(PATHS.frontend.config, frontendContent);
-
-  console.log('✅ Caso sincronizado a frontend y backend');
+  writeFileSafe(PATHS.frontend.configFile, frontendContent);
+  console.log('✅ Caso de estudio sincronizado.');
 };
 
-// 2. Sincronizar variables de entorno
 const syncEnvVars = () => {
-  const sharedVars = readFileSafe(PATHS.shared.env);
-  
-  // Backend - Combinar sin duplicados
-  const currentBackendEnv = readFileSafe(PATHS.backend.env);
-  const newBackendEnv = currentBackendEnv.split('\n')
-    .filter(line => !line.startsWith('#') && line.trim())
-    .concat(sharedVars.split('\n'))
-    .filter((value, index, self) => self.indexOf(value) === index)
-    .join('\n');
-  fs.writeFileSync(PATHS.backend.env, newBackendEnv);
+  console.log('🔄 Sincronizando variables de entorno...');
+  const publicVars = parseEnvFile(PATHS.shared.publicEnv);
+  const privateVars = parseEnvFile(PATHS.shared.privateEnv);
 
-  // Frontend - Prefijo REACT_APP_
-  const reactVars = sharedVars.split('\n')
-    .filter(line => line.trim() && !line.startsWith('#'))
-    .map(line => `REACT_APP_${line}`)
-    .join('\n');
-  fs.writeFileSync(PATHS.frontend.env, reactVars);
+  // --- Sincronización del Backend (recibe TODO) ---
+  const currentBackendVars = parseEnvFile(PATHS.backend.envFile);
+  const finalBackendVars = { ...currentBackendVars, ...publicVars, ...privateVars };
+  writeEnvFile(PATHS.backend.envFile, finalBackendVars);
+  console.log('✅ Variables de entorno del backend actualizadas (públicas y privadas).');
 
-  console.log('✅ Variables de entorno sincronizadas');
+  // --- Sincronización del Frontend (recibe SÓLO lo público) ---
+  const currentFrontendVars = parseEnvFile(PATHS.frontend.envFile);
+  const reactPublicVars = {};
+  for (const key in publicVars) {
+    reactPublicVars[`REACT_APP_${key}`] = publicVars[key];
+  }
+  // Se mantienen las variables que ya existen y no entran en conflicto con las públicas
+  const finalFrontendVars = { ...currentFrontendVars, ...reactPublicVars };
+  writeEnvFile(PATHS.frontend.envFile, finalFrontendVars);
+  console.log('✅ Variables de entorno del frontend actualizadas (solo públicas).');
 };
 
-// Ejecutar todo
-syncCase();
-syncEnvVars();
-console.log('🚀 Sincronización completada');
+// --- EJECUCIÓN PRINCIPAL ---
+try {
+  syncCaseFile();
+  syncEnvVars();
+  console.log('\n✨ Sincronización completada con éxito.');
+} catch (error) {
+  console.error('\n❌ Ha ocurrido un error durante la sincronización:', error);
+  process.exit(1);
+}

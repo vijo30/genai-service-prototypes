@@ -165,3 +165,4 @@ cython_debug/
 frontend/node_modules
 .data*
 simulated_conversations
+node_modules

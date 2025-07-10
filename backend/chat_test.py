@@ -28,11 +28,12 @@ from langchain_core.runnables import Runnable
 load_dotenv(override=True)
 
 # --- CONFIGURACIÓN GLOBAL ---
-API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
+API_BASE_URL = 'https://' + os.getenv("API_BASE_URL", "http://localhost:8000")
+
 SIMULATION_INTERVAL_API = 10 # Pausa más larga para API para dar tiempo al bot
 SIMULATION_INTERVAL_LOCAL = 2 # Pausa más corta para simulaciones sin bot
 NUM_PARTICIPANTS = 3
-TOTAL_TURNS = 12 # Número total de mensajes en una conversación
+TOTAL_TURNS = 12 * NUM_PARTICIPANTS # Número total de mensajes en una conversación
 OUTPUT_DIR = "simulated_conversations"
 DISABLE_SSL_VERIFICATION = os.getenv("DISABLE_SSL_VERIFICATION", "False").lower() == "true"
 
@@ -264,10 +265,6 @@ def run_main_simulation():
         {"scenario": "convergente", "use_bot": True,  "bot_llm": "Gemini",   "user_llm": "Gemini",  "user_personality": "conciliador"},
         {"scenario": "convergente", "use_bot": True,  "bot_llm": "DeepSeek", "user_llm": "DeepSeek", "user_personality": "conciliador"},
         
-        # Opcional: Combinaciones cruzadas (si tienes tiempo y recursos)
-        # {"scenario": "convergente", "use_bot": True,  "bot_llm": "ChatGPT",  "user_llm": "Gemini", "user_personality": "conciliador"},
-        # {"scenario": "convergente", "use_bot": True,  "bot_llm": "Gemini",   "user_llm": "ChatGPT", "user_personality": "conciliador"},
-
         # --- GRUPO DE CONTROL (SIN BOT) ---
         # Se establece una línea base para cada tipo de LLM de usuario
         {"scenario": "convergente", "use_bot": False, "bot_llm": "N/A", "user_llm": "ChatGPT",  "user_personality": "conciliador"},
@@ -284,9 +281,6 @@ def run_main_simulation():
         {"scenario": "divergente",  "use_bot": True,  "bot_llm": "Gemini",   "user_llm": "Gemini",  "user_personality": "esceptico"},
         {"scenario": "divergente",  "use_bot": True,  "bot_llm": "DeepSeek", "user_llm": "DeepSeek", "user_personality": "esceptico"},
 
-        # Opcional: Combinaciones cruzadas
-        # {"scenario": "divergente",  "use_bot": True,  "bot_llm": "ChatGPT",  "user_llm": "Gemini", "user_personality": "esceptico"},
-        # {"scenario": "divergente",  "use_bot": True,  "bot_llm": "Gemini",   "user_llm": "ChatGPT", "user_personality": "esceptico"},
 
         # --- GRUPO DE CONTROL (SIN BOT) ---
         # Se establece una línea base para cada tipo de LLM de usuario

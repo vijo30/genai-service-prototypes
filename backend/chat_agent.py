@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import time # ¡Importar el módulo time!
+import re
 from typing import Dict, List, Optional
 from dotenv import load_dotenv
 
@@ -147,19 +148,27 @@ class EthicalDebateAgent:
         return PromptTemplate.from_template(prompt_template) | self.chat_ai_2 | StrOutputParser()
 
     def safe_parse_json(self, response_text: str) -> Optional[Dict]:
-        """Safely parse JSON responses from LLM"""
-        try:
-            return json.loads(response_text)
-        except json.JSONDecodeError as e:
-            logging.error(f"Error al decodificar JSON: {e}. Intentando limpiar la respuesta.")
+        """
+        Extrae y parsea de forma robusta un objeto JSON de un string,
+        incluso si está envuelto en texto o bloques de código Markdown.
+        """
+        if not isinstance(response_text, str):
+            return None
+
+        # Expresión regular para encontrar un bloque JSON (empieza con { y termina con })
+        # re.DOTALL hace que '.' coincida también con saltos de línea
+        match = re.search(r'\{.*\}', response_text, re.DOTALL)
+        
+        if match:
+            json_str = match.group(0)
             try:
-                # Intenta encontrar el primer '{' y el último '}' para extraer el JSON
-                cleaned = response_text[response_text.find("{"):response_text.rfind("}")+1]
-                return json.loads(cleaned)
-            except Exception as e:
-                logging.error(f"Segundo intento de parseo JSON fallido: {e}")
-                logging.error(f"Texto original que causó el error: {response_text}")
+                return json.loads(json_str)
+            except json.JSONDecodeError as e:
+                logging.error(f"Fallo el parseo de JSON extraído: {e}. JSON String: '{json_str}'")
                 return None
+        else:
+            logging.error(f"No se encontró un objeto JSON válido en la respuesta. Respuesta completa: '{response_text}'")
+            return None
 
     def manage_conversation(self, case: str, conversation: List[Dict]) -> Dict:
         """Orchestrate the dual-agent conversation flow and measure response times."""
