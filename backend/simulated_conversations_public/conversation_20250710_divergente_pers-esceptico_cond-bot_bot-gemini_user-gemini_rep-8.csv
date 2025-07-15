@@ -1,0 +1,61 @@
+timestamp,user_name,message,processing_time_s
+2025-07-11T05:06:51.827735Z,SimAgent_1_Gemini,¿Estás seguro de que ayudarlo es la única opción?,
+2025-07-11T05:07:03.033086Z,SimAgent_2_Gemini,¿Por qué crees que no hay otra salida?,
+2025-07-11T05:07:14.363022Z,SimAgent_3_Gemini,¿Por qué crees que su familia se vería en serios problemas financieros?,
+2025-07-11T05:07:25.580065Z,SimAgent_1_Gemini,¿Por qué crees que ser honesto lo perjudicará?,
+2025-07-11T05:07:36.743584Z,SimAgent_2_Gemini,¿Estás seguro de que la honestidad siempre es la mejor política?,
+2025-07-11T05:07:40.128167Z,Bot,"Sebastián parece creer que no aprobar el curso tendrá consecuencias devastadoras. ¿Qué otras opciones realistas tiene para evitar ese resultado, además de copiar?",3.3532
+2025-07-11T05:07:47.835544Z,SimAgent_3_Gemini,¿Por qué asumes que esas son las *únicas* opciones realistas?,
+2025-07-11T05:07:59.114488Z,SimAgent_1_Gemini,¿Está seguro de que las consecuencias serían devastadoras?,
+2025-07-11T05:08:10.244642Z,SimAgent_1_Gemini,¿Por qué piensas que copiar evitará esas consecuencias?,
+2025-07-11T05:08:13.392729Z,Bot,"Si Sebastián aprueba copiando, ¿cómo afectaría su percepción de sí mismo y su capacidad para enfrentar desafíos futuros sin recurrir a atajos?",3.1150
+2025-07-11T05:08:21.739588Z,SimAgent_1_Gemini,SimAgent_1_Gemini: ¿Por qué crees que necesita atajos para superar desafíos?,
+2025-07-11T05:08:32.832691Z,SimAgent_1_Gemini,¿Por qué la honestidad es siempre la mejor opción *en este* caso?,
+2025-07-11T05:08:35.914817Z,Bot,"¿Qué significa 'ayudar' en este caso? ¿Implica necesariamente darle las respuestas, o hay otras formas de apoyo que podrían ser más beneficiosas a largo plazo para Sebastián?",3.0372
+2025-07-11T05:08:43.994798Z,SimAgent_1_Gemini,¿Estás seguro de que ayudarlo a copiar es la única forma de apoyarlo?,
+2025-07-11T05:08:55.169042Z,SimAgent_3_Gemini,SimAgent_3_Gemini: ¿Por qué crees que Sebastián no puede aprobar por sí mismo?,
+2025-07-11T05:08:58.419572Z,Bot,"Alberto y Alejandra, los padres de Sebastián, parecen valorar tanto la honestidad como el éxito académico de su hijo. ¿Cómo creen que se sentirían si supieran que Sebastián aprobó el examen copiando, incluso si eso alivia sus problemas financieros?",3.2157
+2025-07-11T05:09:06.237668Z,SimAgent_3_Gemini,¿Por qué es tan importante evitar que Sebastián se atrase un año?,
+2025-07-11T05:09:17.314763Z,SimAgent_3_Gemini,¿Estás seguro de que es deshonesto ayudarlo?,
+2025-07-11T05:09:28.526130Z,SimAgent_3_Gemini,¿No lo ves como una forma de engaño?,
+2025-07-11T05:09:31.314178Z,Bot,"Sebastián valora la honestidad, pero también el apoyo familiar. ¿Cómo podría honrar ambos valores en esta situación?",2.7560
+2025-07-11T05:09:39.673709Z,SimAgent_1_Gemini,¿Por qué asumir que son mutuamente excluyentes?,
+2025-07-11T05:09:50.693197Z,SimAgent_1_Gemini,¿Estás seguro de que ayudarlo es el único apoyo posible?,
+2025-07-11T05:10:01.736967Z,SimAgent_2_Gemini,¿Por qué crees que solo hay una forma de ayudar?,
+2025-07-11T05:10:13.023959Z,SimAgent_2_Gemini,¿Por qué crees que sabe más si le ayudo?,
+2025-07-11T05:10:24.122866Z,SimAgent_3_Gemini,¿Estás seguro de que la ayuda implica hacer trampa?,
+2025-07-11T05:10:35.453280Z,SimAgent_3_Gemini,¿Por qué crees que lo que sus padres dijeron es la única consideración?,
+2025-07-11T05:10:38.866447Z,Bot,"Si Sebastián decide ser honesto y no copiar, ¿cómo podría comunicar a sus padres la situación de manera que se sientan orgullosos de su integridad, incluso si eso implica enfrentar consecuencias económicas?",3.3815
+2025-07-11T05:10:46.604506Z,SimAgent_2_Gemini,¿Estás seguro de que sentirse orgullosos es suficiente?,
+2025-07-11T05:10:57.783385Z,SimAgent_3_Gemini,¿Por qué crees que enfrentar consecuencias económicas es inevitable?,
+2025-07-11T05:11:00.872235Z,Bot,Sebastián menciona que sus padres son personas honradas. ¿Cómo afectaría la relación de Sebastián con sus padres a largo plazo si decide ocultarles que aprobó copiando?,3.0563
+2025-07-11T05:11:08.873457Z,SimAgent_3_Gemini,¿Por qué crees que ocultarlo es la única opción si copia?,
+2025-07-11T05:11:20.080344Z,SimAgent_2_Gemini,¿Estás seguro de que la relación se vería afectada a largo plazo?,
+2025-07-11T05:11:31.350278Z,SimAgent_1_Gemini,¿Por qué crees que ocultarlo es la única opción?,
+2025-07-11T05:11:42.572137Z,SimAgent_1_Gemini,¿Por qué crees que la honestidad y el trabajo duro siempre son recompensados en el ámbito laboral?,
+2025-07-11T05:11:45.967036Z,Bot,"Hemos hablado mucho de Sebastián y su familia, pero ¿cómo podría afectar esta situación la relación del narrador con Sebastián, independientemente de la decisión que tome?",3.3623
+2025-07-11T05:11:53.900203Z,SimAgent_1_Gemini,¿Estás seguro de que la relación se verá afectada independientemente de la decisión?,
+2025-07-11T05:12:05.066924Z,SimAgent_2_Gemini,¿Por qué crees que es inevitable?,
+2025-07-11T05:12:16.125996Z,SimAgent_1_Gemini,¿No lo veo tan claro?,
+2025-07-11T05:12:19.051090Z,Bot,"El narrador valora la honestidad, pero también la amistad. ¿Cómo podrían redefinir el concepto de 'ayuda' para que se alinee con ambos valores?",2.8917
+2025-07-11T05:12:27.359715Z,SimAgent_3_Gemini,¿Están seguros de que se puede redefinir ayuda en ese contexto?,
+2025-07-11T05:12:38.427112Z,SimAgent_2_Gemini,¿Por qué asumir que la redefinición es posible?,
+2025-07-11T05:12:49.767909Z,SimAgent_1_Gemini,¿Por qué ayuda debe ser redefinida?,
+2025-07-11T05:12:52.969722Z,Bot,"Sebastián parece preocupado por las consecuencias financieras. ¿Qué otras formas de apoyo podría buscar su familia para aliviar esa carga, más allá de depender exclusivamente de su éxito en este curso?",3.1688
+2025-07-11T05:13:00.896989Z,SimAgent_3_Gemini,¿Por qué crees que su familia debería buscar otras formas de apoyo?,
+2025-07-11T05:13:04.125093Z,Bot,Hemos asumido que la gratuidad es un derecho inalienable. ¿Qué implicaciones tendría considerar la gratuidad como una beca condicionada al rendimiento académico?,3.1952
+2025-07-11T05:13:12.130530Z,SimAgent_1_Gemini,¿Estás seguro de que el rendimiento académico debería condicionar la gratuidad?,
+2025-07-11T05:13:23.340252Z,SimAgent_1_Gemini,¿Por qué es una beca y no un derecho?,
+2025-07-11T05:13:34.441892Z,SimAgent_1_Gemini,¿Por qué asumimos que es uno u otro?,
+2025-07-11T05:13:45.607905Z,SimAgent_3_Gemini,¿Por qué el rendimiento académico es la única métrica relevante?,
+2025-07-11T05:13:56.780282Z,SimAgent_1_Gemini,"¿No lo veo tan claro, por qué condicionar la gratuidad?",
+2025-07-11T05:14:08.015672Z,SimAgent_2_Gemini,SimAgent_2_Gemini: ¿Por qué es mi responsabilidad solucionar sus problemas financieros?,
+2025-07-11T05:14:19.269705Z,SimAgent_2_Gemini,¿Estás seguro de que ayudarlo es la única opción?,
+2025-07-11T05:14:22.387975Z,Bot,El narrador parece asumir que la gratuidad de Sebastián depende exclusivamente de aprobar este curso. ¿Qué otros factores podrían influir en la decisión de mantener o revocar su gratuidad?,3.0855
+2025-07-11T05:14:30.422505Z,SimAgent_2_Gemini,¿Estás seguro de que la familia se vería en serios problemas financieros?,
+2025-07-11T05:14:41.529692Z,SimAgent_2_Gemini,¿Por qué asumir que reprobar un curso equivale a perder la gratuidad?,
+2025-07-11T05:14:44.521681Z,Bot,"Si Sebastián decide confesar que copió, ¿cómo podría convertir ese error en una oportunidad para aprender y crecer, demostrando madurez y responsabilidad ante sus padres y la institución educativa?",2.9585
+2025-07-11T05:14:52.649559Z,SimAgent_1_Gemini,¿Por qué crees que confesar es una oportunidad?,
+2025-07-11T05:14:55.963823Z,Bot,"Más allá de la angustia inmediata, ¿cómo afectaría la confianza en sí mismo de Sebastián, a largo plazo, saber que evitó el fracaso a través de una ayuda externa en lugar de su propio esfuerzo?",3.2805
+2025-07-11T05:15:04.068142Z,SimAgent_2_Gemini,"¿No lo veo tan claro, cómo afectaría su confianza?",
+2025-07-11T05:15:07.274036Z,Bot,Hemos enfocado el debate en Sebastián y su entorno. ¿Qué implicaciones tendría para la institución educativa si se descubre que hay alumnos que copian en los exámenes?,3.1739

@@ -141,7 +141,7 @@ def perform_analysis():
     if statistical_results:
         summary_df = pd.DataFrame(statistical_results)
         # Formatear el p-value para una mejor presentación
-        summary_df['p_value_formatted'] = summary_df['p_value'].apply(lambda p: format_p_value(p) if pd.notna(p) else 'N/A')
+        summary_df['p_value_formatted'] = summary_df['p_value'].apply(lambda p: format_p_value(p) if pd.notna(p) else 'na')
         summary_df['significativo_p<0.05'] = summary_df['p_value'] < 0.05
         
         summary_df.to_csv(STATISTICAL_SUMMARY_FILE, index=False, float_format='%.4f')

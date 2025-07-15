@@ -1,0 +1,58 @@
+timestamp,user_name,message,processing_time_s
+2025-07-10T21:35:11.399600Z,SimAgent_2_Gemini,"Entiendo tu conflicto. Quizás podrías ayudarlo a estudiar, pero sin darle las respuestas directamente.",
+2025-07-10T21:35:22.827817Z,SimAgent_1_Gemini,"Sí, ayudarle a estudiar parece un buen punto medio y una forma de apoyar sin cruzar la línea.",
+2025-07-10T21:35:26.207444Z,Bot,¿No estará Sebastián presionado por una definición muy estrecha del 'éxito' académico? ¿Qué otras formas hay de medir el valor de su esfuerzo y el de su familia?,3.3465
+2025-07-10T21:35:34.849928Z,SimAgent_3_Gemini,"Cierto, el valor del esfuerzo es clave. Quizás enfocarse en eso le quitaría presión.",
+2025-07-10T21:35:37.914027Z,Bot,"¿Qué concepto de amistad estamos priorizando aquí: uno basado en la honestidad y el crecimiento individual, o uno que justifica el sacrificio de la integridad por el bienestar inmediato?",3.0322
+2025-07-10T21:35:46.130979Z,SimAgent_1_Gemini,"Ambos conceptos son importantes. Podríamos buscar un punto intermedio que respete la honestidad, pero también apoye a Sebastián.",
+2025-07-10T21:35:57.496810Z,SimAgent_3_Gemini,"Sí, un punto intermedio es ideal. Tal vez enfocarse en ayudarlo a entender los conceptos, no a resolver el examen.",
+2025-07-10T21:36:08.707065Z,SimAgent_1_Gemini,Exacto. Ayudarlo a estudiar sin darle las respuestas parece un buen equilibrio.,
+2025-07-10T21:36:11.739878Z,Bot,"¿Qué obligaciones tiene un amigo, y cómo se comparan con las obligaciones que tenemos con nosotros mismos y nuestros propios valores?",3.0006
+2025-07-10T21:36:19.842048Z,SimAgent_1_Gemini,Totalmente de acuerdo. Equilibrar la amistad con la integridad personal es crucial.,
+2025-07-10T21:36:31.082157Z,SimAgent_1_Gemini,"Sí, es un equilibrio delicado. Quizás priorizar el apoyo emocional para reducir su angustia.",
+2025-07-10T21:36:42.591206Z,SimAgent_1_Gemini,Absolutamente. Reducir su estrés podría ayudarlo a pensar con claridad y rendir mejor.,
+2025-07-10T21:36:53.763861Z,SimAgent_1_Gemini,"De acuerdo. Y quizás, juntos, puedan repasar los conceptos clave antes del examen.",
+2025-07-10T21:36:56.806928Z,Bot,"¿Qué consecuencias a largo plazo, más allá de la nota del examen, podría tener esta decisión en la relación de amistad entre Sebastián y tú?",3.0106
+2025-07-10T21:37:05.110286Z,SimAgent_3_Gemini,"Cierto, es importante considerar cómo esta acción impactará su amistad en el futuro.",
+2025-07-10T21:37:16.453201Z,SimAgent_1_Gemini,"Sí, y dialogar honestamente sobre sus valores podría fortalecer su amistad.",
+2025-07-10T21:37:27.730566Z,SimAgent_3_Gemini,"Entiendo. Quizás enfocarse en el aprendizaje, más que en el resultado, sería valioso para ambos.",
+2025-07-10T21:37:30.794921Z,Bot,"¿Cómo afectaría la percepción de Sebastián sobre su propia valía y capacidad si aprueba mediante ayuda externa, en comparación con si enfrenta y supera el desafío por sí mismo?",3.0301
+2025-07-10T21:37:39.092252Z,SimAgent_1_Gemini,Es una buena pregunta. Tal vez enfocarse en cómo se sentiría Sebastián a largo plazo es clave.,
+2025-07-10T21:37:50.224052Z,SimAgent_2_Gemini,"Sí, la integridad personal a largo plazo es muy importante para ambos.",
+2025-07-10T21:38:01.422378Z,SimAgent_2_Gemini,"Absolutamente. Y quizás también explorar otras opciones, como hablar con el profesor.",
+2025-07-10T21:38:12.603608Z,SimAgent_1_Gemini,Hablar con el profesor podría aliviar la presión y encontrar una solución justa.,
+2025-07-10T21:38:23.866347Z,SimAgent_3_Gemini,"Exacto, buscar alternativas con el profesor podría ser beneficioso para todos.",
+2025-07-10T21:38:34.958557Z,SimAgent_3_Gemini,"Sí, y también hablar con sus padres sobre las opciones financieras.",
+2025-07-10T21:38:46.062713Z,SimAgent_2_Gemini,"Sí, involucrar a la familia y al profesor parece un buen camino a seguir.",
+2025-07-10T21:38:57.236165Z,SimAgent_2_Gemini,"De acuerdo, el apoyo familiar y académico son cruciales; quizás una tutoría sería útil.",
+2025-07-10T21:39:08.495056Z,SimAgent_3_Gemini,"Una tutoría suena bien, o incluso estudiar juntos más enfocadamente.",
+2025-07-10T21:39:19.807928Z,SimAgent_2_Gemini,"Sí, estudiar juntos con tutoría podría aliviar la presión y mejorar su preparación.",
+2025-07-10T21:39:31.008186Z,SimAgent_2_Gemini,"Exacto, ese estudio en conjunto reduciría la ansiedad y fomentaría un aprendizaje más honesto.",
+2025-07-10T21:39:42.284872Z,SimAgent_1_Gemini,"Totalmente de acuerdo. La honestidad es clave, pero la presión familiar es real. ¿Quizás hablar con sus padres juntos?",
+2025-07-10T21:39:53.432690Z,SimAgent_2_Gemini,Hablar con los padres juntos podría ayudar a encontrar una solución equilibrada y comprensiva.,
+2025-07-10T21:40:04.693333Z,SimAgent_3_Gemini,"Sí, una conversación familiar podría abrir nuevas perspectivas y aliviar tensiones.",
+2025-07-10T21:40:15.896635Z,SimAgent_3_Gemini,"Absolutamente, esa conversación podría revelar opciones antes no consideradas por Sebastián.",
+2025-07-10T21:40:18.901931Z,Bot,¿Qué estaría dispuesto a sacrificar Sebastián (y tú) a largo plazo para evitar la consecuencia inmediata de reprobar el examen?,2.9715
+2025-07-10T21:40:27.087528Z,SimAgent_1_Gemini,Es una buena pregunta. Quizás explorar alternativas menos riesgosas sería un buen punto de partida.,
+2025-07-10T21:40:38.279085Z,SimAgent_1_Gemini,De acuerdo. Tal vez buscar ayuda adicional para Sebastián en contabilidad sería útil.,
+2025-07-10T21:40:49.553421Z,SimAgent_1_Gemini,"Sí, enfocarse en soluciones prácticas como tutorías parece un camino sensato y constructivo.",
+2025-07-10T21:41:00.670217Z,SimAgent_1_Gemini,"Exacto, buscar recursos y apoyo académico es una excelente idea para Sebastián.",
+2025-07-10T21:41:11.979310Z,SimAgent_2_Gemini,"Absolutamente, reforzar sus conocimientos con ejercicios prácticos podría aliviar su ansiedad.",
+2025-07-10T21:41:14.840898Z,Bot,"¿Qué rol juega la confianza en uno mismo en la formación profesional de Sebastián, más allá de la aprobación de este curso en particular?",2.8302
+2025-07-10T21:41:23.100019Z,SimAgent_1_Gemini,"La confianza es clave; tal vez podemos ayudarlo a construirla, paso a paso, con pequeños logros.",
+2025-07-10T21:41:34.365931Z,SimAgent_2_Gemini,"De acuerdo, celebremos cada pequeño avance para fortalecer su confianza.",
+2025-07-10T21:41:45.693895Z,SimAgent_2_Gemini,"Sí, concentrémonos en soluciones prácticas y en el apoyo que necesita para sentirse más seguro.",
+2025-07-10T21:41:48.774462Z,Bot,"¿Cómo impactaría la confianza que los padres de Sebastián tienen en él, si supieran que aprobó con ayuda externa, considerando que valoran tanto el esfuerzo y la honestidad?",3.0482
+2025-07-10T21:41:56.834484Z,SimAgent_2_Gemini,"Cierto, quizás un camino intermedio es ayudarle a estudiar, pero sin darle las respuestas directamente.",
+2025-07-10T21:41:59.827714Z,Bot,"¿Qué mensaje le estamos transmitiendo a Francisca, la hermana de Sebastián, sobre el valor del esfuerzo y la honestidad, si Sebastián aprueba con ayuda?",2.9603
+2025-07-10T21:42:08.033748Z,SimAgent_3_Gemini,Totalmente. Podríamos enfocarnos en cómo ayudar a Sebastián sin comprometer sus valores familiares.,
+2025-07-10T21:42:19.285535Z,SimAgent_2_Gemini,Exacto. Tal vez lo mejor sea explorar opciones que respeten los valores y las necesidades de todos.,
+2025-07-10T21:42:30.471188Z,SimAgent_3_Gemini,"Sí, buscar alternativas que equilibren la ayuda con la integridad parece lo más sensato.",
+2025-07-10T21:42:41.979301Z,SimAgent_2_Gemini,De acuerdo. Quizás podemos enfocarnos en soluciones creativas que beneficien a todos a largo plazo.,
+2025-07-10T21:42:45.020844Z,Bot,"¿Cómo afectaría la percepción que Sebastián tiene de sí mismo como futuro profesional, si sus compañeros supieran que aprobó gracias a tu ayuda?",3.0074
+2025-07-10T21:42:53.478106Z,SimAgent_3_Gemini,Buena pregunta. Podríamos explorar cómo la honestidad impacta su futuro profesional y personal.,
+2025-07-10T21:43:04.563805Z,SimAgent_2_Gemini,"Sí, consideremos cómo la integridad personal y profesional de Sebastián se ven afectadas.",
+2025-07-10T21:43:07.638872Z,Bot,"Si Sebastián acepta tu ayuda y aprueba, ¿cómo podría afectar su percepción sobre la importancia del estudio y la preparación personal en futuros desafíos profesionales?",3.0427
+2025-07-10T21:43:15.837315Z,SimAgent_2_Gemini,Es crucial analizar cómo esto influirá en su ética y su compromiso con el esfuerzo personal.,
+2025-07-10T21:43:27.074247Z,SimAgent_1_Gemini,"De acuerdo. Podemos enfocarnos en cómo fomentar el esfuerzo personal a largo plazo, buscando un punto medio.",
+2025-07-10T21:43:30.059109Z,Bot,"Alberto y Alejandra, ¿qué priorizarían: el alivio inmediato de la angustia de Sebastián o el desarrollo de su resiliencia y capacidad para superar obstáculos a largo plazo?",2.9528

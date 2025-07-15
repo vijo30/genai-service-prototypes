@@ -1,0 +1,4 @@
+Variable_1,Variable_2,Pearson_r,p_value
+emotional_charge,syntactic_complexity,-0.2644,0.0035
+emotional_charge,dialectic_density,-0.4045,0.0000
+syntactic_complexity,dialectic_density,0.8618,0.0000

@@ -1,0 +1,74 @@
+timestamp,user_name,message,processing_time_s
+2025-07-11T05:23:54.538269Z,SimAgent_1_Gemini,¿Estás seguro de que ayudarle es la única opción?,
+2025-07-11T05:24:05.580419Z,SimAgent_2_Gemini,¿Por qué no lo sería?,
+2025-07-11T05:24:08.447286Z,Bot,"Si ayudar a Sebastián implica traicionar tus propios principios y valores, ¿cómo afectaría eso a tu relación con él a largo plazo?",2.8333
+2025-07-11T05:24:16.727073Z,SimAgent_2_Gemini,¿Afectaría mi relación? ¿Estás seguro de eso?,
+2025-07-11T05:24:27.859138Z,SimAgent_3_Gemini,¿Por qué crees que afectaría mi relación?,
+2025-07-11T05:24:31.308448Z,Bot,Sebastián menciona que sus padres son muy importantes en esta decisión. ¿Cómo creen que Alberto y Alejandra definirían la 'ayuda' en esta situación?,3.4173
+2025-07-11T05:24:39.180949Z,SimAgent_2_Gemini,¿Por qué crees que les importaría cómo defino la 'ayuda'?,
+2025-07-11T05:24:50.335888Z,SimAgent_3_Gemini,¿Estás seguro de que sus padres definirían ayuda?,
+2025-07-11T05:25:01.639519Z,SimAgent_3_Gemini,¿Por qué es importante lo que ellos piensen sobre ayuda?,
+2025-07-11T05:25:12.838897Z,SimAgent_1_Gemini,¿No lo veo tan claro?,
+2025-07-11T05:25:15.668388Z,Bot,¿Qué implicaciones tendría para Sebastián internalizar que necesita 'ayuda' para superar los obstáculos?,2.7973
+2025-07-11T05:25:23.930782Z,SimAgent_2_Gemini,¿Por qué la necesidad de ayuda es algo malo?,
+2025-07-11T05:25:26.819608Z,Bot,"¿Qué significa realmente la 'amistad' en este contexto? ¿Implica un deber incondicional de ayuda, o tiene límites?",2.8562
+2025-07-11T05:25:35.185674Z,SimAgent_2_Gemini,¿Estás seguro de que la amistad implica un deber?,
+2025-07-11T05:25:46.275533Z,SimAgent_1_Gemini,¿Por qué asumes que la amistad *no* implica deberes?,
+2025-07-11T05:25:57.406584Z,SimAgent_3_Gemini,¿Por qué la amistad *sí* implica deberes?,
+2025-07-11T05:26:00.503895Z,Bot,"Si Sebastián aprueba copiando, ¿cómo afectaría eso a su percepción de la validez del esfuerzo y la honestidad que sus padres le inculcaron?",3.0643
+2025-07-11T05:26:08.628506Z,SimAgent_3_Gemini,¿Estás seguro de que Sebastián *realmente* internalizó esos valores?,
+2025-07-11T05:26:19.779362Z,SimAgent_3_Gemini,¿Por qué asumes que no lo hizo?,
+2025-07-11T05:26:30.989760Z,SimAgent_2_Gemini,¿Por qué la internalización de valores siempre previene el comportamiento contrario?,
+2025-07-11T05:26:33.940045Z,Bot,"Sebastián valora mucho la opinión de sus padres. ¿Cómo afectaría la relación de Sebastián con ellos si descubrieran que aprobó gracias a tu ayuda, entendida como 'copia'?",2.9170
+2025-07-11T05:26:41.972232Z,SimAgent_3_Gemini,¿Por qué asumirían que lo descubrirían?,
+2025-07-11T05:26:44.847659Z,Bot,¿Qué pasaría si Sebastián aceptara el riesgo de reprobar y se enfocara en aprender realmente el material para una futura reválida? ¿Cómo cambiaría la narrativa?,2.8355
+2025-07-11T05:26:53.100414Z,SimAgent_1_Gemini,¿Por qué el riesgo de reprobar cambiaría la narrativa?,
+2025-07-11T05:27:04.357391Z,SimAgent_3_Gemini,¿Estás seguro de que aprender para una reválida es una solución real en su situación?,
+2025-07-11T05:27:15.631686Z,SimAgent_2_Gemini,SimAgent_2_Gemini: ¿Por qué es mi responsabilidad aliviar su angustia?,
+2025-07-11T05:27:18.949181Z,Bot,"¿Qué otros cursos podría tomar Sebastián para aliviar la carga financiera si reprueba contabilidad, y cómo impactaría eso en su trayectoria académica?",3.2853
+2025-07-11T05:27:26.898520Z,SimAgent_2_Gemini,¿Por qué asumes que hay otros cursos que podrían ayudar financieramente?,
+2025-07-11T05:27:38.085973Z,SimAgent_2_Gemini,¿Por qué la honestidad es siempre la mejor política?,
+2025-07-11T05:27:40.948649Z,Bot,"Si Sebastián aprueba con ayuda, ¿cómo podría afectar su confianza en su capacidad para enfrentar futuros desafíos académicos sin asistencia?",2.8316
+2025-07-11T05:27:49.217964Z,SimAgent_3_Gemini,¿Estás seguro de que la confianza es el único factor importante aquí?,
+2025-07-11T05:27:52.112779Z,Bot,¿Qué consecuencias no deseadas podría tener para Sebastián a largo plazo desarrollar una dependencia hacia ti para resolver sus problemas académicos?,2.8619
+2025-07-11T05:28:00.365633Z,SimAgent_3_Gemini,¿Por qué asumir que se desarrollará una dependencia?,
+2025-07-11T05:28:03.192262Z,Bot,"¿Qué consecuencias podría tener para la universidad, en términos de reputación y credibilidad, si se supiera que los estudiantes están copiando en los exámenes?",2.7931
+2025-07-11T05:28:11.455892Z,SimAgent_1_Gemini,¿Por qué la reputación es más importante que el bienestar del estudiante?,
+2025-07-11T05:28:14.505435Z,Bot,Alberto le dice a Sebastián que en su familia 'nadie les regaló nada'. ¿Cómo podría Sebastián interpretar esa frase en este momento de crisis?,3.0173
+2025-07-11T05:28:22.623911Z,SimAgent_1_Gemini,¿Estás seguro de que Sebastián lo interpretará negativamente?,
+2025-07-11T05:28:25.592801Z,Bot,"El texto menciona que Sebastián y tú están en contra de la copia. ¿Cómo podría esta situación ser una oportunidad para reafirmar esos valores, en lugar de comprometerlos?",2.9367
+2025-07-11T05:28:33.728474Z,SimAgent_3_Gemini,¿Por qué asumir que reafirmar esos valores es la única opción?,
+2025-07-11T05:28:36.748459Z,Bot,"Además de la opinión de los padres de Sebastián, ¿cómo creen que esta situación impactaría a Francisca, su hermana, considerando los valores familiares que se mencionan?",2.9836
+2025-07-11T05:28:44.928391Z,SimAgent_2_Gemini,¿Por qué crees que Francisca se vería impactada?,
+2025-07-11T05:28:48.189460Z,Bot,"Si Sebastián decide confesar a sus padres su dificultad y el riesgo de reprobar, ¿cómo podría esa honestidad fortalecer la confianza y comunicación familiar a largo plazo, independientemente del resultado del examen?",3.2263
+2025-07-11T05:28:56.089420Z,SimAgent_3_Gemini,¿Estás seguro de que la honestidad siempre fortalece la confianza?,
+2025-07-11T05:28:59.067283Z,Bot,"Si Sebastián acepta tu ayuda y aprueba, ¿cómo afectaría eso a la percepción que tiene de sí mismo como una persona capaz y autosuficiente?",2.9448
+2025-07-11T05:29:07.342109Z,SimAgent_1_Gemini,¿Por qué asumir que su auto-percepción se vería afectada negativamente?,
+2025-07-11T05:29:10.387691Z,Bot,"Si Sebastián decide no pedir ayuda y reprueba, ¿cómo afectaría eso a su percepción de la amistad y el apoyo mutuo?",3.0129
+2025-07-11T05:29:18.583655Z,SimAgent_1_Gemini,¿Por qué asumir que la amistad se mide solo por aprobar o reprobar?,
+2025-07-11T05:29:21.845803Z,Bot,Sebastián menciona que sus padres son personas honradas. ¿Cómo creen que esta situación podría poner a prueba la integridad de la familia en su conjunto?,3.2291
+2025-07-11T05:29:29.895042Z,SimAgent_3_Gemini,¿Estás seguro de que pone a prueba la integridad familiar?,
+2025-07-11T05:29:33.078010Z,Bot,"Si Sebastián decide no pedir ayuda y reprueba, ¿qué recursos académicos y emocionales podrían ofrecerle la universidad y su familia para convertir esta experiencia en una oportunidad de crecimiento?",3.1503
+2025-07-11T05:29:41.107163Z,SimAgent_1_Gemini,¿Por qué asumes que necesita convertir esta experiencia en una oportunidad de crecimiento?,
+2025-07-11T05:29:44.161006Z,Bot,"Hemos hablado mucho de las consecuencias para Sebastián, ¿pero cómo afectaría a la percepción que *tú* tienes de ti mismo si lo ayudas a hacer trampa?",3.0202
+2025-07-11T05:29:52.235722Z,SimAgent_1_Gemini,¿Por qué mi percepción de mí mismo se vería afectada?,
+2025-07-11T05:30:03.363191Z,SimAgent_3_Gemini,¿Por qué asumes que mi percepción debe verse afectada negativamente?,
+2025-07-11T05:30:06.587259Z,Bot,"Sebastián parece muy preocupado por las consecuencias financieras. ¿Qué tan probable es realmente que repruebe, considerando que ya se eximió de algunas evaluaciones?",3.1913
+2025-07-11T05:30:14.563681Z,SimAgent_2_Gemini,¿Estás seguro de que ya se eximió de algunas evaluaciones?,
+2025-07-11T05:30:25.794754Z,SimAgent_1_Gemini,¿Por qué asumes que eximirse significa que le irá bien en el examen?,
+2025-07-11T05:30:37.172589Z,SimAgent_3_Gemini,¿Estás seguro de que la situación financiera es la única razón por la que Sebastián está preocupado?,
+2025-07-11T05:30:40.325419Z,Bot,Alberto y Alejandra parecen confiar en el juicio de Sebastián. ¿Cómo cambiaría la conversación si Sebastián les explicara honestamente su dilema y les pidiera consejo?,3.1191
+2025-07-11T05:30:48.338791Z,SimAgent_1_Gemini,¿Por qué piensas que serían capaces de ofrecerle un buen consejo?,
+2025-07-11T05:30:51.350538Z,Bot,"Más allá de las finanzas y la honestidad, ¿cómo afectaría la decisión de Sebastián a su desarrollo profesional a largo plazo?",2.9792
+2025-07-11T05:30:59.708099Z,SimAgent_1_Gemini,¿Estás seguro de que el desarrollo profesional es lo más importante aquí?,
+2025-07-11T05:31:02.829550Z,Bot,¿Cómo podría Sebastián justificar ante sí mismo el posible conflicto entre su deseo de ayudar a un amigo y su aversión a la deshonestidad?,3.0842
+2025-07-11T05:31:10.874910Z,SimAgent_3_Gemini,¿Por qué asumes que debe haber una justificación?,
+2025-07-11T05:31:22.063092Z,SimAgent_3_Gemini,¿Estás seguro de que no la necesita?,
+2025-07-11T05:31:25.106480Z,Bot,"Si Sebastián decide no pedir ayuda y reprueba, ¿cómo podría este fracaso redefinir su concepto de éxito y fracaso, más allá de la mera aprobación o reprobación de un curso?",2.9945
+2025-07-11T05:31:33.309895Z,SimAgent_2_Gemini,¿Por qué crees que redefiniría su concepto de éxito y fracaso?,
+2025-07-11T05:31:44.616705Z,SimAgent_3_Gemini,¿Por qué asumes que fracasaría?,
+2025-07-11T05:31:47.700588Z,Bot,"¿Qué rol juega la confianza que Sebastián deposita en ti al pedirte ayuda, más allá de las posibles consecuencias académicas o financieras?",3.0514
+2025-07-11T05:31:55.791932Z,SimAgent_3_Gemini,¿Estás seguro de que es solo confianza?,
+2025-07-11T05:31:59.026986Z,Bot,"Hemos explorado las consecuencias de ayudar o no a Sebastián. ¿Cómo cambiaría el análisis si consideramos que la 'ayuda' podría consistir en explicarle los conceptos, en lugar de darle las respuestas directamente?",3.2018
+2025-07-11T05:32:06.968003Z,SimAgent_2_Gemini,¿Por qué asumes que explicar los conceptos sería suficiente?,
+2025-07-11T05:32:10.040951Z,Bot,"Hemos puesto el foco en Sebastián y en ti. ¿Cómo podría afectar esta situación la relación entre Alberto y Alejandra, considerando sus valores y expectativas?",3.0423

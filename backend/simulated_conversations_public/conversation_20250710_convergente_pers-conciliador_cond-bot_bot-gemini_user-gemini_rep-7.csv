@@ -1,0 +1,78 @@
+timestamp,user_name,message,processing_time_s
+2025-07-10T22:18:09.445360Z,SimAgent_3_Gemini,"Entiendo tu angustia. Quizás lo mejor sería ayudarlo a estudiar, en lugar de darle las respuestas directamente.",
+2025-07-10T22:18:20.580760Z,SimAgent_2_Gemini,"Sí, ayudarlo a estudiar es una buena opción. ¡Quizás puedan encontrar una solución juntos!",
+2025-07-10T22:18:23.705682Z,Bot,"Si la honestidad y el trabajo esforzado son tan valiosos, ¿cómo justificamos internamente que Sebastián ponga en riesgo esos valores para ayudar a un amigo, incluso si las intenciones son buenas?",3.0918
+2025-07-10T22:18:31.756474Z,SimAgent_2_Gemini,"Es cierto, es un dilema. Tal vez podrían hablar con sus padres sobre la presión y buscar una solución juntos.",
+2025-07-10T22:18:34.794402Z,Bot,"Si Sebastián aprueba gracias a la ayuda, ¿cómo afectaría eso su percepción de la validez del sistema de evaluación y, por extensión, su confianza en la meritocracia?",3.0069
+2025-07-10T22:18:42.952738Z,SimAgent_1_Gemini,¡Exacto! Hablar con sus padres podría aliviar la presión y encontrar un camino honesto para Sebastián.,
+2025-07-10T22:18:54.286895Z,SimAgent_2_Gemini,"Sí, un camino honesto es valioso. Quizás enfocarse en entender los conceptos clave juntos sería útil.",
+2025-07-10T22:18:57.353285Z,Bot,"¿Qué significa realmente la 'lealtad' en una amistad, y hasta dónde estamos dispuestos a llegar por ella cuando entra en conflicto con otros valores que también consideramos importantes?",3.0349
+2025-07-10T22:19:06.192110Z,SimAgent_2_Gemini,"La lealtad es clave, pero quizás enfocarse en ayudarlo a estudiar podría ser un buen punto medio.",
+2025-07-10T22:19:17.661511Z,SimAgent_2_Gemini,"Totalmente de acuerdo. Estudiar juntos, reforzando su comprensión, sería un acto de amistad valioso.",
+2025-07-10T22:19:21.169204Z,Bot,"Si Sebastián decide no ayudar, ¿cómo podría afectar a su amistad a largo plazo, considerando el apoyo que recibió en el pasado?",3.4753
+2025-07-10T22:19:28.862507Z,SimAgent_2_Gemini,"Es cierto, la amistad podría verse afectada. Quizás hablar abiertamente sobre los límites sea lo mejor para ambos.",
+2025-07-10T22:19:40.117874Z,SimAgent_2_Gemini,"Sí, la comunicación honesta es crucial. Quizás ofrecer apoyo moral y ánimo sería un buen comienzo.",
+2025-07-10T22:19:51.311225Z,SimAgent_1_Gemini,De acuerdo. Animarle y ayudarle a prepararse más intensamente podría ser una buena solución para ambos.,
+2025-07-10T22:19:54.054943Z,Bot,¿Qué implicaciones tendría para la integridad del título profesional de Sebastián si se obtuviera mediante una ayuda externa en un examen clave?,2.7110
+2025-07-10T22:20:02.493288Z,SimAgent_3_Gemini,Es un punto importante. Tal vez enfocarse en el aprendizaje y la ética profesional sería valioso para su futuro.,
+2025-07-10T22:20:13.607378Z,SimAgent_1_Gemini,Totalmente de acuerdo. Considerar las consecuencias a largo plazo es fundamental para tomar una decisión.,
+2025-07-10T22:20:16.754921Z,Bot,"Si Sebastián decide ayudar, ¿cómo podría asegurarse de que esta acción no socave su propia integridad y su compromiso con los valores que él y su amigo defienden?",3.1128
+2025-07-10T22:20:24.819737Z,SimAgent_1_Gemini,Es crucial mantener la coherencia con sus valores. Quizás hay un punto medio entre ayudar y hacer el examen por él.,
+2025-07-10T22:20:27.930208Z,Bot,"Alberto y Alejandra, los padres de Sebastián, creen firmemente en ganarse las cosas. ¿Cómo equilibrarían ese principio con el deseo de apoyar a su hijo en un momento de necesidad, sabiendo que la gratuidad está en juego?",3.0778
+2025-07-10T22:20:36.226025Z,SimAgent_3_Gemini,"Quizás podrían ofrecerle ayuda para estudiar, respetando su ética y apoyándolo.",
+2025-07-10T22:20:47.618298Z,SimAgent_2_Gemini,"Exacto. Apoyar el esfuerzo y la honestidad es clave, quizás enfocándose en un plan de estudio intensivo juntos.",
+2025-07-10T22:20:50.563302Z,Bot,"Si Alberto y Alejandra valoran tanto la honestidad, ¿cómo justificarían ante sí mismos las posibles consecuencias negativas (reprobar, perder la gratuidad) que enfrentaría Sebastián si actúa con total honestidad?",2.9119
+2025-07-10T22:20:58.951392Z,SimAgent_2_Gemini,Es una situación difícil. Tal vez podrían buscar un tutor juntos para reforzar el aprendizaje.,
+2025-07-10T22:21:02.075925Z,Bot,"Si Sebastián decide ayudar a su amigo, ¿no estaría perpetuando un sistema donde la 'ayuda' podría convertirse en una expectativa, erosionando la responsabilidad individual por el propio aprendizaje?",3.0919
+2025-07-10T22:21:10.135568Z,SimAgent_2_Gemini,Es cierto. Quizás hablar con sus padres sobre la presión podría ser útil.,
+2025-07-10T22:21:13.128699Z,Bot,"Si la gratuidad se basa en el supuesto de un rendimiento académico individual, ¿cómo impactaría la confianza en el sistema si se percibe que esa individualidad se diluye por la ayuda externa?",2.9583
+2025-07-10T22:21:21.469796Z,SimAgent_3_Gemini,"Sí, y tal vez enfocarse en el aprendizaje y no solo en la calificación aliviaría la presión.",
+2025-07-10T22:21:32.636407Z,SimAgent_3_Gemini,Exacto. Podrían explorar opciones como hablar con el profesor para buscar alternativas.,
+2025-07-10T22:21:35.483959Z,Bot,"Si la familia de Sebastián valora tanto el esfuerzo personal, ¿cómo podrían redefinir el éxito en este contexto, más allá de simplemente aprobar el curso?",2.8172
+2025-07-10T22:21:43.913615Z,SimAgent_1_Gemini,Completamente de acuerdo. Tal vez enfocarse en el proceso de aprendizaje en lugar del resultado final sería valioso.,
+2025-07-10T22:21:47.106465Z,Bot,¿Qué rol juega la presión económica en la definición de 'éxito' que estamos manejando? ¿Acaso la angustia financiera justifica flexibilizar nuestros principios éticos?,3.1592
+2025-07-10T22:21:55.099197Z,SimAgent_2_Gemini,"Es cierto, la presión económica es enorme. Tal vez buscar ayuda externa para Sebastián sería una buena solución.",
+2025-07-10T22:22:06.626517Z,SimAgent_1_Gemini,"Sí, concuerdo. Buscar recursos adicionales podría aliviar la presión y permitir una solución más ética.",
+2025-07-10T22:22:10.135865Z,Bot,"Si Alberto y Alejandra creen que Sebastián debe ganarse las cosas, ¿qué mensaje le estarían transmitiendo a Francisca, su hija, si ven que Sebastián recibe ayuda externa para aprobar?",3.4779
+2025-07-10T22:22:17.794403Z,SimAgent_1_Gemini,Es un punto importante. Quizás hablarlo con los padres podría ayudar a encontrar una solución justa para todos.,
+2025-07-10T22:22:20.884344Z,Bot,"¿Cómo impactaría la percepción de Sebastián sobre sí mismo si, a pesar de la ayuda, no logra aprobar el curso? ¿Cambiaría su visión sobre el valor del esfuerzo, la honestidad y la meritocracia?",3.0575
+2025-07-10T22:22:29.117108Z,SimAgent_2_Gemini,"Es verdad. Tal vez enfocarse en el proceso de aprendizaje, más que en el resultado, sería valioso.",
+2025-07-10T22:22:32.146896Z,Bot,¿Qué tipo de presión estamos ejerciendo sobre los jóvenes cuando definimos su valía personal en función de su éxito académico y la consiguiente estabilidad financiera?,2.9965
+2025-07-10T22:22:40.465993Z,SimAgent_1_Gemini,Totalmente de acuerdo. Quizás redefinir el éxito y el valor personal sería un buen comienzo.,
+2025-07-10T22:22:43.819599Z,Bot,"Si la familia valora tanto la honestidad y el esfuerzo, ¿cómo se sentirían si Sebastián, al aceptar ayuda, internalizara que no es capaz de superar los desafíos por sí mismo?",3.3217
+2025-07-10T22:22:51.600304Z,SimAgent_3_Gemini,Exacto. Quizás hablar con sus padres podría aliviar la presión y encontrar una solución juntos.,
+2025-07-10T22:22:54.658175Z,Bot,"Si la honestidad es fundamental, ¿cómo priorizamos el bienestar emocional de Sebastián frente a la integridad académica en esta situación?",3.0258
+2025-07-10T22:23:02.946909Z,SimAgent_2_Gemini,"Concuerdo. Quizás hay un punto medio, como ayudarle a estudiar, pero no darle las respuestas directamente.",
+2025-07-10T22:23:06.404921Z,Bot,"Si Sebastián accede a ayudar, ¿cómo afectaría esto su percepción de la confianza que sus padres depositan en él y en su capacidad para resolver problemas por sí mismo?",3.4258
+2025-07-10T22:23:14.125396Z,SimAgent_2_Gemini,Estoy de acuerdo. Ayudarle a estudiar podría ser una buena forma de apoyarlo sin comprometer la honestidad.,
+2025-07-10T22:23:17.335379Z,Bot,"Si la familia de Sebastián valora tanto la honestidad, ¿cómo podrían reconciliar la declaración de Alberto sobre 'no tomar atajos' con la sugerencia de Alejandra de pedir ayuda a su amigo?",3.1769
+2025-07-10T22:23:25.407934Z,SimAgent_2_Gemini,"Es cierto, la sugerencia de la madre podría ser interpretada de diferentes maneras, quizás buscar un punto intermedio ahí.",
+2025-07-10T22:23:27.891340Z,Bot,"Si Sebastián decide no ayudar a su amigo, ¿podría esto fortalecer su propia convicción en sus valores, incluso si la amistad se ve afectada?",2.4508
+2025-07-10T22:23:36.612518Z,SimAgent_1_Gemini,"Sí, mantener los valores es importante, aunque la amistad se vea desafiada.",
+2025-07-10T22:23:39.738785Z,Bot,"Si Sebastián decide ayudar, ¿cómo podría asegurarse de que su amigo comprenda las consecuencias de sus actos, tanto si aprueba como si no?",3.0935
+2025-07-10T22:23:48.025871Z,SimAgent_3_Gemini,"Entendido. Informarle sobre las consecuencias es clave, y quizás enfocarse en ayudarle a estudiar en vez de darle las respuestas.",
+2025-07-10T22:23:51.146058Z,Bot,"Si Sebastián decide ayudar, ¿cómo podría equilibrar su lealtad hacia su amigo con su responsabilidad hacia la sociedad de actuar con integridad profesional?",3.0857
+2025-07-10T22:23:59.249523Z,SimAgent_3_Gemini,"Exacto, buscar un punto medio como ayudarle a estudiar sería lo más sensato y ético.",
+2025-07-10T22:24:02.598643Z,Bot,"Más allá del resultado del examen, ¿cómo podría esta situación convertirse en una oportunidad para que Sebastián aprenda a manejar la presión y la incertidumbre en su vida académica y personal?",3.3138
+2025-07-10T22:24:10.464076Z,SimAgent_1_Gemini,"Absolutamente, podría ser una valiosa lección sobre la gestión de la presión y la búsqueda de soluciones honestas.",
+2025-07-10T22:24:13.488160Z,Bot,"¿Qué significa 'éxito' para Sebastián? ¿Está definido por la aprobación del curso, o hay otros logros valiosos en su proceso de aprendizaje que también deberían ser considerados?",2.9902
+2025-07-10T22:24:21.723707Z,SimAgent_3_Gemini,"Sí, redefinir el éxito, enfocándose en el aprendizaje y el esfuerzo, podría aliviar la presión.",
+2025-07-10T22:24:32.965597Z,SimAgent_1_Gemini,"Totalmente de acuerdo. Quizás el éxito podría ser el esfuerzo, no solo la nota final.",
+2025-07-10T22:24:35.841448Z,Bot,"Si la presión económica es tan determinante, ¿cómo podríamos reevaluar el concepto de ""ayuda"" en este contexto, diferenciándola de la ""trampa""?",2.8459
+2025-07-10T22:24:44.364201Z,SimAgent_2_Gemini,Completamente de acuerdo. ¿Podríamos hablar sobre cómo ayudar sin cruzar la línea de la deshonestidad académica?,
+2025-07-10T22:24:55.637777Z,SimAgent_1_Gemini,"Exacto. Explorar formas de apoyo honesto, como estudiar juntos o explicar conceptos, sería ideal.",
+2025-07-10T22:25:06.991063Z,SimAgent_1_Gemini,"Sí, concentrémonos en cómo ayudar a Sebastián a estudiar y comprender mejor la materia.",
+2025-07-10T22:25:18.213844Z,SimAgent_1_Gemini,De acuerdo. Quizás enfocarnos en cómo aliviar su estrés podría ayudarlo a pensar con claridad.,
+2025-07-10T22:25:21.237190Z,Bot,"Hemos hablado mucho de las implicaciones para Sebastián y su familia. ¿Cómo podría afectar esta situación la relación de amistad entre Sebastián y su amigo, independientemente de la decisión que tome?",2.9911
+2025-07-10T22:25:29.430039Z,SimAgent_3_Gemini,Es cierto. Quizás ayudarlo a manejar la presión lo ayudaría a tomar la mejor decisión.,
+2025-07-10T22:25:32.476059Z,Bot,Hemos explorado mucho el dilema de Sebastián. ¿Cómo podría impactar la decisión que tome en su propia autoimagen y en su futura capacidad para enfrentar desafíos éticos?,3.0134
+2025-07-10T22:25:40.742613Z,SimAgent_1_Gemini,Entiendo. Podemos explorar cómo la honestidad impacta la confianza en sí mismo a largo plazo.,
+2025-07-10T22:25:43.250880Z,Bot,"Hemos hablado de Sebastián, de su amigo, de sus padres. ¿Cómo podría afectar esta situación a los profesores que evalúan con honestidad y rigor, si se enteraran de que hay estudiantes recibiendo ayuda indebida?",2.4748
+2025-07-10T22:25:51.937037Z,SimAgent_3_Gemini,"Claro, podríamos hablar de cómo mantener la integridad académica beneficia a todos.",
+2025-07-10T22:25:55.001750Z,Bot,"Si Sebastián decide ayudar, ¿cómo podría este acto influir en su futura percepción de la línea entre la colaboración y el engaño en otros ámbitos de su vida?",3.0318
+2025-07-10T22:26:03.132735Z,SimAgent_3_Gemini,"Sí, podríamos reflexionar sobre los límites éticos y la colaboración genuina.",
+2025-07-10T22:26:06.504835Z,Bot,"Si la institución educativa tiene un código de honor, ¿cómo influiría este código en la decisión de Sebastián y en su percepción de la gravedad de la situación?",3.3417
+2025-07-10T22:26:14.248193Z,SimAgent_3_Gemini,"Exacto, el código de honor podría darle un marco ético claro para la decisión.",
+2025-07-10T22:26:16.777005Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en el acto de 'ayudar' en sí, analizáramos cómo esta situación podría ser una oportunidad para que Sebastián y su amigo desarrollen habilidades de resolución de problemas y colaboración ética a largo plazo?",2.4951
+2025-07-10T22:26:25.513334Z,SimAgent_2_Gemini,"Totalmente, podríamos usar esto como una oportunidad de aprendizaje ético para ambos.",
+2025-07-10T22:26:28.577603Z,Bot,"Si Sebastián decide ayudar, ¿cómo podría este acto, en el futuro, influir en su percepción de la confianza y la valía que depositan en él, más allá de las calificaciones?",3.0293

@@ -103,6 +103,8 @@ class EthicalDebateAgent:
 
         **INSTRUCCIÓN:** Genera únicamente el texto de tu intervención. No incluyas el nombre de la estrategia, ni metadatos, ni explicaciones. Solo el mensaje que se enviará al chat.
         
+        **REGLA ADICIONAL CRÍTICA:** Revisa el historial de conversación. TU PREGUNTA O INTERVENCIÓN DEBE SER SIGNIFICATIVAMENTE DIFERENTE a las últimas 2-3 intervenciones que ha hecho el "Bot". No repitas la misma línea de cuestionamiento. Si las preguntas sobre 'copiar' ya se han hecho, utiliza una estrategia de mayor prioridad (como presentar una perspectiva alternativa) o enfoca tu pregunta en un matiz completamente nuevo del caso.
+        
         Debes responder siempre en el siguiente formato JSON:
         
         Salida esperada:
@@ -134,6 +136,8 @@ class EthicalDebateAgent:
         **PREGUNTA:** ¿Se ha detectado estancamiento argumentativo según los criterios anteriores?
 
         **RESPUESTA:** Responde únicamente en el apartado "should_intervene". No añadas ninguna explicación o texto adicional.
+        
+        **REGLA ADICIONAL CRÍTICA:** Si el último mensaje en el historial es del "Bot", tu respuesta DEBE SER "NO", a menos que un usuario haya hecho una pregunta directa al bot después de su intervención. No intervengas sobre tu propia intervención.
           
         Debes responder siempre en el siguiente formato JSON:
         

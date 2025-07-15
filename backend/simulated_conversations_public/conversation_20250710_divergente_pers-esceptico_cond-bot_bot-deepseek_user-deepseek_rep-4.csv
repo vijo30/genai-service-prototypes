@@ -1,0 +1,64 @@
+timestamp,user_name,message,processing_time_s
+2025-07-11T06:08:05.021371Z,SimAgent_1_DeepSeek,¿Estás seguro de que ayudar a Sebastián copiando es la única solución?,
+2025-07-11T06:08:19.831376Z,SimAgent_2_DeepSeek,¿Por qué crees que copiar es la única forma de ayudarlo?,
+2025-07-11T06:08:35.479273Z,SimAgent_3_DeepSeek,¿Realmente crees que copiar solucionará los problemas de Sebastián a largo plazo?,
+2025-07-11T06:08:53.631537Z,SimAgent_2_DeepSeek,¿Estás seguro de que los valores de honestidad que defiendes no importan en este caso?,
+2025-07-11T06:09:07.201522Z,Bot,"¿Qué dirían los padres de Sebastián si supieran que su hijo está considerando copiar, después de haberles escuchado enfatizar tanto el valor del esfuerzo honesto?",13.2494
+2025-07-11T06:09:09.464913Z,SimAgent_2_DeepSeek,¿De verdad crees que traicionar tus principios ayudará a Sebastián?,
+2025-07-11T06:09:24.272325Z,SimAgent_1_DeepSeek,¿Estás seguro de que ayudar a copiar es realmente lo mejor para Sebastián?,
+2025-07-11T06:09:35.799876Z,Bot,"¿Qué pasaría si en lugar de copiar, ambos buscan una solución que preserve la honestidad pero también ayude a Sebastián, como pedir una prórroga o apoyo académico?",11.2420
+2025-07-11T06:09:39.517474Z,SimAgent_3_DeepSeek,¿No temes que ayudar a Sebastián así solo empeore su situación después?,
+2025-07-11T06:09:54.760197Z,SimAgent_2_DeepSeek,¿Y si copiar solo le genera más problemas a Sebastián a largo plazo?,
+2025-07-11T06:10:10.729695Z,SimAgent_1_DeepSeek,¿Estás seguro de que la presión de sus padres justifica romper tus principios?,
+2025-07-11T06:10:21.426281Z,Bot,"¿Qué pasaría si Sebastián enfrenta esta crisis como una oportunidad para demostrar que los valores de su familia (esfuerzo, honestidad) son más fuertes que el miedo al fracaso?",10.4114
+2025-07-11T06:10:26.192913Z,SimAgent_3_DeepSeek,¿Realmente crees que copiar solucionará el problema de fondo de Sebastián?,
+2025-07-11T06:10:39.601344Z,Bot,"¿Qué pasaría si Sebastián y su familia, en lugar de enfrentar esta presión solos, buscaran apoyo colectivo (compañeros, profesores) para cuestionar la rigidez del sistema que los obliga a elegir entre el fracaso académico o la deshonestidad?",13.1182
+2025-07-11T06:10:41.888751Z,SimAgent_2_DeepSeek,¿Estás seguro de que ayudarlo a copiar es la única forma de apoyar a Sebastián?,
+2025-07-11T06:11:00.049532Z,SimAgent_3_DeepSeek,¿Estás seguro de que la honestidad no es más importante que salvar el curso?,
+2025-07-11T06:11:17.585884Z,SimAgent_1_DeepSeek,¿Por qué crees que copiar es la única solución para Sebastián?,
+2025-07-11T06:11:30.005213Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en la decisión inmediata, analizamos cómo esta situación refleja un sistema educativo que presiona a los estudiantes hasta el punto de considerar la deshonestidad como única salida?",12.1300
+2025-07-11T06:11:32.414747Z,SimAgent_1_DeepSeek,¿De verdad crees que engañar al sistema justifica traicionar tus propios valores?,
+2025-07-11T06:11:48.787668Z,SimAgent_2_DeepSeek,¿Estás seguro de que ayudar a Sebastián a copiar no terminará perjudicándolo más a largo plazo?,
+2025-07-11T06:12:04.531362Z,Bot,"¿Qué pasaría si Sebastián hablara con sus padres sobre su angustia y juntos buscaran una solución que no implique copiar, como pedir ayuda al profesor o replantear su método de estudio?",15.4564
+2025-07-11T06:12:05.054367Z,SimAgent_3_DeepSeek,¿Realmente crees que ayudar a copiar es la mejor forma de devolverle el apoyo que te dio Sebastián?,
+2025-07-11T06:12:18.752344Z,Bot,"¿Qué pasaría si, en lugar de centrarnos en la decisión de copiar o no, analizamos cómo el sistema educativo está fallando en apoyar a estudiantes como Sebastián, llevándolos a considerar opciones desesperadas?",13.4129
+2025-07-11T06:12:20.267961Z,SimAgent_1_DeepSeek,¿Estás seguro de que copiar es la única opción que tiene Sebastián?,
+2025-07-11T06:12:35.768551Z,SimAgent_2_DeepSeek,¿Estás seguro de que los valores de honestidad que defienden con otros compañeros no aplican también en este caso?,
+2025-07-11T06:12:51.245649Z,SimAgent_3_DeepSeek,¿Realmente crees que ayudar a copiar es la mejor forma de devolverle el apoyo que te dio Sebastián?,
+2025-07-11T06:13:06.586998Z,Bot,"¿Qué pasaría si, en lugar de ver esto como una elección entre honestidad y ayuda, lo viéramos como una oportunidad para que Sebastián demuestre que puede enfrentar la adversidad sin traicionar sus valores, incluso si eso implica buscar soluciones menos convencionales como tutorías intensivas o negociar con el profesor?",15.0550
+2025-07-11T06:13:07.869811Z,SimAgent_1_DeepSeek,¿Estás seguro de que ayudar a Sebastián a copiar no terminará perjudicándolo más a largo plazo?,
+2025-07-11T06:13:19.954581Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en la decisión individual, analizamos cómo la presión financiera y académica está llevando a estudiantes como Sebastián a considerar opciones que contradicen sus valores fundamentales?",11.7977
+2025-07-11T06:13:25.547881Z,SimAgent_1_DeepSeek,¿Estás seguro de que aprobar el curso a costa de su integridad realmente solucionará los problemas financieros de Sebastián?,
+2025-07-11T06:13:41.119228Z,SimAgent_3_DeepSeek,"¿Estás seguro de que la honestidad y el trabajo duro realmente garantizan éxito profesional, como dicen los profesores?",
+2025-07-11T06:13:56.867300Z,SimAgent_3_DeepSeek,¿Estás seguro de que ayudar a Sebastián a copiar es la única forma de apoyarlo en esta situación?,
+2025-07-11T06:14:15.159534Z,SimAgent_2_DeepSeek,¿Estás seguro de que los valores familiares de Sebastián justifican romper sus propios principios éticos?,
+2025-07-11T06:14:31.157128Z,SimAgent_1_DeepSeek,¿Estás seguro de que aprobar el curso con trampa realmente aliviará la angustia de Sebastián a largo plazo?,
+2025-07-11T06:14:43.195676Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en la decisión de copiar o no, analizamos cómo la presión de un sistema educativo rígido está obligando a Sebastián a elegir entre su integridad y su supervivencia académica?",11.7532
+2025-07-11T06:14:47.073186Z,SimAgent_3_DeepSeek,¿Estás seguro de que ceder ahora no hará que Sebastián dependa de atajos en el futuro?,
+2025-07-11T06:14:59.619324Z,Bot,"¿Qué pasaría si, en lugar de centrarnos en la decisión de Sebastián, analizamos cómo la presión social y familiar lo está llevando a considerar una acción que va en contra de sus propios valores?",12.2487
+2025-07-11T06:15:02.702444Z,SimAgent_1_DeepSeek,¿Estás seguro de que ayudar a Sebastián no dañará tu propia integridad y valores?,
+2025-07-11T06:15:20.402361Z,SimAgent_1_DeepSeek,¿Estás seguro de que la honestidad de Sebastián vale menos que su necesidad inmediata de aprobar?,
+2025-07-11T06:15:32.414098Z,Bot,"¿Qué pasaría si, en lugar de centrarnos en la decisión de copiar, analizamos cómo la presión de cumplir con las expectativas familiares está influyendo más en Sebastián que su propio deseo de ser honesto?",11.7190
+2025-07-11T06:15:38.119301Z,SimAgent_3_DeepSeek,¿Estás seguro de que el sistema educativo es el único culpable aquí?,
+2025-07-11T06:15:54.151479Z,SimAgent_1_DeepSeek,¿Estás seguro de que ayudar a Sebastián no terminará perjudicándolo a largo plazo?,
+2025-07-11T06:16:07.769969Z,Bot,"¿Qué pasaría si, en lugar de centrarnos en la decisión de copiar, exploramos cómo la presión de ser el 'mejor amigo' y el 'hijo ejemplar' está nublando la capacidad de Sebastián para buscar alternativas que no impliquen traicionar sus valores?",13.3337
+2025-07-11T06:16:10.014883Z,SimAgent_2_DeepSeek,¿Estás seguro de que la ayuda que le darías a Sebastián realmente resolverá su problema y no solo lo postergará?,
+2025-07-11T06:16:23.071282Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en la decisión de copiar o no, exploramos cómo la presión de cumplir con las expectativas académicas está llevando a Sebastián a priorizar el resultado sobre el proceso de aprendizaje?",12.7700
+2025-07-11T06:16:26.115176Z,SimAgent_2_DeepSeek,¿Estás seguro de que la honestidad es lo que más le preocupa a Sebastián en este momento?,
+2025-07-11T06:16:41.208952Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en la decisión de copiar, exploramos cómo la presión de ser percibido como 'el que nunca falla' está impidiendo que Sebastián admita su necesidad real de ayuda académica profesional?",14.8045
+2025-07-11T06:16:41.304448Z,SimAgent_1_DeepSeek,¿Estás seguro de que la familia de Sebastián realmente valora más el esfuerzo que los resultados concretos?,
+2025-07-11T06:16:57.430427Z,SimAgent_3_DeepSeek,¿Estás seguro de que ayudar a Sebastián a copiar sería realmente un acto de amistad y no una traición a tus propios valores?,
+2025-07-11T06:17:10.735123Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en la decisión de copiar, exploramos cómo la presión de ser el 'mejor amigo' y el 'hijo ejemplar' está nublando la capacidad de Sebastián para buscar alternativas que no impliquen traicionar sus valores?",12.9943
+2025-07-11T06:17:13.294393Z,SimAgent_3_DeepSeek,¿Estás seguro de que la honestidad que predican en clase se aplica igual cuando es tu mejor amigo el que necesita ayuda?,
+2025-07-11T06:17:26.222531Z,Bot,"¿Qué pasaría si, en lugar de enfocarnos en la decisión de copiar, exploramos cómo la presión de ser percibido como 'el que nunca falla' está impidiendo que Sebastián admita su necesidad real de ayuda académica profesional?",12.6385
+2025-07-11T06:17:29.301830Z,SimAgent_2_DeepSeek,¿Estás seguro de que ayudar a Sebastián a copiar realmente solucionará su problema a largo plazo?,
+2025-07-11T06:17:47.024244Z,SimAgent_1_DeepSeek,¿Estás seguro de que la familia de Sebastián realmente preferiría que él copiara en lugar de enfrentar las consecuencias con honestidad?,
+2025-07-11T06:18:02.651471Z,SimAgent_3_DeepSeek,¿Por qué crees que ayudar a copiar es la única forma de apoyar a Sebastián en esta situación?,
+2025-07-11T06:18:19.356616Z,SimAgent_1_DeepSeek,¿Estás seguro de que copiar es la única manera de devolverle el favor a Sebastián por su ayuda pasada?,
+2025-07-11T06:18:34.981641Z,SimAgent_3_DeepSeek,¿Realmente crees que copiar es compatible con los valores de honestidad que tanto defienden tú y Sebastián?,
+2025-07-11T06:18:50.676309Z,SimAgent_1_DeepSeek,¿Estás seguro de que la angustia de Sebastián justifica romper tus propios principios?,
+2025-07-11T06:19:06.447327Z,SimAgent_3_DeepSeek,¿Por qué asumes que ayudar a copiar es la mejor solución para Sebastián a largo plazo?,
+2025-07-11T06:19:06.663670Z,Bot,"¿Qué pasaría si, en lugar de centrarnos en la decisión de copiar, exploramos cómo la presión de ser percibido como 'el que nunca falla' está impidiendo que Sebastián admita su necesidad real de ayuda académica profesional?",15.7003
+2025-07-11T06:19:22.071601Z,SimAgent_3_DeepSeek,¿Estás seguro de que ayudar a copiar no dañará la confianza y respeto mutuo entre tú y Sebastián?,
+2025-07-11T06:19:37.903494Z,SimAgent_1_DeepSeek,¿De verdad crees que la gratitud hacia su familia justifica que Sebastián actúe en contra de sus propios valores?,
+2025-07-11T06:19:53.817216Z,SimAgent_3_DeepSeek,¿No crees que copiar solo empeorará la situación de Sebastián cuando tenga que enfrentar consecuencias reales en su carrera?,

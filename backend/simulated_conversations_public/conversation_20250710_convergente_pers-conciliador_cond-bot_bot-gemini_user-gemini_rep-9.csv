@@ -1,0 +1,63 @@
+timestamp,user_name,message,processing_time_s
+2025-07-10T22:35:21.830690Z,SimAgent_3_Gemini,Entiendo tu angustia. Quizás lo mejor sea buscar una solución que no implique copiar directamente en el examen.,
+2025-07-10T22:35:33.178489Z,SimAgent_1_Gemini,Exacto. Quizás ayudarle a estudiar más intensamente podría ser un buen punto medio.,
+2025-07-10T22:35:36.232181Z,Bot,"¿No estará Sebastián sintiendo que, al pedirte ayuda, está protegiendo a su familia de un daño mayor, y que esa 'protección' justifica, en su mente, cruzar esa línea?",3.0173
+2025-07-10T22:35:44.462333Z,SimAgent_1_Gemini,Es una presión enorme para él. Tal vez hablar con sus padres juntos ayudaría a aliviar la situación.,
+2025-07-10T22:35:55.496793Z,SimAgent_3_Gemini,"Sí, un diálogo familiar podría ser muy útil para explorar opciones y reducir la presión.",
+2025-07-10T22:35:58.548563Z,Bot,"¿Qué concepto de 'ayuda' estamos manejando? ¿Implica necesariamente facilitarle las respuestas, o hay otras formas de apoyarlo que no comprometan la integridad académica?",3.0187
+2025-07-10T22:36:06.679860Z,SimAgent_3_Gemini,Totalmente. Apoyarlo sin dar respuestas directas parece un camino más ético y sostenible.,
+2025-07-10T22:36:17.933669Z,SimAgent_2_Gemini,Exacto. Quizás ayudarlo a estudiar o repasar los conceptos clave podría ser una buena alternativa.,
+2025-07-10T22:36:29.665736Z,SimAgent_1_Gemini,"Sí, enfocarse en el estudio y la comprensión parece lo más adecuado.",
+2025-07-10T22:36:40.901808Z,SimAgent_2_Gemini,"De acuerdo, repasar juntos los ejercicios y los principios contables parece una excelente idea.",
+2025-07-10T22:36:52.056155Z,SimAgent_1_Gemini,Absolutamente. Un buen repaso puede aliviar su ansiedad y mejorar su comprensión.,
+2025-07-10T22:36:54.965546Z,Bot,"Sebastián parece priorizar el bienestar familiar. ¿Cómo ponderamos ese valor frente a la integridad académica, considerando que ambos son importantes para su futuro?",2.8729
+2025-07-10T22:37:03.262216Z,SimAgent_3_Gemini,Entiendo. Quizás podríamos explorar cómo ayudar a Sebastián sin hacer el examen por él.,
+2025-07-10T22:37:14.469953Z,SimAgent_2_Gemini,"Estoy de acuerdo. Concentrémonos en ayudarle a entender el material, así honramos ambos valores.",
+2025-07-10T22:37:25.653128Z,SimAgent_3_Gemini,"Sí, encontrar un punto medio donde lo apoyemos sin comprometer la honestidad suena ideal.",
+2025-07-10T22:37:37.058059Z,SimAgent_3_Gemini,Exacto. Podríamos buscar recursos de estudio o tutorías para él.,
+2025-07-10T22:37:48.300959Z,SimAgent_2_Gemini,Buena idea. Y quizás repasar juntos los conceptos clave podría ayudarle a sentirse más seguro.,
+2025-07-10T22:37:50.581761Z,Bot,"Alberto y Alejandra valoran la honestidad, pero también quieren lo mejor para Sebastián. ¿Cómo creen que se sentirían si supieran que la 'ayuda' implica copiar, incluso si eso alivia su situación financiera?",2.2489
+2025-07-10T22:37:59.780789Z,SimAgent_1_Gemini,Es una pregunta difícil. Tal vez podríamos enfocarnos en cómo Sebastián puede hablar con sus padres sobre sus dificultades.,
+2025-07-10T22:38:10.928763Z,SimAgent_3_Gemini,"Sí, y quizás explorar opciones de financiamiento alternativas sería útil para Sebastián.",
+2025-07-10T22:38:22.098602Z,SimAgent_2_Gemini,Totalmente de acuerdo. Hablar con sus padres podría abrir nuevas soluciones y aliviar la presión.,
+2025-07-10T22:38:25.162592Z,Bot,"Alberto y Alejandra han inculcado la honestidad en Sebastián, pero también lo aman. ¿Cómo creen que ponderarían el valor de 'familia' si supieran que Sebastián está considerando arriesgar su integridad por ellos?",3.0320
+2025-07-10T22:38:33.353965Z,SimAgent_3_Gemini,"Concuerdo, y quizás buscar apoyo académico honesto sería un buen primer paso para Sebastián.",
+2025-07-10T22:38:44.677116Z,SimAgent_3_Gemini,"Sí, la honestidad es clave, pero entender la presión familiar es crucial también.",
+2025-07-10T22:38:46.843156Z,Bot,"Sebastián valora la honestidad, pero ¿cómo definiríamos 'lealtad' en este contexto, y cómo se relaciona con su dilema?",2.1330
+2025-07-10T22:38:55.887000Z,SimAgent_3_Gemini,Entiendo. Tal vez explorar cómo la lealtad puede coexistir con la honestidad sería útil.,
+2025-07-10T22:39:07.174438Z,SimAgent_3_Gemini,"Cierto, y quizás hablar con sus padres sobre la presión sería un buen comienzo.",
+2025-07-10T22:39:10.213309Z,Bot,"Si Sebastián decide no copiar, ¿qué impacto real tendría esto en la situación financiera de su familia? ¿Es la consecuencia tan catastrófica como él la percibe?",3.0074
+2025-07-10T22:39:18.576692Z,SimAgent_1_Gemini,Totalmente de acuerdo. Analizar la magnitud real del impacto financiero es un paso importante.,
+2025-07-10T22:39:29.688471Z,SimAgent_2_Gemini,"Sí, y tal vez existan otras soluciones financieras que no ha considerado.",
+2025-07-10T22:39:41.065262Z,SimAgent_2_Gemini,"Exacto, buscar alternativas financieras sería prudente antes de tomar una decisión.",
+2025-07-10T22:39:52.228397Z,SimAgent_1_Gemini,"De acuerdo, y hablar con un consejero financiero podría abrir nuevas opciones también.",
+2025-07-10T22:40:03.358006Z,SimAgent_3_Gemini,Absolutamente. Explorar opciones y buscar ayuda profesional parece un buen camino a seguir.,
+2025-07-10T22:40:06.756125Z,Bot,"Sebastián parece asumir que el único camino para ayudar a su familia es aprobar este examen. ¿Estamos seguros de que no existen otras formas de demostrar su valía y apoyo, que no impliquen comprometer su integridad?",3.3580
+2025-07-10T22:40:14.717747Z,SimAgent_3_Gemini,Estoy de acuerdo; quizás enfocarse en otras fortalezas podría aliviar la presión del examen.,
+2025-07-10T22:40:17.728407Z,Bot,"Si Sebastián decide no copiar y reprueba el examen, ¿qué consecuencias no financieras (personales, emocionales, académicas) podría enfrentar, y cómo se comparan con las consecuencias de copiar?",2.9715
+2025-07-10T22:40:25.829741Z,SimAgent_1_Gemini,"Cierto, y evaluar esas consecuencias podría ayudar a tomar una decisión más informada.",
+2025-07-10T22:40:36.982382Z,SimAgent_3_Gemini,"Sí, y considerar las consecuencias a largo plazo de cada opción es fundamental.",
+2025-07-10T22:40:40.275863Z,Bot,"Sebastián parece creer que la única forma de demostrar lealtad a su familia es a través del éxito académico. ¿Qué otras formas de lealtad podrían ser igualmente valiosas, incluso si implican un camino más difícil?",3.2621
+2025-07-10T22:40:48.087921Z,SimAgent_2_Gemini,"Exacto, y explorar esas alternativas de lealtad podría reducir su estrés.",
+2025-07-10T22:40:51.611583Z,Bot,"Sebastián parece centrado en las consecuencias inmediatas. ¿Qué tipo de relación quiere tener con Alberto y Alejandra a largo plazo, y cómo podría esta decisión afectarla?",3.4913
+2025-07-10T22:40:59.294208Z,SimAgent_2_Gemini,"Sí, y pensar en esa relación a futuro podría darle otra perspectiva valiosa.",
+2025-07-10T22:41:10.378166Z,SimAgent_1_Gemini,"Totalmente, y quizá hablar con sus padres sobre sus miedos sería útil.",
+2025-07-10T22:41:21.996407Z,SimAgent_2_Gemini,"De acuerdo. Tal vez buscar un punto medio, como tutorías, aliviaría la presión.",
+2025-07-10T22:41:33.303801Z,SimAgent_2_Gemini,"Sí, y quizás explorar cómo ayudarle a estudiar sin hacer el examen por él.",
+2025-07-10T22:41:36.437482Z,Bot,Alberto y Alejandra parecen valorar mucho el esfuerzo personal. ¿Cómo creen que se sentirían si Sebastián triunfara en base a un esfuerzo que no es completamente suyo?,3.1002
+2025-07-10T22:41:44.569667Z,SimAgent_2_Gemini,Es cierto. Quizás enfocarse en ese valor familiar podría ayudar a Sebastián a decidir.,
+2025-07-10T22:41:47.777504Z,Bot,"Si Sebastián decide ayudar a otros compañeros a copiar en el futuro, ¿cómo afectaría su credibilidad y la de su familia frente a los profesores que ya conocen su postura sobre la honestidad académica?",3.1747
+2025-07-10T22:41:55.664052Z,SimAgent_2_Gemini,Buena pregunta. Tal vez hablar con los profesores podría ayudar a entender mejor las consecuencias.,
+2025-07-10T22:42:06.831614Z,SimAgent_1_Gemini,"Sí, y quizás hay formas de ayudar a Sebastián a hablar con sus padres sobre la situación.",
+2025-07-10T22:42:18.001416Z,SimAgent_1_Gemini,Exacto. Quizás enfocarse en soluciones creativas para conversar con todos sería útil.,
+2025-07-10T22:42:21.170544Z,Bot,Sebastián parece estar enfocándose en las posibles consecuencias negativas de reprobar. ¿Qué oportunidades podría abrir para él enfrentar este desafío con honestidad y buscar soluciones alternativas?,3.1366
+2025-07-10T22:42:29.174502Z,SimAgent_2_Gemini,De acuerdo. Tal vez enfocarse en cómo ayudar a Sebastián a prepararse mejor sería productivo.,
+2025-07-10T22:42:32.356790Z,Bot,"Si Sebastián prioriza tanto la opinión de sus padres, ¿no sería valioso explorar cómo se sentirían Alberto y Alejandra si él les ocultara la verdad sobre cómo aprobó el examen?",3.1479
+2025-07-10T22:42:40.402507Z,SimAgent_3_Gemini,"Cierto, y quizás hablar con los padres sobre las opciones para financiar el curso sería una buena idea.",
+2025-07-10T22:42:51.921991Z,SimAgent_1_Gemini,"Sí, y quizás hablar con Sebastián sobre cómo se sentiría él mismo si hiciera trampa podría ayudarle a tomar una decisión.",
+2025-07-10T22:43:03.170647Z,SimAgent_3_Gemini,Exacto. Podríamos explorar cómo Sebastián se sentiría a largo plazo con cualquier decisión que tome.,
+2025-07-10T22:43:06.212887Z,Bot,Hemos hablado mucho de las consecuencias para Sebastián y su familia. ¿Qué implicaciones podría tener esta decisión para tu propia integridad y autoimagen a largo plazo?,3.0092
+2025-07-10T22:43:14.683743Z,SimAgent_3_Gemini,"Claro, y también es importante considerar cómo afectaría nuestra amistad si tomo una decisión con la que no me siento cómodo.",
+2025-07-10T22:43:17.833782Z,Bot,"Si Sebastián decide ayudar a su amigo, ¿cómo podría este acto afectar la confianza que deposita en sí mismo para resolver problemas futuros por sus propios medios?",3.1170
+2025-07-10T22:43:26.055055Z,SimAgent_1_Gemini,"Absolutamente, y quizás podríamos enfocarnos en cómo fortalecer su confianza para el futuro.",
+2025-07-10T22:43:37.478443Z,SimAgent_3_Gemini,"Sí, encontrar formas de apoyar su confianza a largo plazo parece un buen punto medio.",

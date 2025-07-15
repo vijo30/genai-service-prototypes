@@ -1,8 +1,11 @@
 import os
 import pandas as pd
 import re
-from readability.readability import Readability
+from readability.readability import Readability # py-readability-metrics
 from pysentimiento import create_analyzer
+
+import nltk
+nltk.download('punkt_tab')
 
 # --- CONFIGURACIÓN ---
 SIMULATIONS_DIR = "simulated_conversations"

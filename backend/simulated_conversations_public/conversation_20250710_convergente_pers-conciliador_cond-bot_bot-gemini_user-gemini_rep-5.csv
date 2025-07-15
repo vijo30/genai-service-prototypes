@@ -1,0 +1,58 @@
+timestamp,user_name,message,processing_time_s
+2025-07-10T22:00:57.881184Z,SimAgent_2_Gemini,"Entiendo tu angustia. Tal vez lo mejor sea ayudarlo a estudiar, pero no darle las respuestas directamente.",
+2025-07-10T22:01:09.069153Z,SimAgent_1_Gemini,"Sí, eso suena razonable. Podemos repasar juntos los ejercicios, enfocándonos en los temas más difíciles.",
+2025-07-10T22:01:11.957837Z,Bot,¿Qué significa realmente 'ayudar' en este caso? ¿Dónde trazamos la línea entre el apoyo legítimo y la deshonestidad académica?,2.8555
+2025-07-10T22:01:20.179085Z,SimAgent_3_Gemini,Es una buena pregunta. Quizás enfocarnos en los conceptos clave sería un buen punto medio.,
+2025-07-10T22:01:31.302894Z,SimAgent_2_Gemini,"Sí, concentrarnos en los conceptos clave y en cómo resolver problemas similares parece un buen camino.",
+2025-07-10T22:01:34.388919Z,Bot,"Sebastián parece priorizar la aprobación del curso. ¿Qué otros valores o metas podrían estar en juego para él, más allá de evitar el fracaso inmediato?",3.0499
+2025-07-10T22:01:42.399765Z,SimAgent_1_Gemini,De acuerdo. Explorar sus motivaciones más profundas podría ayudar a aclarar el panorama.,
+2025-07-10T22:01:53.587406Z,SimAgent_1_Gemini,Exacto. Quizás hablar de sus valores familiares y su futuro profesional ayudaría.,
+2025-07-10T22:02:04.750335Z,SimAgent_3_Gemini,"Sí, entender sus valores y metas a largo plazo podría ofrecer una perspectiva útil.",
+2025-07-10T22:02:07.687139Z,Bot,Sebastián menciona que 'hacerse el vivo' parece premiarse. ¿Qué tipo de sociedad estamos construyendo si la honestidad académica se percibe como una desventaja?,2.9040
+2025-07-10T22:02:16.115126Z,SimAgent_3_Gemini,"Cierto. Debemos promover la integridad, pero entendiendo las presiones que llevan a la deshonestidad.",
+2025-07-10T22:02:27.339855Z,SimAgent_1_Gemini,Absolutamente. Buscar un equilibrio entre integridad y empatía es crucial en este caso.,
+2025-07-10T22:02:38.791911Z,SimAgent_1_Gemini,"Sí, la empatía es clave. Quizás, buscar juntos alternativas a copiar podría aliviar la presión.",
+2025-07-10T22:02:41.981680Z,Bot,Los padres de Sebastián parecen valorar tanto la honestidad como el éxito de su hijo. ¿Cómo podríamos equilibrar esos dos valores en esta situación?,3.1568
+2025-07-10T22:02:49.977110Z,SimAgent_1_Gemini,Exacto. Tal vez hablar con sus padres sobre la presión podría ayudar a encontrar una solución juntos.,
+2025-07-10T22:03:01.346953Z,SimAgent_2_Gemini,"Sí, y quizás también hablar con el profesor para explorar opciones de apoyo académico.",
+2025-07-10T22:03:12.840837Z,SimAgent_1_Gemini,"De acuerdo, buscar apoyo académico es una buena opción. Quizás Sebastián podría pedir una tutoría.",
+2025-07-10T22:03:24.044287Z,SimAgent_1_Gemini,"Sí, una tutoría podría reducir la presión del examen y mejorar su comprensión del material.",
+2025-07-10T22:03:27.054705Z,Bot,Sebastián parece creer que ayudarlo a copiar es un acto de amistad. ¿Cómo definiríamos la verdadera amistad en este contexto?,2.9773
+2025-07-10T22:03:35.259138Z,SimAgent_2_Gemini,"Cierto, la amistad implica apoyo, pero quizás hay otras formas de ayudarlo, como estudiar juntos.",
+2025-07-10T22:03:46.372324Z,SimAgent_3_Gemini,"Sí, estudiar juntos sería una forma valiosa de apoyarlo sin comprometer la integridad.",
+2025-07-10T22:03:57.726934Z,SimAgent_1_Gemini,"Exacto, el apoyo moral y académico es clave; quizás enfocarse en los conceptos más difíciles juntos.",
+2025-07-10T22:04:08.912408Z,SimAgent_3_Gemini,"De acuerdo, concentrémonos en ayudarlo a comprender, no en darle las respuestas.",
+2025-07-10T22:04:20.036741Z,SimAgent_1_Gemini,"Totalmente, la comprensión profunda es más valiosa a largo plazo que una solución rápida.",
+2025-07-10T22:04:31.183113Z,SimAgent_1_Gemini,"Sí, la ayuda para entender los conceptos es fundamental; quizás resúmenes o esquemas podrían ayudar.",
+2025-07-10T22:04:42.476876Z,SimAgent_1_Gemini,"Un buen resumen podría ser una excelente herramienta, y podríamos repasar juntos ejercicios similares.",
+2025-07-10T22:04:53.789695Z,SimAgent_1_Gemini,"Sí, y practicar juntos con ejercicios de ejemplo podría darle más confianza.",
+2025-07-10T22:05:05.291730Z,SimAgent_3_Gemini,"Exacto, enfocarnos en ejercicios prácticos y construir su confianza es un gran enfoque.",
+2025-07-10T22:05:16.538587Z,SimAgent_1_Gemini,"Sí, la confianza es clave. Tal vez empezar con los ejercicios más fáciles primero.",
+2025-07-10T22:05:19.509497Z,Bot,"Alberto y Alejandra valoran la honestidad, pero también el bienestar de Sebastián. ¿Cómo creen que definirían ellos el éxito de su hijo a largo plazo?",2.9399
+2025-07-10T22:05:27.846620Z,SimAgent_1_Gemini,Es un buen punto. Tal vez el éxito es que Sebastián se sienta realizado y pueda salir adelante.,
+2025-07-10T22:05:39.262637Z,SimAgent_3_Gemini,"Claro, y tal vez ellos priorizarían el crecimiento personal y la resiliencia de Sebastián.",
+2025-07-10T22:05:50.550107Z,SimAgent_2_Gemini,"Sí, estoy de acuerdo. Quizás el éxito para ellos es ver a Sebastián feliz y responsable.",
+2025-07-10T22:05:53.875746Z,Bot,"Sebastián valora la amistad y la ayuda mutua. ¿Podría esta situación ser una oportunidad para redefinir los límites de esa amistad, más allá de las expectativas tradicionales?",3.2878
+2025-07-10T22:06:01.978841Z,SimAgent_2_Gemini,Absolutamente. Tal vez puedan encontrar una forma de apoyarse sin comprometer sus valores.,
+2025-07-10T22:06:13.202867Z,SimAgent_3_Gemini,Exacto. Quizás hablarlo abiertamente y explorar juntos las opciones sea lo mejor para ambos.,
+2025-07-10T22:06:16.116700Z,Bot,Sebastián siente presión por cumplir con las expectativas familiares y mantener la gratuidad. ¿Cómo podríamos redefinir el éxito académico para que refleje un aprendizaje significativo más allá de la simple aprobación de un curso?,2.8755
+2025-07-10T22:06:24.370524Z,SimAgent_3_Gemini,"Buena pregunta. Quizás enfocándose en el esfuerzo y el aprendizaje, no solo en la calificación final.",
+2025-07-10T22:06:35.563985Z,SimAgent_3_Gemini,"Sí, y encontrar formas creativas de demostrar ese aprendizaje a sus padres.",
+2025-07-10T22:06:46.718463Z,SimAgent_2_Gemini,Totalmente de acuerdo. Podrían explorar tutorías o grupos de estudio para un apoyo más honesto.,
+2025-07-10T22:06:57.836737Z,SimAgent_2_Gemini,¡Eso suena bien! Un enfoque colaborativo podría aliviar la presión y fomentar el aprendizaje genuino.,
+2025-07-10T22:07:08.961272Z,SimAgent_2_Gemini,"Sí, y así Sebastián podría demostrar su compromiso sin comprometer su integridad.",
+2025-07-10T22:07:12.130007Z,Bot,Sebastián se enfoca en la presión que ejerce sobre él la posibilidad de perder la gratuidad. ¿Qué responsabilidad tiene la institución educativa en crear o aliviar esa presión?,3.1357
+2025-07-10T22:07:20.286233Z,SimAgent_3_Gemini,Es cierto. Quizás la universidad podría ofrecer más apoyo académico y financiero.,
+2025-07-10T22:07:31.527609Z,SimAgent_1_Gemini,"Exacto, un diálogo abierto con la universidad podría generar soluciones beneficiosas para todos.",
+2025-07-10T22:07:42.726911Z,SimAgent_1_Gemini,Totalmente. Explorar opciones con la universidad es un gran primer paso para ayudar a Sebastián.,
+2025-07-10T22:07:45.636453Z,Bot,"Si Sebastián aprueba copiando, ¿cómo afectaría a su percepción de la validez de los logros que obtenga en el futuro?",2.8774
+2025-07-10T22:07:54.104547Z,SimAgent_2_Gemini,"Sin duda, podría generar dudas sobre sus habilidades y méritos. Tal vez enfocarse en el aprendizaje real sería mejor.",
+2025-07-10T22:08:05.245587Z,SimAgent_2_Gemini,Estoy de acuerdo. Quizás Sebastián podría hablar con sus padres sobre sus dificultades con contabilidad.,
+2025-07-10T22:08:16.404925Z,SimAgent_2_Gemini,"Sí, hablar con sus padres podría aliviar parte de su estrés y abrir nuevas opciones.",
+2025-07-10T22:08:27.641570Z,SimAgent_1_Gemini,"Exacto, y quizás juntos podrían encontrar una solución que funcione para todos.",
+2025-07-10T22:08:38.775001Z,SimAgent_1_Gemini,"Absolutamente, explorar soluciones juntos fortalecería la confianza familiar y el apoyo mutuo.",
+2025-07-10T22:08:41.865157Z,Bot,"Hemos hablado mucho de Sebastián y su dilema. ¿Qué implicaciones tendría para *ti* ayudarle a copiar, considerando tus propios valores y tu historial de oposición a la deshonestidad académica?",3.0563
+2025-07-10T22:08:49.952866Z,SimAgent_1_Gemini,"Es cierto, mis valores son importantes. Tal vez podríamos buscar una solución que no implique copiar directamente.",
+2025-07-10T22:09:01.276178Z,SimAgent_3_Gemini,"Sí, una alternativa ética sería ayudarle a estudiar y prepararse mejor para el examen.",
+2025-07-10T22:09:04.469245Z,Bot,"Si Sebastián accede a la ayuda para el examen, ¿cómo podría afectar a la confianza que depositan sus padres en él?",3.1576
+2025-07-10T22:09:12.380554Z,SimAgent_2_Gemini,Es una buena pregunta. Quizás hablar con sus padres podría ayudar a encontrar una solución juntos.,

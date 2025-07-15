@@ -1,0 +1,60 @@
+timestamp,user_name,message,processing_time_s
+2025-07-10T21:52:22.023712Z,SimAgent_3_Gemini,Entiendo tu angustia. Tal vez podríamos buscar juntos recursos de estudio adicionales para Sebastián.,
+2025-07-10T21:52:33.340904Z,SimAgent_3_Gemini,"Sí, buscar recursos de estudio adicionales es una buena idea. Quizás también hablar con el profesor.",
+2025-07-10T21:52:36.170933Z,Bot,"Si consideramos que la honestidad y el esfuerzo son tan importantes, ¿qué mensaje le estaríamos enviando a la familia de Sebastián, que tanto valora esos principios, si lo ayudamos a hacer trampa?",2.7943
+2025-07-10T21:52:44.630018Z,SimAgent_1_Gemini,"Es cierto, la honestidad es clave. Quizás podemos ayudarlo a estudiar, reforzando lo que ya sabe.",
+2025-07-10T21:52:55.964082Z,SimAgent_1_Gemini,"Sí, concentrarnos en ayudarle a estudiar parece el camino más honesto y constructivo.",
+2025-07-10T21:53:07.084256Z,SimAgent_3_Gemini,"Exacto, ayudarle a estudiar es valioso. Quizás enfocarnos en áreas específicas donde se sienta menos seguro.",
+2025-07-10T21:53:10.242836Z,Bot,"Si Sebastián no aprueba y pierde la gratuidad, ¿qué implicaciones tendría esto para Francisca, su hermana, considerando los recursos familiares limitados?",3.1259
+2025-07-10T21:53:18.416229Z,SimAgent_3_Gemini,"Sin duda, la situación familiar es un factor importante a considerar. Quizás podríamos explorar opciones de financiamiento alternativas.",
+2025-07-10T21:53:29.528346Z,SimAgent_1_Gemini,"Es verdad, las opciones de financiamiento podrían ser una solución a largo plazo.",
+2025-07-10T21:53:40.661942Z,SimAgent_2_Gemini,"Sí, buscar alternativas de financiamiento para ambos hermanos es importante.",
+2025-07-10T21:53:51.990340Z,SimAgent_2_Gemini,"Absolutamente, y hablar con sus padres sobre las opciones también podría aliviar su estrés.",
+2025-07-10T21:54:03.250176Z,SimAgent_2_Gemini,"Exacto, y quizás considerar tutorías para Sebastián en el futuro podría prevenir esta situación.",
+2025-07-10T21:54:06.067415Z,Bot,"Si Sebastián aprueba copiando, ¿cómo afectaría su percepción de la validez del esfuerzo y la honestidad en el futuro, considerando lo que sus padres le han inculcado?",2.7860
+2025-07-10T21:54:14.412635Z,SimAgent_3_Gemini,"Es cierto, la honestidad es clave, pero quizás hablar con el profesor podría ser un camino intermedio.",
+2025-07-10T21:54:25.570254Z,SimAgent_2_Gemini,"Sí, hablar con el profesor podría ser una buena forma de aliviar su angustia y encontrar una solución justa.",
+2025-07-10T21:54:28.760407Z,Bot,"Sebastián valora mucho la opinión de sus padres. ¿Cómo creen que afectaría la relación de Sebastián con ellos a largo plazo si descubrieran que aprobó copiando, incluso si eso evitó un problema financiero inmediato?",3.1567
+2025-07-10T21:54:36.997913Z,SimAgent_1_Gemini,"Entiendo, y quizás explorar opciones de financiamiento adicionales sería útil a largo plazo.",
+2025-07-10T21:54:48.232188Z,SimAgent_3_Gemini,"Apoyo la idea. Buscar financiamiento y hablar con el profesor, son buenas alternativas para explorar.",
+2025-07-10T21:54:59.448573Z,SimAgent_1_Gemini,"Exacto, y quizás hablar con sus padres podría ayudar a encontrar una solución familiar al problema.",
+2025-07-10T21:55:10.584101Z,SimAgent_2_Gemini,"Sí, una conversación familiar honesta podría ser un gran primer paso para encontrar una solución.",
+2025-07-10T21:55:13.773592Z,Bot,"Si Sebastián decide no copiar y reprueba, ¿cómo podría esta experiencia fortalecer su carácter y resiliencia a largo plazo, considerando los valores que sus padres le han inculcado?",3.1556
+2025-07-10T21:55:21.929731Z,SimAgent_3_Gemini,Es cierto. Enfrentar la situación con honestidad podría ser valioso para su futuro.,
+2025-07-10T21:55:24.977293Z,Bot,"Alberto y Alejandra, los padres de Sebastián, creen en ganarse las cosas con esfuerzo. ¿Cómo creen que esta experiencia, sea cual sea la decisión final, podría influir en la relación de Sebastián con el trabajo y el éxito a largo plazo?",3.0148
+2025-07-10T21:55:33.112323Z,SimAgent_2_Gemini,"Entiendo, y quizás esta situación podría ser una oportunidad para fortalecer los lazos familiares.",
+2025-07-10T21:55:44.282049Z,SimAgent_1_Gemini,Totalmente de acuerdo. La comunicación abierta podría ser la clave para encontrar una solución juntos.,
+2025-07-10T21:55:55.536031Z,SimAgent_2_Gemini,Exacto. Buscar el consejo de sus padres podría ofrecerle una perspectiva valiosa y apoyo emocional.,
+2025-07-10T21:56:06.753711Z,SimAgent_1_Gemini,"Sí, y quizás hablar con sus padres le ayudaría a aligerar su propia carga emocional.",
+2025-07-10T21:56:17.978700Z,SimAgent_3_Gemini,"Absolutamente, hablar con sus padres podría ayudarle a encontrar la claridad que necesita ahora mismo.",
+2025-07-10T21:56:29.138002Z,SimAgent_1_Gemini,Quizás hablar con un profesor también podría ayudar a Sebastián a encontrar alternativas.,
+2025-07-10T21:56:40.461799Z,SimAgent_1_Gemini,"Sí, buscar múltiples perspectivas, incluyendo la de un profesor, es una buena idea.",
+2025-07-10T21:56:43.664077Z,Bot,"Alberto y Alejandra valoran la honestidad, pero también el bienestar de sus hijos. ¿Cómo equilibrarían ellos estos dos valores si estuvieran en la posición de Sebastián?",3.1691
+2025-07-10T21:56:51.661033Z,SimAgent_1_Gemini,"Es una excelente pregunta. Quizás enfatizar el esfuerzo, más que el resultado, podría ser un buen punto medio.",
+2025-07-10T21:57:02.882718Z,SimAgent_3_Gemini,"Totalmente de acuerdo. El esfuerzo es clave y quizá hay opciones, como tutorías, que no comprometen la integridad.",
+2025-07-10T21:57:13.987702Z,SimAgent_1_Gemini,"Sí, las tutorías son una buena alternativa y un camino honesto para mejorar el rendimiento.",
+2025-07-10T21:57:16.462166Z,Bot,"¿Estamos asumiendo que la única consecuencia negativa de reprobar es financiera? ¿Qué otros costos podría tener para Sebastián, independientemente de la gratuidad?",2.4422
+2025-07-10T21:57:25.235747Z,SimAgent_2_Gemini,Es cierto. El estrés y la frustración también son costos importantes a considerar.,
+2025-07-10T21:57:36.832882Z,SimAgent_3_Gemini,"Exacto, esos costos emocionales son muy importantes. Quizás hablar con un consejero podría ayudarle a manejar la presión.",
+2025-07-10T21:57:47.932168Z,SimAgent_3_Gemini,"Sí, buscar apoyo emocional es valioso. Tal vez hablar con sus padres también aliviaría la presión.",
+2025-07-10T21:57:59.134911Z,SimAgent_2_Gemini,Entiendo. Hablarlo con sus padres podría darle una nueva perspectiva y opciones.,
+2025-07-10T21:58:10.249664Z,SimAgent_2_Gemini,"Sí, quizás sus padres podrían ayudarle a encontrar soluciones alternativas.",
+2025-07-10T21:58:22.189495Z,SimAgent_1_Gemini,Exacto. Buscar soluciones alternativas juntos podría aliviar la presión familiar también.,
+2025-07-10T21:58:25.312126Z,Bot,"Si Sebastián aprueba copiando, ¿cómo podría afectar su relación con sus compañeros, considerando que él mismo se ha sentido perjudicado por la deshonestidad de otros?",3.0892
+2025-07-10T21:58:33.427646Z,SimAgent_3_Gemini,"Es cierto, la relación con sus compañeros es importante. Quizás hablar con ellos podría aclarar las cosas.",
+2025-07-10T21:58:44.701609Z,SimAgent_1_Gemini,"Sí, dialogar con los compañeros podría ayudar a encontrar una solución que beneficie a todos.",
+2025-07-10T21:58:47.798427Z,Bot,Alberto y Alejandra parecen priorizar la educación como medio para una vida mejor. ¿Qué significa 'éxito' para ellos y cómo encaja la contabilidad en esa visión?,3.0633
+2025-07-10T21:58:55.835110Z,SimAgent_3_Gemini,"Concuerdo, entender sus valores nos da contexto. Tal vez hay un punto medio, como tutorías.",
+2025-07-10T21:59:07.026811Z,SimAgent_1_Gemini,"Sí, una tutoría podría ser una buena opción. Quizás también enfocarse en el esfuerzo, no solo en el resultado.",
+2025-07-10T21:59:10.135550Z,Bot,"¿Qué rol juega la confianza en la amistad, y cómo se vería afectada si Sebastián decide copiar, independientemente del resultado del examen?",3.0756
+2025-07-10T21:59:18.149623Z,SimAgent_1_Gemini,"Exacto, la confianza es clave. Podemos explorar alternativas que no la comprometan, como estudiar juntos.",
+2025-07-10T21:59:29.429557Z,SimAgent_2_Gemini,Estudiar juntos suena bien. Tal vez repasar los conceptos más difíciles juntos sería útil.,
+2025-07-10T21:59:32.570330Z,Bot,Estamos dando por sentado que la única ayuda posible es darle las respuestas. ¿Qué otras formas de 'ayuda' podrían ser valiosas para Sebastián en este momento?,3.1081
+2025-07-10T21:59:40.575317Z,SimAgent_2_Gemini,"Claro, apoyo emocional y motivación también podrían ser una gran ayuda para él.",
+2025-07-10T21:59:43.943389Z,Bot,"Sebastián parece sentir que no tiene otra opción. ¿Qué responsabilidad tenemos, como amigos, de ayudarlo a explorar alternativas, incluso si él no las ve?",3.3350
+2025-07-10T21:59:51.784999Z,SimAgent_3_Gemini,"Sí, es importante ayudarlo a ver otras opciones y apoyarlo en encontrarlas.",
+2025-07-10T22:00:03.114313Z,SimAgent_2_Gemini,Exacto. Hablar con el profesor podría ser una opción. Quizás haya espacio para alguna consideración especial.,
+2025-07-10T22:00:06.263042Z,Bot,Estamos asumiendo que la gratuidad es el único beneficio de aprobar. ¿Qué impacto tendría en la motivación intrínseca de Sebastián hacia sus estudios?,3.1165
+2025-07-10T22:00:14.291753Z,SimAgent_2_Gemini,"Sí, el valor del aprendizaje en sí mismo es un buen punto a considerar.",
+2025-07-10T22:00:25.557606Z,SimAgent_3_Gemini,"De acuerdo, es crucial que Sebastián recuerde por qué eligió estudiar contabilidad en primer lugar.",
+2025-07-10T22:00:36.999233Z,SimAgent_2_Gemini,"Exacto, y quizás esa motivación intrínseca le ayude a encontrar una solución honesta.",

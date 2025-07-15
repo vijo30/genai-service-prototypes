@@ -1,0 +1,66 @@
+timestamp,user_name,message,processing_time_s
+2025-07-11T04:32:43.421041Z,SimAgent_3_Gemini,¿Estás seguro de que ayudarlo es la única opción?,
+2025-07-11T04:32:54.682402Z,SimAgent_2_Gemini,¿Por qué crees que no hay otra salida?,
+2025-07-11T04:33:06.399843Z,SimAgent_1_Gemini,¿Por qué crees que se atrasará un año?,
+2025-07-11T04:33:17.567885Z,SimAgent_2_Gemini,¿Está claro que suspender el curso le impedirá pagar la carrera?,
+2025-07-11T04:33:28.680264Z,SimAgent_1_Gemini,¿Por qué es tu responsabilidad resolver sus problemas financieros?,
+2025-07-11T04:33:31.479123Z,Bot,Sebastián parece priorizar la aprobación del curso. ¿Qué peso tiene para él la integridad académica en esta situación?,2.7649
+2025-07-11T04:33:39.757581Z,SimAgent_2_Gemini,¿Estás seguro de que no le importa la integridad académica?,
+2025-07-11T04:33:50.882374Z,SimAgent_2_Gemini,¿Por qué asumes que priorizar la aprobación significa que no le importa la integridad?,
+2025-07-11T04:34:01.960327Z,SimAgent_3_Gemini,¿Por qué crees que está priorizando la aprobación?,
+2025-07-11T04:34:13.102494Z,SimAgent_2_Gemini,¿Por qué estás tan seguro de que no ve otra salida?,
+2025-07-11T04:34:24.238659Z,SimAgent_3_Gemini,¿Por qué no podría simplemente estudiar más?,
+2025-07-11T04:34:27.214850Z,Bot,"Si Sebastián aprueba gracias a tu ayuda, ¿cómo afectaría eso a su percepción de sí mismo y su capacidad para enfrentar desafíos futuros?",2.9375
+2025-07-11T04:34:35.408923Z,SimAgent_3_Gemini,¿Estás seguro de que su percepción se vería afectada negativamente?,
+2025-07-11T04:34:46.585231Z,SimAgent_1_Gemini,¿Por qué asumes que lo verá como tu ayuda y no como su propio esfuerzo facilitado?,
+2025-07-11T04:34:49.467561Z,Bot,"Si Sebastián acepta tu ayuda, ¿cómo afectaría eso a tu propia percepción de la honestidad y la integridad académica, considerando tus fuertes convicciones al respecto?",2.8503
+2025-07-11T04:34:57.742791Z,SimAgent_1_Gemini,¿Por qué mi percepción cambiaría si lo ayudo?,
+2025-07-11T04:35:08.850879Z,SimAgent_3_Gemini,¿Por qué asumes que mis convicciones son inamovibles?,
+2025-07-11T04:35:11.832994Z,Bot,¿Qué consecuencias tendría para la universidad si se generalizara la práctica de recibir ayuda externa en los exámenes?,2.9497
+2025-07-11T04:35:20.131791Z,SimAgent_1_Gemini,¿Por qué es mi responsabilidad preocuparme por la universidad en este momento?,
+2025-07-11T04:35:22.996193Z,Bot,"Alberto y Alejandra, los padres de Sebastián, parecen valorar tanto la honestidad como el éxito de su hijo. ¿Cómo creen que se sentirían si supieran que Sebastián aprobó el curso con ayuda externa?",2.8302
+2025-07-11T04:35:31.232715Z,SimAgent_3_Gemini,¿Estás seguro de que su sentimiento es relevante para mi decisión?,
+2025-07-11T04:35:34.126436Z,Bot,"Más allá de la dicotomía aprobar/reprobar, ¿qué habilidades o conocimientos específicos espera Sebastián obtener de este curso de contabilidad, y cómo impactaría la forma en que aborda el examen?",2.8605
+2025-07-11T04:35:42.310317Z,SimAgent_2_Gemini,¿Por qué asumir que el conocimiento solo se adquiere a través de exámenes?,
+2025-07-11T04:35:53.584392Z,SimAgent_1_Gemini,¿Estás seguro de que adquirir conocimiento es el único objetivo aquí?,
+2025-07-11T04:36:04.650759Z,SimAgent_3_Gemini,¿Por qué asumes que la única motivación de Sebastián es aprobar el curso?,
+2025-07-11T04:36:07.533108Z,Bot,"Si Sebastián no logra aprobar el curso, ¿existen otras alternativas a repetir el ramo que no se hayan considerado?",2.8463
+2025-07-11T04:36:15.689717Z,SimAgent_2_Gemini,¿Por qué se asume que repetir el ramo es necesariamente algo negativo?,
+2025-07-11T04:36:18.703599Z,Bot,"Si Sebastián no aprueba el curso ahora, ¿qué oportunidades podría perder, y qué oportunidades podría ganar?",2.9800
+2025-07-11T04:36:26.938004Z,SimAgent_2_Gemini,¿Estás seguro de que las únicas oportunidades son ganar o perder?,
+2025-07-11T04:36:29.738864Z,Bot,Los padres de Sebastián parecen valorar tanto la honestidad como el éxito. ¿Cómo se sentiría Sebastián consigo mismo a largo plazo si elige un camino que contradice sus valores?,2.7663
+2025-07-11T04:36:38.046945Z,SimAgent_3_Gemini,¿Por qué asumes que conoce sus valores a largo plazo?,
+2025-07-11T04:36:41.102646Z,Bot,"Si Sebastián no aprueba ahora y debe repetir el curso, ¿podría esta experiencia fortalecer su resiliencia y capacidad de aprendizaje a largo plazo?",3.0239
+2025-07-11T04:36:49.259147Z,SimAgent_1_Gemini,¿Por qué crees que repetir el curso fortalecerá su resiliencia?,
+2025-07-11T04:37:00.462359Z,SimAgent_1_Gemini,¿Estás seguro de que esa es la única forma de fortalecer la resiliencia?,
+2025-07-11T04:37:11.611687Z,SimAgent_3_Gemini,¿Por qué crees que la resiliencia es la consideración más importante aquí?,
+2025-07-11T04:37:13.903869Z,Bot,Estamos debatiendo si ayudar a Sebastián es ético o no. ¿Cómo definiríamos 'ayuda' en este contexto? ¿Es lo mismo 'ayudar' que 'hacer el examen por él'?,2.2597
+2025-07-11T04:37:22.756501Z,SimAgent_2_Gemini,¿Por qué ayudarlo a hacer el examen no es ético?,
+2025-07-11T04:37:25.617414Z,Bot,"Si Sebastián acepta tu ayuda y aprueba, ¿cómo podría influir eso en la relación de amistad que tienes con él?",2.8274
+2025-07-11T04:37:33.812262Z,SimAgent_2_Gemini,¿Estás seguro de que aprobar el examen es lo más importante para Sebastián?,
+2025-07-11T04:37:44.918926Z,SimAgent_2_Gemini,¿Por qué asumes que influiría negativamente?,
+2025-07-11T04:37:48.241957Z,Bot,"Si Sebastián decide no decirles a sus padres que recibió ayuda y logra titularse, ¿cómo podría afectar esa decisión a la confianza y comunicación dentro de su familia a largo plazo?",3.2904
+2025-07-11T04:37:55.961979Z,SimAgent_3_Gemini,¿No lo veo tan claro?,
+2025-07-11T04:38:07.042949Z,SimAgent_1_Gemini,¿Por qué crees que afectaría a largo plazo?,
+2025-07-11T04:38:18.348155Z,SimAgent_1_Gemini,SimAgent_1_Gemini: ¿Por qué la confianza familiar es tan crucial aquí?,
+2025-07-11T04:38:29.446874Z,SimAgent_2_Gemini,¿Estás seguro de que la confianza familiar es crucial en este caso?,
+2025-07-11T04:38:40.973764Z,SimAgent_3_Gemini,¿Por qué asumes que Sebastián se titulará si recibe ayuda?,
+2025-07-11T04:38:52.151149Z,SimAgent_3_Gemini,"¿Por qué ayudarle sería lo correcto, dados sus valores?",
+2025-07-11T04:38:55.263783Z,Bot,Sebastián parece centrado en las consecuencias inmediatas de aprobar o reprobar. ¿Qué implicaciones a largo plazo tendría para él internalizar que el fin justifica los medios?,3.0755
+2025-07-11T04:39:03.321475Z,SimAgent_3_Gemini,¿Está seguro de que internalizar eso tendría consecuencias negativas?,
+2025-07-11T04:39:14.479822Z,SimAgent_3_Gemini,¿Por qué asumes que siempre hay consecuencias negativas?,
+2025-07-11T04:39:17.565114Z,Bot,Alberto le dijo a Sebastián que 'en esta familia nos ganamos las cosas'. ¿Cómo definiría Alberto el 'ganarse' algo en este contexto?,3.0528
+2025-07-11T04:39:25.791020Z,SimAgent_1_Gemini,¿Por qué es importante lo que Alberto piense sobre 'ganarse' algo?,
+2025-07-11T04:39:36.799424Z,SimAgent_2_Gemini,¿Por qué asumimos que la definición de Alberto es la correcta?,
+2025-07-11T04:39:39.710874Z,Bot,"Hemos hablado mucho de las consecuencias para Sebastián, pero ¿cómo afectaría tu decisión a tu propia autoimagen y a la forma en que te ves a ti mismo como amigo y como persona honesta?",2.8800
+2025-07-11T04:39:48.009585Z,SimAgent_2_Gemini,¿Estás seguro de que mi autoimagen es lo más importante aquí?,
+2025-07-11T04:39:51.301066Z,Bot,"Hemos estado enfocándonos en las posibles consecuencias negativas de ayudar a Sebastián. ¿Podría haber algún beneficio inesperado, tanto para él como para ti, que surja de esta situación, independientemente de la decisión final?",3.2589
+2025-07-11T04:39:59.069675Z,SimAgent_3_Gemini,¿Por qué asumir que habrá beneficios inesperados?,
+2025-07-11T04:40:10.198577Z,SimAgent_3_Gemini,¿Por qué son inesperados esos beneficios?,
+2025-07-11T04:40:21.302039Z,SimAgent_3_Gemini,¿Estás seguro de que no hay perjuicios?,
+2025-07-11T04:40:24.465199Z,Bot,"Sebastián menciona que sus padres son 'generosos y acogedores'. ¿Cómo creen que esta cualidad influiría en su reacción ante la decisión de Sebastián, más allá del éxito o fracaso en el curso?",3.1301
+2025-07-11T04:40:32.625283Z,SimAgent_1_Gemini,¿Por qué es relevante la reacción de los padres?,
+2025-07-11T04:40:36.026545Z,Bot,"Si consideramos que la contabilidad es un lenguaje para entender el mundo de los negocios, ¿qué valor tiene aprobar el examen si no se comprende ese lenguaje?",3.3611
+2025-07-11T04:40:43.946605Z,SimAgent_1_Gemini,¿Estás seguro de que entender el lenguaje es lo único valioso?,
+2025-07-11T04:40:55.271523Z,SimAgent_1_Gemini,¿Por qué el valor del entendimiento debe prevalecer sobre la ayuda a un amigo?,
+2025-07-11T04:40:58.399684Z,Bot,"Hemos hablado de la honestidad y el posible engaño. Pero, ¿cómo definiríamos 'éxito' en este contexto, más allá de simplemente aprobar o reprobar el curso?",3.0939

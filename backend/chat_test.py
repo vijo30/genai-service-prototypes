@@ -33,7 +33,7 @@ API_BASE_URL = 'https://' + os.getenv("API_BASE_URL", "http://localhost:8000")
 SIMULATION_INTERVAL_API = 10 # Pausa más larga para API para dar tiempo al bot
 SIMULATION_INTERVAL_LOCAL = 2 # Pausa más corta para simulaciones sin bot
 NUM_PARTICIPANTS = 3
-TOTAL_TURNS = 12 * NUM_PARTICIPANTS # Número total de mensajes en una conversación
+TOTAL_TURNS = 15 * NUM_PARTICIPANTS # Número total de mensajes en una conversación
 OUTPUT_DIR = "simulated_conversations"
 DISABLE_SSL_VERIFICATION = os.getenv("DISABLE_SSL_VERIFICATION", "False").lower() == "true"
 
@@ -254,55 +254,53 @@ def run_main_simulation():
 
     room_manager = RoomManager(API_BASE_URL)
 
+    # --- Matriz de Experimentos Completa y Segura ---
     experiment_matrix = [
-        # ========================================================================
-        # ===           ESCENARIO 1: CONVERGENTE (vs. Conciliadores)           ===
-        # ========================================================================
-
-        # --- GRUPO EXPERIMENTAL (CON BOT) ---
-        # El bot es probado contra usuarios del mismo tipo de LLM
+        # === Escenario CONVERGENTE ===
         {"scenario": "convergente", "use_bot": True,  "bot_llm": "ChatGPT",  "user_llm": "ChatGPT", "user_personality": "conciliador"},
         {"scenario": "convergente", "use_bot": True,  "bot_llm": "Gemini",   "user_llm": "Gemini",  "user_personality": "conciliador"},
         {"scenario": "convergente", "use_bot": True,  "bot_llm": "DeepSeek", "user_llm": "DeepSeek", "user_personality": "conciliador"},
-        
-        # --- GRUPO DE CONTROL (SIN BOT) ---
-        # Se establece una línea base para cada tipo de LLM de usuario
-        {"scenario": "convergente", "use_bot": False, "bot_llm": "N/A", "user_llm": "ChatGPT",  "user_personality": "conciliador"},
-        {"scenario": "convergente", "use_bot": False, "bot_llm": "N/A", "user_llm": "Gemini",   "user_personality": "conciliador"},
-        {"scenario": "convergente", "use_bot": False, "bot_llm": "N/A", "user_llm": "DeepSeek", "user_personality": "conciliador"},
-
-        # ========================================================================
-        # ===            ESCENARIO 2: DIVERGENTE (vs. Escépticos)            ===
-        # ========================================================================
-
-        # --- GRUPO EXPERIMENTAL (CON BOT) ---
-        # El bot es probado contra usuarios del mismo tipo de LLM
+        {"scenario": "convergente", "use_bot": False, "bot_llm": "NA", "user_llm": "ChatGPT",  "user_personality": "conciliador"},
+        {"scenario": "convergente", "use_bot": False, "bot_llm": "NA", "user_llm": "Gemini",   "user_personality": "conciliador"},
+        {"scenario": "convergente", "use_bot": False, "bot_llm": "NA", "user_llm": "DeepSeek", "user_personality": "conciliador"},
+        # === Escenario DIVERGENTE ===
         {"scenario": "divergente",  "use_bot": True,  "bot_llm": "ChatGPT",  "user_llm": "ChatGPT", "user_personality": "esceptico"},
         {"scenario": "divergente",  "use_bot": True,  "bot_llm": "Gemini",   "user_llm": "Gemini",  "user_personality": "esceptico"},
         {"scenario": "divergente",  "use_bot": True,  "bot_llm": "DeepSeek", "user_llm": "DeepSeek", "user_personality": "esceptico"},
-
-
-        # --- GRUPO DE CONTROL (SIN BOT) ---
-        # Se establece una línea base para cada tipo de LLM de usuario
-        {"scenario": "divergente",  "use_bot": False, "bot_llm": "N/A", "user_llm": "ChatGPT",  "user_personality": "esceptico"},
-        {"scenario": "divergente",  "use_bot": False, "bot_llm": "N/A", "user_llm": "Gemini",   "user_personality": "esceptico"},
-        {"scenario": "divergente",  "use_bot": False, "bot_llm": "N/A", "user_llm": "DeepSeek", "user_personality": "esceptico"},
+        {"scenario": "divergente",  "use_bot": False, "bot_llm": "NA", "user_llm": "ChatGPT",  "user_personality": "esceptico"},
+        {"scenario": "divergente",  "use_bot": False, "bot_llm": "NA", "user_llm": "Gemini",   "user_personality": "esceptico"},
+        {"scenario": "divergente",  "use_bot": False, "bot_llm": "NA", "user_llm": "DeepSeek", "user_personality": "esceptico"},
     ]
-    REPETITIONS = 10 # Número de repeticiones para cada configuración
+    REPETITIONS = 10 
 
-    print("\n--- Ejecutando Simulaciones ---")
+    print("\n--- Iniciando/Reanudando el Banco de Pruebas Sintético ---")
     timestamp_prefix = datetime.now().strftime("%Y%m%d")
     
+    # Calcular el total de simulaciones para mostrar el progreso
+    total_sims_to_run = len(experiment_matrix) * REPETITIONS
+    completed_sims = 0
+
     for exp_config in experiment_matrix:
         for i in range(REPETITIONS):
             if global_stop_event.is_set():
-                print("Abortando ejecución.")
+                print("Abortando ejecución por señal de parada.")
                 return
 
-            # Crear un ID único y descriptivo para esta simulación específica
+            # Construir el nombre de archivo de salida esperado
             sim_id = f"{timestamp_prefix}_{exp_config['scenario']}_pers-{exp_config['user_personality']}_" \
                      f"cond-{'bot' if exp_config['use_bot'] else 'ctrl'}_bot-{exp_config['bot_llm'].lower()}_" \
                      f"user-{exp_config['user_llm'].lower()}_rep-{i+1}"
+            
+            output_filename = os.path.join(OUTPUT_DIR, f"conversation_{sim_id}.csv")
+
+            # --- LA MEJORA ANTI-PSICOSIS ---
+            # Comprobar si la simulación ya ha sido completada
+            if os.path.exists(output_filename):
+                print(f"({completed_sims+1}/{total_sims_to_run}) SIMULACIÓN YA EXISTE: {os.path.basename(output_filename)}. Saltando.")
+                completed_sims += 1
+                continue
+
+            print(f"\n({completed_sims+1}/{total_sims_to_run}) INICIANDO: {sim_id}")
             
             # Añadir el ID a la configuración de esta simulación
             current_sim_config = exp_config.copy()
@@ -310,7 +308,7 @@ def run_main_simulation():
 
             api_key_for_user = all_api_keys.get(exp_config['user_llm'])
             if not api_key_for_user:
-                print(f"ADVERTENCIA: No hay API key para {exp_config['user_llm']}. Saltando simulación.")
+                print(f"ADVERTENCIA: No hay API key para {exp_config['user_llm']}. Saltando.")
                 continue
 
             simulation = Simulation(
@@ -321,11 +319,12 @@ def run_main_simulation():
                 stop_event=global_stop_event
             )
             simulation.run()
+            completed_sims += 1
             
             if not global_stop_event.is_set():
-                time.sleep(random.uniform(5, 10))
+                time.sleep(random.uniform(5, 10)) # Pausa para no saturar APIs
 
-    print("\n--- Todas las simulaciones han finalizado. ---")
+    print(f"\n--- Banco de Pruebas Finalizado. Total de simulaciones verificadas/ejecutadas: {completed_sims} ---")
 
 if __name__ == "__main__":
     try:

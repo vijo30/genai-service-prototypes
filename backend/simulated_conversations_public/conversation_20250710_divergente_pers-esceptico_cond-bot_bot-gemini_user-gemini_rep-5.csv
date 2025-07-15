@@ -1,0 +1,62 @@
+timestamp,user_name,message,processing_time_s
+2025-07-11T04:41:15.587083Z,SimAgent_3_Gemini,¿Estás seguro de que ayudarlo es la única opción?,
+2025-07-11T04:41:26.672462Z,SimAgent_3_Gemini,¿Por qué crees que no hay otra salida?,
+2025-07-11T04:41:38.062632Z,SimAgent_1_Gemini,¿Por qué asumes que no hay otra solución?,
+2025-07-11T04:41:40.989363Z,Bot,Sebastián valora la honestidad y el esfuerzo. ¿Cómo afectaría su autoestima y su visión de sí mismo si lograra aprobar contabilidad mediante la ayuda que le estás ofreciendo?,2.8929
+2025-07-11T04:41:49.252001Z,SimAgent_2_Gemini,¿Estás seguro de que aprobar es lo más importante?,
+2025-07-11T04:42:00.296538Z,SimAgent_3_Gemini,¿Por qué crees que él no lo ve así?,
+2025-07-11T04:42:11.793519Z,SimAgent_3_Gemini,¿Por qué crees que su padre estaría de acuerdo con esa ayuda?,
+2025-07-11T04:42:22.855053Z,SimAgent_2_Gemini,¿No lo ves tan claro?,
+2025-07-11T04:42:34.060526Z,SimAgent_2_Gemini,¿Por qué asumes que lo conozco tan bien?,
+2025-07-11T04:42:37.092276Z,Bot,"¿Cómo valoraría Sebastián su propia integridad si decide aceptar tu ayuda, sabiendo que internamente no se siente merecedor de aprobar?",3.0015
+2025-07-11T04:42:45.315924Z,SimAgent_1_Gemini,SimAgent_1_Gemini: ¿Estás seguro de que él internamente no se siente merecedor?,
+2025-07-11T04:42:56.690531Z,SimAgent_2_Gemini,¿Por qué asumir que mi ayuda lo hace no merecedor?,
+2025-07-11T04:43:07.897488Z,SimAgent_2_Gemini,¿Por qué la integridad depende solo de si se siente merecedor?,
+2025-07-11T04:43:18.997359Z,SimAgent_3_Gemini,¿Por qué la honestidad es siempre el camino correcto?,
+2025-07-11T04:43:29.991558Z,SimAgent_1_Gemini,¿Estás seguro de que siempre hay un camino correcto?,
+2025-07-11T04:43:41.046606Z,SimAgent_2_Gemini,¿Por qué asumes que ayudar implica deshonestidad?,
+2025-07-11T04:43:52.170112Z,SimAgent_2_Gemini,¿Por qué crees que la necesidad justifica el acto?,
+2025-07-11T04:44:03.308258Z,SimAgent_2_Gemini,SimAgent_2_Gemini: ¿Por qué la dificultad justifica romper las reglas?,
+2025-07-11T04:44:06.472089Z,Bot,Sebastián menciona que sus padres son personas honradas que no quieren nada regalado. ¿Cómo creen que esta situación impactaría la relación de Sebastián con sus padres si decide aceptar la ayuda?,3.1308
+2025-07-11T04:44:14.396839Z,SimAgent_2_Gemini,¿Estás seguro de que los padres de Sebastián lo verían como algo regalado?,
+2025-07-11T04:44:25.558185Z,SimAgent_3_Gemini,¿Por qué asumes que los padres de Sebastián tienen una opinión unánime?,
+2025-07-11T04:44:36.716311Z,SimAgent_1_Gemini,¿Por qué crees que la opinión de los padres es lo más importante aquí?,
+2025-07-11T04:44:47.931856Z,SimAgent_3_Gemini,¿Por qué es más importante que Sebastián no se atrase en la carrera?,
+2025-07-11T04:44:59.113966Z,SimAgent_1_Gemini,¿Por qué crees que Sebastián no puede encontrar otra solución?,
+2025-07-11T04:45:10.254220Z,SimAgent_1_Gemini,¿Por qué la única opción es ayudarlo a copiar o dejar que falle?,
+2025-07-11T04:45:13.302148Z,Bot,Sebastián menciona que 'hacerse el vivo' parece premiarse en el país. ¿Cómo influye esta percepción en su decisión y en la tuya?,3.0076
+2025-07-11T04:45:21.448647Z,SimAgent_3_Gemini,¿Estás seguro de que hacerse el vivo siempre es premiado?,
+2025-07-11T04:45:32.770120Z,SimAgent_3_Gemini,¿Por qué asumes que ser honesto siempre lleva al éxito profesional?,
+2025-07-11T04:45:43.966278Z,SimAgent_1_Gemini,¿Por qué crees que ser honesto garantiza estar mejor preparado?,
+2025-07-11T04:45:55.085813Z,SimAgent_3_Gemini,¿Estás seguro de que Sebastián no tiene otras opciones?,
+2025-07-11T04:45:57.909855Z,Bot,"Si Sebastián aprueba con ayuda, ¿cómo afectaría esto la confianza que sus padres tienen en él y en sus decisiones futuras?",2.7921
+2025-07-11T04:46:06.431565Z,SimAgent_3_Gemini,¿Por qué ayudarlo sería la única forma de mantener la confianza de sus padres?,
+2025-07-11T04:46:09.478970Z,Bot,¿Qué responsabilidad tiene la institución educativa en asegurar que los estudiantes tengan los recursos y el apoyo necesarios para tener éxito sin recurrir a la deshonestidad?,3.0158
+2025-07-11T04:46:17.540502Z,SimAgent_2_Gemini,¿Por qué crees que la institución *debe* asumir esa responsabilidad?,
+2025-07-11T04:46:20.505074Z,Bot,"Si Sebastián decide no aceptar la ayuda, ¿qué alternativas realistas tiene para mejorar su rendimiento en contabilidad y aprobar el curso?",2.9316
+2025-07-11T04:46:28.702309Z,SimAgent_3_Gemini,¿Estás seguro de que esas son las *únicas* alternativas?,
+2025-07-11T04:46:39.841491Z,SimAgent_1_Gemini,¿Por qué asumes que *debe* mejorar su rendimiento?,
+2025-07-11T04:46:51.075445Z,SimAgent_1_Gemini,¿Por qué crees que aprobar el curso es esencial?,
+2025-07-11T04:46:54.127227Z,Bot,"Sebastián parece preocupado por defraudar a sus padres y por las consecuencias financieras. ¿Qué pasaría si se enfocara en comunicar honestamente sus dificultades y buscara soluciones alternativas con ellos, en lugar de ocultar la situación?",3.0190
+2025-07-11T04:47:02.237317Z,SimAgent_1_Gemini,¿Estás seguro de que la honestidad siempre mitiga las consecuencias financieras?,
+2025-07-11T04:47:05.354323Z,Bot,¿Cómo afectaría la decisión de Sebastián a la percepción que tiene de la validez del sistema educativo y sus reglas?,3.0817
+2025-07-11T04:47:13.369401Z,SimAgent_2_Gemini,¿Por qué es importante la validez del sistema en este momento?,
+2025-07-11T04:47:24.509677Z,SimAgent_1_Gemini,¿Por qué Sebastián asume que no hay otras opciones?,
+2025-07-11T04:47:35.703309Z,SimAgent_1_Gemini,SimAgent_1_Gemini: ¿Por qué debería confiar en la sugerencia de sus padres?,
+2025-07-11T04:47:38.890926Z,Bot,¿Qué implicaciones a largo plazo podría tener para la amistad entre Sebastián y tú si decides ayudarlo a hacer trampa?,3.1566
+2025-07-11T04:47:46.854945Z,SimAgent_2_Gemini,¿Estás seguro de que la amistad se dañaría a largo plazo?,
+2025-07-11T04:47:49.755900Z,Bot,¿Qué impacto podría tener esta decisión en la percepción que tiene Sebastián sobre la importancia del mérito y el esfuerzo personal en su vida profesional futura?,2.8676
+2025-07-11T04:47:57.965735Z,SimAgent_3_Gemini,¿Por qué asumes que Sebastián valora el mérito y el esfuerzo personal?,
+2025-07-11T04:48:09.073675Z,SimAgent_3_Gemini,¿Estás seguro de que no lo hace?,
+2025-07-11T04:48:20.134607Z,SimAgent_1_Gemini,¿Por qué crees que su percepción cambiará?,
+2025-07-11T04:48:22.499650Z,Bot,"Si Sebastián decide no decir nada a sus padres y las cosas no salen bien, ¿cómo afectaría esto su relación a largo plazo, considerando que él los describe como personas honradas y trabajadoras?",2.3311
+2025-07-11T04:48:31.211546Z,SimAgent_1_Gemini,¿Por qué asumir que las cosas *no* saldrán bien?,
+2025-07-11T04:48:42.288961Z,SimAgent_1_Gemini,¿Por qué asumes que su relación se vería afectada a largo plazo?,
+2025-07-11T04:48:45.454268Z,Bot,Hemos hablado mucho de las consecuencias para Sebastián y para ti. ¿Cómo podría afectar tu decisión a la percepción que tienen otros estudiantes sobre la honestidad académica?,3.1329
+2025-07-11T04:48:53.570436Z,SimAgent_2_Gemini,¿Estás seguro de que *otros* estudiantes se darían cuenta?,
+2025-07-11T04:48:56.637547Z,Bot,¿Qué rol juega la presión social y el miedo al fracaso en la toma de decisiones éticas de Sebastián?,3.0340
+2025-07-11T04:49:04.594121Z,SimAgent_1_Gemini,¿Por qué asumes que es un problema *ético*?,
+2025-07-11T04:49:08.332931Z,Bot,¿No estaríamos simplificando demasiado la situación al reducirla a un dilema entre honestidad y fracaso? ¿Qué otros factores podrían estar influyendo en la situación de Sebastián?,3.7068
+2025-07-11T04:49:15.789328Z,SimAgent_3_Gemini,¿Por qué es mi responsabilidad considerar la percepción de otros estudiantes?,
+2025-07-11T04:49:18.797367Z,Bot,"Además de las implicaciones para Sebastián, ¿cómo podría afectar esta situación la percepción que tiene el profesor sobre su propio rol y responsabilidad en el éxito de los estudiantes?",2.9759
+2025-07-11T04:49:27.167740Z,SimAgent_1_Gemini,¿Estás seguro de que el éxito de los estudiantes es *responsabilidad* del profesor?,

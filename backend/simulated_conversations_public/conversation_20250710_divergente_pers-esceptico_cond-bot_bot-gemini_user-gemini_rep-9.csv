@@ -1,0 +1,68 @@
+timestamp,user_name,message,processing_time_s
+2025-07-11T05:15:22.222048Z,SimAgent_1_Gemini,¿Estás seguro de que ayudarlo es la única opción?,
+2025-07-11T05:15:33.320215Z,SimAgent_3_Gemini,¿Por qué crees que tengo que elegir una opción?,
+2025-07-11T05:15:35.526036Z,Bot,"Sebastián parece priorizar no reprobar el curso. ¿Qué otros valores o principios podrían estar en juego aquí, además de la aprobación del curso?",2.1716
+2025-07-11T05:15:44.391292Z,SimAgent_3_Gemini,¿Por qué asumes que hay otros valores en juego?,
+2025-07-11T05:15:55.461710Z,SimAgent_3_Gemini,¿Por qué no podría haberlos?,
+2025-07-11T05:15:58.343624Z,Bot,"Sebastián valora la honestidad y el esfuerzo propio, pero también el bienestar familiar. ¿Cómo ponderar estos valores en conflicto?",2.8496
+2025-07-11T05:16:06.566111Z,SimAgent_1_Gemini,¿Estás seguro de que están en conflicto?,
+2025-07-11T05:16:17.695678Z,SimAgent_1_Gemini,¿Por qué crees que el bienestar familiar depende de aprobar el curso?,
+2025-07-11T05:16:28.713754Z,SimAgent_1_Gemini,¿No lo veo tan claro?,
+2025-07-11T05:16:31.534416Z,Bot,"¿Qué impacto tendría en Sebastián a largo plazo saber que aprobó gracias a tu ayuda, en lugar de por su propio esfuerzo?",2.7874
+2025-07-11T05:16:39.786164Z,SimAgent_3_Gemini,¿Por qué asumes que no se esforzó?,
+2025-07-11T05:16:50.897131Z,SimAgent_2_Gemini,SimAgent_2_Gemini: ¿Por qué crees que aprobar el curso es lo más importante?,
+2025-07-11T05:16:53.790250Z,Bot,"Si Sebastián aprueba copiando, ¿cómo afectaría la confianza que tiene en sí mismo y en su capacidad para superar desafíos futuros sin recurrir a atajos?",2.8601
+2025-07-11T05:17:02.092175Z,SimAgent_2_Gemini,¿Estás seguro de que la confianza es lo más importante aquí?,
+2025-07-11T05:17:13.335716Z,SimAgent_3_Gemini,¿Por qué la confianza en sí mismo es más importante que su futuro financiero?,
+2025-07-11T05:17:16.748555Z,Bot,"Si Alberto y Alejandra valoran tanto la honestidad, ¿cómo creen que se sentirían si supieran que Sebastián aprobó gracias a la ayuda de un amigo, en lugar de por su propio esfuerzo?",3.3800
+2025-07-11T05:17:24.462921Z,SimAgent_1_Gemini,¿Estás seguro de que saben lo que Sebastián les contó?,
+2025-07-11T05:17:35.545194Z,SimAgent_2_Gemini,¿Por qué asumes que Sebastián les contaría?,
+2025-07-11T05:17:38.435923Z,Bot,¿Qué significa realmente 'ayudar' a Sebastián en este caso? ¿Implica necesariamente darle las respuestas del examen?,2.8597
+2025-07-11T05:17:46.628822Z,SimAgent_2_Gemini,¿Por qué asumes que ayudar tiene que ser negativo?,
+2025-07-11T05:17:58.066276Z,SimAgent_1_Gemini,¿Por qué debería ser mi responsabilidad la situación financiera de su familia?,
+2025-07-11T05:18:00.827583Z,Bot,"¿Cómo impactaría la reputación de honestidad de Sebastián y su familia si se descubriera que hizo trampa, independientemente del resultado del examen?",2.7267
+2025-07-11T05:18:09.198788Z,SimAgent_2_Gemini,¿Estás seguro de que 'la reputación' es lo más importante aquí?,
+2025-07-11T05:18:12.418519Z,Bot,"¿Qué otros caminos podría explorar Sebastián para mejorar su rendimiento en contabilidad antes del examen, más allá de pedir ayuda con las respuestas?",3.1854
+2025-07-11T05:18:20.336960Z,SimAgent_3_Gemini,¿Por qué crees que él no los ha intentado ya?,
+2025-07-11T05:18:23.264542Z,Bot,"Si Sebastián no aprueba ahora y debe un año de arancel, ¿qué opciones tiene para financiar ese año extra? ¿Podría trabajar, postular a becas, o existen otras alternativas?",2.8932
+2025-07-11T05:18:31.428591Z,SimAgent_2_Gemini,¿Estás seguro de que esas opciones son viables para él?,
+2025-07-11T05:18:34.394855Z,Bot,"¿Qué significa 'apoyo' para Alberto y Alejandra? ¿Incluiría aprobar un examen a toda costa, o algo más?",2.9340
+2025-07-11T05:18:42.571770Z,SimAgent_3_Gemini,¿Por qué asumes que apoyo implica necesariamente aprobar el examen?,
+2025-07-11T05:18:53.700814Z,SimAgent_3_Gemini,¿No lo veo tan claro que su apoyo sea incondicional?,
+2025-07-11T05:19:04.940982Z,SimAgent_2_Gemini,SimAgent_2_Gemini: ¿Estás seguro de que no hay otras formas de interpretar su apoyo?,
+2025-07-11T05:19:16.015031Z,SimAgent_3_Gemini,¿Por qué crees que la interpretación de apoyo es la más probable?,
+2025-07-11T05:19:18.760816Z,Bot,"¿Qué significa 'éxito' para Sebastián en este contexto? ¿Se define únicamente por aprobar el curso, o hay otros componentes importantes?",2.7129
+2025-07-11T05:19:27.312218Z,SimAgent_2_Gemini,¿Estás seguro de que la única opción es ayudarle a hacer trampa?,
+2025-07-11T05:19:38.428910Z,SimAgent_1_Gemini,¿Por qué crees que Sebastián no puede encontrar otra solución?,
+2025-07-11T05:19:41.672586Z,Bot,Sebastián habla de 'hacerse el vivo' como algo negativo. ¿Cómo se alinea o contradice esta visión con la idea de buscar 'atajos' en el examen?,3.2114
+2025-07-11T05:19:49.596336Z,SimAgent_1_Gemini,¿Por qué crees que ayudarle es la única forma de devolverle el favor?,
+2025-07-11T05:20:00.761769Z,SimAgent_3_Gemini,¿Estás seguro de que la honestidad siempre es recompensada en el mundo real?,
+2025-07-11T05:20:03.724157Z,Bot,"Si Sebastián decidiera no pedirte ayuda para el examen, ¿qué otras formas habría para fortalecer su amistad y apoyarlo en este momento difícil?",2.9303
+2025-07-11T05:20:12.050259Z,SimAgent_2_Gemini,¿No es un poco simplista asumir que reprobar un ramo es un desastre financiero?,
+2025-07-11T05:20:23.259760Z,SimAgent_1_Gemini,¿Por qué crees que los padres de Sebastián lo presionarían de esa manera?,
+2025-07-11T05:20:34.599291Z,SimAgent_1_Gemini,¿Estás seguro de que copiar es la única solución posible?,
+2025-07-11T05:20:45.585552Z,SimAgent_3_Gemini,¿Por qué asumes que las intenciones de los padres son puramente financieras?,
+2025-07-11T05:20:48.679271Z,Bot,"¿Qué significa para Sebastián ser un buen amigo en esta situación? ¿Implica necesariamente hacer lo que le pide, o podría haber otras formas de demostrar su amistad?",3.0610
+2025-07-11T05:20:56.773917Z,SimAgent_1_Gemini,¿No es posible que Sebastián encuentre otra solución?,
+2025-07-11T05:21:07.924603Z,SimAgent_3_Gemini,¿Por qué crees que ayudarlo a copiar no tendría consecuencias negativas a largo plazo?,
+2025-07-11T05:21:10.864157Z,Bot,"Hemos hablado de lo que está en juego para Sebastián. ¿Qué consecuencias podría tener para ti, a largo plazo, participar en una acción que consideras deshonesta?",2.9069
+2025-07-11T05:21:19.100336Z,SimAgent_3_Gemini,¿Estás seguro de que la única forma de ayudar a Sebastián es en el examen?,
+2025-07-11T05:21:22.304606Z,Bot,"¿Qué significa para Sebastián 'éxito' en sus estudios, más allá de aprobar cada curso?",3.1715
+2025-07-11T05:21:30.197125Z,SimAgent_2_Gemini,¿Por qué asumes que aprobar el curso es lo más importante para Sebastián ahora?,
+2025-07-11T05:21:33.074114Z,Bot,"¿Qué rol juega la presión social en la decisión de Sebastián, considerando que 'hacerse el vivo' parece ser una cualidad valorada por algunos de sus compañeros?",2.8438
+2025-07-11T05:21:41.370677Z,SimAgent_2_Gemini,¿Por qué crees que la opinión de sus compañeros es relevante en este caso?,
+2025-07-11T05:21:44.503945Z,Bot,"Si Sebastián acepta la ayuda, ¿cómo podría este evento redefinir la amistad entre ustedes en el futuro, para bien o para mal?",3.1001
+2025-07-11T05:21:52.485289Z,SimAgent_3_Gemini,¿Estás seguro de que redefinirá la amistad?,
+2025-07-11T05:22:03.672967Z,SimAgent_3_Gemini,¿Por qué asumes que será para bien o para mal?,
+2025-07-11T05:22:07.234561Z,Bot,Sebastián parece priorizar no defraudar a sus padres. ¿Cómo define él 'defraudar' en este caso? ¿Es reprobar el ramo la única forma de hacerlo?,3.5303
+2025-07-11T05:22:14.881871Z,SimAgent_2_Gemini,¿Por qué asumes que defraudar a sus padres es su principal motivación?,
+2025-07-11T05:22:26.141366Z,SimAgent_3_Gemini,¿Estás seguro de que no defraudar es lo que prioriza?,
+2025-07-11T05:22:29.429305Z,Bot,"Si la honestidad y el esfuerzo son tan importantes para Sebastián, ¿cómo pesaría en su conciencia, a largo plazo, el haber traicionado esos valores, incluso si nadie se entera?",3.2552
+2025-07-11T05:22:37.331055Z,SimAgent_1_Gemini,¿Por qué asumes que nadie se enterará?,
+2025-07-11T05:22:48.569404Z,SimAgent_1_Gemini,¿Por qué asumes que le importaría a largo plazo?,
+2025-07-11T05:22:59.675383Z,SimAgent_3_Gemini,¿Estás seguro de que esos valores son los más importantes para él ahora?,
+2025-07-11T05:23:02.918783Z,Bot,"Alberto y Alejandra parecen valorar la honestidad, pero también quieren lo mejor para Sebastián. ¿Cómo podrían reconciliar estos dos valores en esta situación?",3.2099
+2025-07-11T05:23:10.880698Z,SimAgent_1_Gemini,¿Por qué asumes que Alberto y Alejandra los reconciliarían?,
+2025-07-11T05:23:21.980652Z,SimAgent_1_Gemini,¿Por qué asumes que Sebastián quiere que los reconcilien?,
+2025-07-11T05:23:25.087263Z,Bot,"Sebastián parece creer que no tiene otra opción. ¿Qué pasaría si Alberto y Alejandra estuvieran dispuestos a renegociar sus expectativas sobre el tiempo de duración de la carrera, priorizando la salud mental y el bienestar de Sebastián?",3.0740
+2025-07-11T05:23:33.256706Z,SimAgent_3_Gemini,¿Estás seguro de que renegociar las expectativas resolvería el problema?,

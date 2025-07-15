@@ -1,0 +1,71 @@
+timestamp,user_name,message,processing_time_s
+2025-07-11T04:49:46.004896Z,SimAgent_1_Gemini,¿Estás seguro de que ayudarlo es la única opción?,
+2025-07-11T04:49:57.100550Z,SimAgent_2_Gemini,¿Por qué crees que no hay otra salida?,
+2025-07-11T04:50:08.162514Z,SimAgent_1_Gemini,¿Por qué crees que se atrasaría un año entero?,
+2025-07-11T04:50:19.281454Z,SimAgent_1_Gemini,¿Estás seguro de que la honestidad siempre es premiada?,
+2025-07-11T04:50:22.125561Z,Bot,"Sebastián dice que sus padres son honestos y trabajadores, ¿cómo creen que reaccionarían si supieran que está considerando copiar en un examen?",2.8080
+2025-07-11T04:50:30.401474Z,SimAgent_1_Gemini,¿Por qué asumes que ellos lo descubrirían?,
+2025-07-11T04:50:41.512575Z,SimAgent_2_Gemini,¿Estás seguro de que no hay otra manera de ayudarlo?,
+2025-07-11T04:50:52.573584Z,SimAgent_2_Gemini,¿Por qué crees que es mi responsabilidad ayudarlo?,
+2025-07-11T04:51:03.730972Z,SimAgent_1_Gemini,¿Por qué crees que copiar es la única opción que tiene Sebastián?,
+2025-07-11T04:51:06.641768Z,Bot,"Sebastián valora la honestidad, pero ¿cómo equilibra ese valor con la lealtad hacia su familia y amigo en esta situación?",2.8749
+2025-07-11T04:51:14.950488Z,SimAgent_1_Gemini,¿Estás seguro de que la única forma de ser leal es ayudándole a copiar?,
+2025-07-11T04:51:26.163903Z,SimAgent_3_Gemini,¿Por qué la situación financiera justifica hacer trampa?,
+2025-07-11T04:51:28.902944Z,Bot,"¿Cómo podría Sebastián redefinir el éxito en este curso, más allá de simplemente aprobarlo?",2.7067
+2025-07-11T04:51:37.328885Z,SimAgent_3_Gemini,¿El éxito siempre tiene que significar aprobar el curso?,
+2025-07-11T04:51:48.482613Z,SimAgent_2_Gemini,¿Por qué ayudar a Sebastián es la única solución?,
+2025-07-11T04:51:59.598199Z,SimAgent_2_Gemini,¿Por qué crees que Sebastián no puede encontrar otra solución?,
+2025-07-11T04:52:02.824330Z,Bot,"¿Qué significa 'ayudar' en este caso? ¿Implica necesariamente hacer el examen por él, o existen otras formas de apoyo que no comprometan la integridad académica?",3.1935
+2025-07-11T04:52:10.744569Z,SimAgent_2_Gemini,¿Estás seguro de que la integridad académica es lo más importante aquí?,
+2025-07-11T04:52:21.856861Z,SimAgent_1_Gemini,¿Por qué asumir que ayudarle es deshonesto?,
+2025-07-11T04:52:25.050886Z,Bot,"¿Qué consecuencias tendría para Sebastián aprobar el curso copiando, más allá de lo inmediato?",3.1599
+2025-07-11T04:52:32.923562Z,SimAgent_1_Gemini,¿Por qué crees que Sebastián merece mi ayuda?,
+2025-07-11T04:52:44.090262Z,SimAgent_1_Gemini,¿Estás seguro de que es mi responsabilidad ayudarle?,
+2025-07-11T04:52:47.024733Z,Bot,"¿Qué significa realmente 'fracasar' en este contexto? ¿Es solo reprobar el curso, o hay otras formas de fracaso más profundas que deberíamos considerar?",2.8994
+2025-07-11T04:52:55.229505Z,SimAgent_2_Gemini,¿Por qué crees que hacerse el vivo siempre es recompensado?,
+2025-07-11T04:53:06.345605Z,SimAgent_3_Gemini,¿Estás seguro de que la honestidad siempre es una virtud deseable?,
+2025-07-11T04:53:17.423140Z,SimAgent_3_Gemini,¿Por qué ayudar en el examen es la única solución para Sebastián?,
+2025-07-11T04:53:20.611223Z,Bot,"Sebastián parece dar por sentado que el resultado del examen es lo más importante. ¿Podríamos explorar si el proceso de aprendizaje y el esfuerzo invertido tienen algún valor intrínseco, independientemente del resultado?",3.1549
+2025-07-11T04:53:28.578706Z,SimAgent_3_Gemini,¿No estás asumiendo que la familia de Sebastián estaría de acuerdo con esa lógica?,
+2025-07-11T04:53:31.706701Z,Bot,"¿Qué implicaciones tendría para la percepción que Sebastián tiene de sí mismo, si decide copiar en el examen?",3.0956
+2025-07-11T04:53:39.761552Z,SimAgent_3_Gemini,¿Por qué la percepción de sí mismo es lo más importante aquí?,
+2025-07-11T04:53:51.079715Z,SimAgent_1_Gemini,¿Estás seguro de que la honestidad es siempre la mejor política?,
+2025-07-11T04:53:54.088629Z,Bot,¿No estaremos asumiendo que la única forma de ayudar a Sebastián es en el examen? ¿Qué otras habilidades o recursos podría desarrollar Sebastián a largo plazo si enfrentara este desafío por sí mismo?,2.9741
+2025-07-11T04:54:02.242651Z,SimAgent_3_Gemini,¿Por qué asumes que Sebastián no ha considerado otras opciones?,
+2025-07-11T04:54:05.189218Z,Bot,¿Qué pasaría si Sebastián hablara con el profesor y le explicara su situación? ¿Cómo cambiaría la dinámica si buscara una solución directamente con la institución?,2.9131
+2025-07-11T04:54:13.386716Z,SimAgent_1_Gemini,SimAgent_1_Gemini: ¿Estás seguro de que hablar con el profesor solucionaría el problema?,
+2025-07-11T04:54:24.523837Z,SimAgent_1_Gemini,¿Por qué crees que el profesor le creería?,
+2025-07-11T04:54:27.514324Z,Bot,"¿Qué definición de 'éxito' estamos usando que excluye la posibilidad de aprender y crecer, incluso si Sebastián no aprueba el curso?",2.9573
+2025-07-11T04:54:35.647180Z,SimAgent_1_Gemini,¿No crees que aprender y crecer son importantes para el éxito?,
+2025-07-11T04:54:46.829306Z,SimAgent_2_Gemini,SimAgent_2_Gemini: ¿Por qué éxito debe significar aprobar el curso?,
+2025-07-11T04:54:57.970213Z,SimAgent_1_Gemini,¿Por qué crees que la familia de Sebastián se vería en serios problemas financieros?,
+2025-07-11T04:55:01.331466Z,Bot,"Alberto y Alejandra, los padres de Sebastián, valoran el esfuerzo y la honestidad. ¿Cómo podría Sebastián honrar esos valores mientras busca una solución a su problema?",3.3218
+2025-07-11T04:55:09.068320Z,SimAgent_2_Gemini,¿Estás seguro de que ayudar a Sebastián es la única forma de honrar esos valores?,
+2025-07-11T04:55:12.209331Z,Bot,"Si Sebastián decide no copiar y reprueba, ¿qué opciones realistas tiene para mitigar las consecuencias económicas y académicas?",3.1085
+2025-07-11T04:55:20.174232Z,SimAgent_2_Gemini,¿No lo veo tan claro que la única solución sea esa?,
+2025-07-11T04:55:22.982278Z,Bot,"Si Sebastián decide no copiar y enfrenta las consecuencias, ¿cómo podría esta experiencia moldear su carácter y resiliencia a largo plazo?",2.7759
+2025-07-11T04:55:31.241461Z,SimAgent_2_Gemini,¿Por qué asumir que moldear el carácter es más importante que su situación financiera?,
+2025-07-11T04:55:34.254260Z,Bot,"¿Qué significa 'éxito' para Alberto y Alejandra, más allá de que Sebastián apruebe o no el curso?",2.9772
+2025-07-11T04:55:42.923117Z,SimAgent_3_Gemini,¿Estás seguro de que ellos definen el éxito de esa forma?,
+2025-07-11T04:55:54.055965Z,SimAgent_2_Gemini,¿Por qué crees que su definición de éxito es relevante en este caso?,
+2025-07-11T04:55:57.212303Z,Bot,"Hemos hablado mucho de Sebastián y sus padres. ¿Cómo podría verse esta situación desde el punto de vista del profesor de contabilidad, que tiene la responsabilidad de mantener la integridad académica del curso?",3.1223
+2025-07-11T04:56:05.275027Z,SimAgent_3_Gemini,¿No lo ves tan claro?,
+2025-07-11T04:56:08.319489Z,Bot,Hemos explorado bastante el impacto en Sebastián y su familia. ¿Cómo podría afectar esta decisión la reputación de la institución educativa si se descubre el engaño?,3.0110
+2025-07-11T04:56:16.326213Z,SimAgent_2_Gemini,¿Por qué suponemos que el engaño sería descubierto?,
+2025-07-11T04:56:19.181071Z,Bot,Sebastián menciona que 'hacerse el vivo' es una cualidad positiva en su país. ¿Cómo influye esta percepción cultural en su dilema ético actual?,2.8214
+2025-07-11T04:56:27.420391Z,SimAgent_1_Gemini,¿Estás seguro de que esa es la única razón de su dilema?,
+2025-07-11T04:56:30.702295Z,Bot,"Hemos explorado las consecuencias para Sebastián, su familia y la institución. ¿Cómo podría afectar esta decisión a la percepción que tienen los compañeros de Sebastián sobre la justicia y la equidad en el sistema educativo?",3.2464
+2025-07-11T04:56:38.604662Z,SimAgent_1_Gemini,¿Por qué asumes que los compañeros lo perciben como injusto?,
+2025-07-11T04:56:41.937150Z,Bot,"Si la familia de Sebastián valora tanto el esfuerzo, ¿cómo podrían interpretar una victoria obtenida a través de la copia? ¿Podría considerarse un fracaso, incluso si aprueba el curso?",3.2992
+2025-07-11T04:56:49.790231Z,SimAgent_1_Gemini,¿Estás seguro de que lo verían como un fracaso?,
+2025-07-11T04:56:52.840492Z,Bot,Hemos explorado las implicaciones de la decisión en Sebastián y su entorno cercano. ¿Qué papel juega la responsabilidad individual de Sebastián hacia la sociedad en general en este dilema?,3.0175
+2025-07-11T04:57:01.007904Z,SimAgent_3_Gemini,¿Por qué su responsabilidad individual hacia la sociedad es más importante que su responsabilidad hacia su familia?,
+2025-07-11T04:57:12.168777Z,SimAgent_1_Gemini,¿Por qué asumes que son responsabilidades mutuamente excluyentes?,
+2025-07-11T04:57:15.196050Z,Bot,"El relato enfatiza el impacto en Sebastián y su círculo íntimo. ¿Cómo se sentiría un estudiante que se esfuerza al máximo si supiera que otros aprueban copiando, devaluando su propio esfuerzo?",2.9940
+2025-07-11T04:57:23.399769Z,SimAgent_3_Gemini,¿Estás seguro de que ese estudiante se sentiría así?,
+2025-07-11T04:57:26.454595Z,Bot,"Hemos hablado de los padres, los compañeros y el profesor. ¿Cómo podría afectar a la relación de amistad entre Sebastián y su amigo, si éste decide ayudarle a copiar?",3.0215
+2025-07-11T04:57:34.669124Z,SimAgent_3_Gemini,¿Por qué asumes que la amistad se vería afectada negativamente?,
+2025-07-11T04:57:37.935672Z,Bot,"Alberto y Alejandra parecen valorar la honestidad y el esfuerzo. ¿Cómo podría Sebastián comunicar sus dificultades a sus padres de una manera que respete sus valores y, al mismo tiempo, les permita comprender la magnitud de su problema?",3.2334
+2025-07-11T04:57:45.904096Z,SimAgent_3_Gemini,¿Estás seguro de que esa es la mejor manera de manejar la situación?,
+2025-07-11T04:57:57.185556Z,SimAgent_3_Gemini,¿Por qué crees que la magnitud de su problema justifica pedir ayuda para copiar?,
+2025-07-11T04:58:00.087820Z,Bot,Hemos hablado mucho de lo que Sebastián debe hacer. ¿Cómo cambiaría la discusión si nos enfocáramos en qué tipo de apoyo necesita *ahora* para evitar futuras crisis similares?,2.8686
